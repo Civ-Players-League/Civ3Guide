@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <string name="app_name">Civ III Wizard</string>
+    <string name="app_description">Guide and games to improve your skills in Sid Meier\'s Civilization III</string>
+    <string name="puzzle_header_prompt">What's the best worker move?</string>
+    <string name="puzzle_index">Puzzle %d</string>
+    <string name="lets_go">Let\'s go or not</string>
+
+    <string name="next">Next</string>
+    <string name="done">Done</string>
+    <string name="help">Help</string>
+    <string name="correct">Correct!</string>
+    <string name="correct_explanation">Correct! %s</string>
+    <string name="incorrect">Incorrect.</string>
+    <string name="incorrect_explanation">Incorrect. %s</string>
+
+    <!-- Terrain names -->
+    <string name="bonus_grassland">Bonus Grassland</string>
+    <string name="coast">Coast</string>
+    <string name="desert">Desert</string>
+    <string name="flood_plain">Flood Plain</string>
+    <string name="forest">Forest</string>
+    <string name="grassland">Grassland</string>
+    <string name="hills">Hills</string>
+    <string name="jungle">Jungle</string>
+    <string name="lake">Lake</string>
+    <string name="marsh">Marsh</string>
+    <string name="mountains">Mountains</string>
+    <string name="ocean">Ocean</string>
+    <string name="plains">Plains</string>
+    <string name="sea">Sea</string>
+    <string name="tundra">Tundra</string>
+    <string name="volcano">Volcano</string>
+
+    <!-- Resource names -->
+    <string name="aluminum">Aluminum</string>
+    <string name="coal">Coal</string>
+    <string name="horses">Horses</string>
+    <string name="iron">Iron</string>
+    <string name="oil">Oil</string>
+    <string name="rubber">Rubber</string>
+    <string name="saltpeter">Saltpeter</string>
+    <string name="uranium">Uranium</string>
+    <string name="dyes">Dyes</string>
+    <string name="furs">Furs</string>
+    <string name="gems">Gems</string>
+    <string name="incense">Incense</string>
+    <string name="ivory">Ivory</string>
+    <string name="silk">Silk</string>
+    <string name="spices">Spices</string>
+    <string name="wines">Wines</string>
+    <string name="banana">Banana</string>
+    <string name="cattle">Cattle</string>
+    <string name="fish">Fish</string>
+    <string name="game">Game</string>
+    <string name="gold">Gold</string>
+    <string name="oasis">Oasis</string>
+    <string name="sugar">Sugar</string>
+    <string name="tobacco">Tobacco</string>
+    <string name="whales">Whales</string>
+    <string name="wheat">Wheat</string>
+
+    <string name="river">River</string>
+    <string name="mine">Mine</string>
+    <string name="irrigation">Irrigation</string>
+    <string name="road">Road</string>
+    <string name="railroad">Railroad</string>
+    <string name="barricade">Barricade</string>
+    <string name="fortress">Fortress</string>
+
+    <string name="despotism_penalty">Despotism Penalty</string>
+    <string name="commerce_bonus">Commerce Bonus</string>
+    <string name="total">Total</string>
+
+    <string name="worker_action_optimal">This worker action is optimal</string>
+    <string name="worker_action_not_optimal">This worker action is not optimal</string>
+
+    <string name="home_label_worker_action_title">Worker Action Puzzles</string>
+    <string name="home_label_worker_action_summary">Choose the optimal first worker action at the start of a game</string>
+    <string name="home_label_quiz_title">Early Game Quizzes</string>
+    <string name="home_label_quiz_summary">Take a quiz to test your knowledge of the best actions to take at the start of the game</string>
+
+    <string name="worker_puzzle_help_title">Worker puzzle</string>
+    <string name="worker_puzzle_help_text">The goal of this puzzle is to choose the optimal worker action to start the game given your starting location and tiles.\n\nThe optimal action will be the one that improves the value of your best tile. Food and shields are valued equally, while commerce is worth somewhat less.\n\nIn these puzzles, you're in Despotism, so mind the Despotism penalty which will reduce any outputs greater than two by one.\n\n\To solve the puzzle:\n\t1. Select a tile\n\t2. Choose a worker action\n</string>
+</resources>

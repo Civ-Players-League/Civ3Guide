@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="best_worker_move_prompt">What\'s the best worker move?</string>
+</resources>
