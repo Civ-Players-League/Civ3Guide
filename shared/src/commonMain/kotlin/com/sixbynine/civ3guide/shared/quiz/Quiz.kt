@@ -20,7 +20,7 @@ data class Quiz(
       listOf(
         Quiz(
           images.quiz0,
-          "Why is this not the correct first worker move?",
+          "Why is irrigating this tile not the correct first worker move?",
           QuizAnswer(
             "Because the +1 food from irrigating is lost to the despotism penalty. I should mine instead.",
             explanation = null,

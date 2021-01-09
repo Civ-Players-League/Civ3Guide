@@ -16,6 +16,6 @@ pluginManagement {
 rootProject.name = "Civ3Guide"
 
 
-include(":androidApp")
+include(":android")
 include(":shared")
 

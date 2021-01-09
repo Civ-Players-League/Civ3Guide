@@ -12,6 +12,9 @@ data class QuizUiState(
   val selectedAnswer: QuizAnswer?
     get() = selectedIndex?.let { quiz.answers[selectedIndex] }
 
+  val isSolved: Boolean
+    get() = selectedAnswer?.isCorrect == true
+
   fun withSelectedAnswer(index: Int?): QuizUiState {
     return copy(selectedIndex = index)
   }

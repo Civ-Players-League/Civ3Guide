@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="4dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:textAppearance="?textAppearanceBody1"
+        tools:text="@string/despotism_penalty"/>
+
+    <LinearLayout
+        android:id="@+id/food_group"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="end|center_vertical">
+
+        <TextView
+            android:id="@+id/food_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textAppearance="?textAppearanceBody1"
+            tools:text="+1"/>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/food"
+            android:contentDescription="@string/food"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/shields_group"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="end|center_vertical">
+
+        <TextView
+            android:id="@+id/shields_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textAppearance="?textAppearanceBody1"
+            tools:text="+1"/>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/shield"
+            android:contentDescription="@string/shields"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/commerce_group"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="end|center_vertical">
+
+        <TextView
+            android:id="@+id/commerce_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textAppearance="?textAppearanceBody1"
+            tools:text="+1"/>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/commerce"
+            android:contentDescription="@string/commerce"/>
+
+    </LinearLayout>
+
+</LinearLayout>

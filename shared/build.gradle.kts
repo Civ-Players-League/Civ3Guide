@@ -31,7 +31,7 @@ kotlin {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
                 implementation("dev.icerock.moko:graphics:0.5.0")
-                implementation("dev.icerock.moko:resources:0.13.1")
+                implementation("dev.icerock.moko:resources:0.14.0")
                 implementation("dev.icerock.moko:parcelize:0.5.0")
             }
         }
@@ -44,6 +44,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation("com.google.android.material:material:1.2.1")
+                implementation("dev.icerock.moko:resources:0.14.0")
             }
         }
         val androidTest by getting {
@@ -65,7 +66,7 @@ android {
         minSdkVersion(21)
         targetSdkVersion(30)
         versionCode = 1
-        versionName = "1.0"
+        versionName = "20210109.1"
     }
     buildTypes {
         getByName("release") {
