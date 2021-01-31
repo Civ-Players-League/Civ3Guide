@@ -244,7 +244,14 @@ xcuserdata/
 #
 # c.f. https://www.jetbrains.com/objc/help/managing-projects-under-version-control.html?search=workspace.xml
 #
-#.idea/workspace.xml
+/.idea/caches
+/.idea/dictionaries
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+
 #
 # TEXTMATE:
 #

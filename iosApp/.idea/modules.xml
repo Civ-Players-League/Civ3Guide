@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/iosApp.iml" filepath="$PROJECT_DIR$/.idea/iosApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/civ3guide.iml" filepath="$PROJECT_DIR$/.idea/civ3guide.iml" />
     </modules>
   </component>
 </project>

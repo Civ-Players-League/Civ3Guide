@@ -5,24 +5,51 @@ struct HomeView: View {
     let destinations = HomeDestination.Companion().getAll()
     @State private var isQuizNavigationActive: Bool = false
     @State private var isWorkerActionNavigationActive: Bool = false
+    @State private var isCityPlacementNavigationActive: Bool = false
+
+    init() {
+        UITableView.appearance().backgroundColor = UIColor.clear
+        UITableViewCell.appearance().selectionStyle = .none
+    }
     
     var body: some View {
         VStack {
-            Text(MR.strings().app_description)
-            List {
-                NavigationLink(
+            Text(MR.strings().app_description).padding()
+            NavigationLink(
                     destination: QuizView(isNavigationActive: $isQuizNavigationActive),
                     isActive: $isQuizNavigationActive
-                ) {
-                    HomeListItem(destination: HomeDestination.quiz)
-                }.isDetailLink(false)
+            ) {
+                EmptyView()
+            }.isDetailLink(false)
+            
+            NavigationLink(
+                destination: PuzzlePage(puzzleIndex: 0, isNavigationActive: $isWorkerActionNavigationActive),
+                isActive: $isWorkerActionNavigationActive
+            ) {
+                EmptyView()
+            }
+            .isDetailLink(false)
+            
+            NavigationLink(
+                    destination: CityPlacementView(puzzleIndex: 0, isNavigationActive: $isCityPlacementNavigationActive),
+                    isActive: $isCityPlacementNavigationActive
+            ) {
+                EmptyView()
+            }
+            .isDetailLink(false)
+
+            List {
+                Button(action: { isQuizNavigationActive = true}) {
+                    HomeListItem(destination: .quiz)
+                }
                 
-                NavigationLink(
-                    destination: PuzzlePage(puzzleIndex: 0, isNavigationActive: $isWorkerActionNavigationActive),
-                    isActive: $isWorkerActionNavigationActive
-                ) {
-                    HomeListItem(destination: HomeDestination.workerPuzzle)
-                }.isDetailLink(false)
+                Button(action: { isWorkerActionNavigationActive = true}) {
+                    HomeListItem(destination: .workerPuzzle)
+                }
+                
+                Button(action: { isCityPlacementNavigationActive = true}) {
+                    HomeListItem(destination: .cityPlacement)
+                }
             }.navigationBarTitle(MR.strings().app_name, displayMode: .large)
         }
         

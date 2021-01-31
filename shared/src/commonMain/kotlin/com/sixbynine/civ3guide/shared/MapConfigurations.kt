@@ -123,6 +123,21 @@ object MapConfigurations {
         ),
         image = MR.images.map5
       ),
+      MapConfiguration(
+        width = 514,
+        height = 309,
+        tileWidth = 514 / 4f,
+        tileHeight = 256 / 4f,
+        tiles = listOf(
+          TileInfo(256, 82, HILLS, hasRiver = true),
+          TileInfo(320, 116, FOREST, hasRiver = true, coveredTerrain = GRASSLAND),
+          TileInfo(191, 116, GRASSLAND, resource = TOBACCO, hasRiver = true),
+          TileInfo(256, 148, GRASSLAND, hasRiver = true),
+          TileInfo(130, 148, BONUS_GRASSLAND),
+          TileInfo(192, 180, HILLS),
+        ),
+        image = MR.images.map6
+      )
     )
   }
 }

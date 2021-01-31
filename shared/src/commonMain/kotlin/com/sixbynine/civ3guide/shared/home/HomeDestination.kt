@@ -11,7 +11,7 @@ enum class HomeDestination(
   val summary: StringResource? = null
 ) {
   QUIZ(
-    images.worker,
+    images.scout,
     strings.home_label_quiz_title,
     strings.home_label_quiz_summary
   ),
@@ -19,6 +19,11 @@ enum class HomeDestination(
     images.worker,
     strings.home_label_worker_action_title,
     strings.home_label_worker_action_summary
+  ),
+  CITY_PLACEMENT(
+    images.settler,
+    strings.city_placement_title,
+    strings.city_placement_summary
   );
 
   companion object {

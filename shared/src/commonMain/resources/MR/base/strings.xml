@@ -86,4 +86,8 @@
 
     <string name="worker_puzzle_help_title">Worker puzzle</string>
     <string name="worker_puzzle_help_text">The goal of this puzzle is to choose the optimal worker action to start the game given your starting location and tiles.\n\nThe optimal action will be the one that improves the value of your best tile. Food and shields are valued equally, while commerce is worth somewhat less.\n\nIn these puzzles, you\'re in Despotism, so mind the Despotism penalty which will reduce any outputs greater than two by one.\n\n\To solve the puzzle:\n\t1. Select a tile\n\t2. Choose a worker action\n</string>
+
+    <string name="city_placement_title">City Placement Puzzles</string>
+    <string name="city_placement_summary">Choose the best spot to plant a new city</string>
+    <string name="city_placement_prompt">Tap the best new city spot</string>
 </resources>
