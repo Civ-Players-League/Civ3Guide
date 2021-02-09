@@ -44,8 +44,9 @@ object NewBetaVersionNotifier {
     val notification = NotificationCompat.Builder(context, CHANNEL_ID)
       .setContentTitle("New beta version installed")
       .setContentText(BETA_VERSION_FEATURES)
-      .setSmallIcon(R.mipmap.ic_launcher_foreground)
+      .setSmallIcon(R.drawable.ic_notification)
       .setContentIntent(launchIntent)
+      .setAutoCancel(true)
       .build()
 
     val notificationManager = NotificationManagerCompat.from(context)
