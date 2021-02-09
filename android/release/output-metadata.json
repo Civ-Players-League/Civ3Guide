@@ -1,19 +1,17 @@
 {
-  "version": 1,
+  "version": 2,
   "artifactType": {
     "type": "APK",
     "kind": "Directory"
   },
   "applicationId": "com.sixbynine.civ3guide.android",
-  "variantName": "release",
+  "variantName": "processReleaseResources",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
-      "properties": [],
-      "versionCode": 1,
-      "versionName": "20210109.1",
-      "enabled": true,
+      "versionCode": 3,
+      "versionName": "20210209.1",
       "outputFile": "android-release.apk"
     }
   ]

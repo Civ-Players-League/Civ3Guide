@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sixbynine.civ3guide.android.R
+import com.sixbynine.civ3guide.android.cityplacement.CityPlacementPuzzleActivity
 import com.sixbynine.civ3guide.android.quiz.QuizActivity
 import com.sixbynine.civ3guide.android.workerpuzzle.WorkerPuzzleActivity
 import com.sixbynine.civ3guide.shared.home.HomeDestination
-import com.sixbynine.civ3guide.shared.home.HomeDestination.QUIZ
-import com.sixbynine.civ3guide.shared.home.HomeDestination.WORKER_PUZZLE
+import com.sixbynine.civ3guide.shared.home.HomeDestination.*
 import com.sixbynine.civ3guide.shared.load
 import com.sixbynine.civ3guide.shared.setSharedImageResource
 import com.sixbynine.civ3guide.shared.setTextResource
@@ -42,6 +42,7 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
     val intent = when (destination) {
       QUIZ -> Intent(context, QuizActivity::class.java)
       WORKER_PUZZLE -> Intent(context, WorkerPuzzleActivity::class.java)
+      CITY_PLACEMENT -> Intent(context, CityPlacementPuzzleActivity::class.java)
     }
     context.startActivity(intent)
   }

@@ -2,14 +2,25 @@ import SwiftUI
 import shared
 
 struct MapView: View {
+    
+    let selectedColor = Color.blue
+    let selectableColor = Color(red: 1, green: 1, blue: 1, opacity: 0.4)
+    
     let map: MapConfiguration
     let touchDelegate: MapTouchDelegate
     let geo: GeometryProxy
+    let highlightSelectableTiles: Bool
     @Binding var selectedTile: TileInfo?
     
-    init(map: MapConfiguration, geo: GeometryProxy, selectedTile: Binding<TileInfo?>) {
+    init(
+        map: MapConfiguration,
+        geo: GeometryProxy,
+        highlightSelectableTiles: Bool = false,
+        selectedTile: Binding<TileInfo?>
+    ) {
         self.map = map
         self.geo = geo
+        self.highlightSelectableTiles = highlightSelectableTiles
         self.touchDelegate = MapTouchDelegate(map: map)
         self._selectedTile = selectedTile
     }
@@ -35,23 +46,13 @@ struct MapView: View {
                                 }
                             }
                     )
-                selectedTile.map { tile in
-                    Path { path in
-                        let scaleFactor = getScaleFactor()
-                        let bounds = map.getBounds(tile: tile)
-                        let leftPoint = bounds.left.toCGPoint(scaleFactor: scaleFactor)
-                        let topPoint = bounds.top.toCGPoint(scaleFactor: scaleFactor)
-                        let rightPoint = bounds.right.toCGPoint(scaleFactor: scaleFactor)
-                        let bottomPoint = bounds.bottom.toCGPoint(scaleFactor: scaleFactor)
-                        path.move(to: leftPoint)
-                        path.addLine(to: topPoint)
-                        path.addLine(to: rightPoint)
-                        path.addLine(to: bottomPoint)
-                        path.addLine(to: leftPoint)
+                if highlightSelectableTiles {
+                    ForEach(map.tiles, id: \.self) { tile in
+                        buildHighlight(tile: tile, color: selectableColor)
                     }
-                    .fill(Color.blue)
-                    .opacity(0.6)
-                    .allowsHitTesting(/*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
+                }
+                selectedTile.map { tile in
+                    buildHighlight(tile: tile, color: selectedColor)
                 }
             }.frame(
                 width: CGFloat(Float(map.width) * getScaleFactor()),
@@ -59,6 +60,26 @@ struct MapView: View {
                 alignment: .center)
             .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
             .overlay(Rectangle().stroke(Color.black, lineWidth: 1).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/))
+    }
+    
+    @ViewBuilder
+    private func buildHighlight(tile: TileInfo, color: Color) -> some View {
+        Path { path in
+            let scaleFactor = getScaleFactor()
+            let bounds = map.getBounds(tile: tile)
+            let leftPoint = bounds.left.toCGPoint(scaleFactor: scaleFactor)
+            let topPoint = bounds.top.toCGPoint(scaleFactor: scaleFactor)
+            let rightPoint = bounds.right.toCGPoint(scaleFactor: scaleFactor)
+            let bottomPoint = bounds.bottom.toCGPoint(scaleFactor: scaleFactor)
+            path.move(to: leftPoint)
+            path.addLine(to: topPoint)
+            path.addLine(to: rightPoint)
+            path.addLine(to: bottomPoint)
+            path.addLine(to: leftPoint)
+        }
+        .fill(color)
+        .opacity(0.6)
+        .allowsHitTesting(/*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
     }
     
     private func getScaleFactor() -> Float {

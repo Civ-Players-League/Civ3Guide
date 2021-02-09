@@ -27,6 +27,18 @@ object AndroidPreferences: Preferences {
   override fun getString(key: String): String? {
     return prefs.getString(key, null)
   }
+
+  override fun putInt(key: String, value: Int) {
+    prefs.edit().putInt(key, value).apply()
+  }
+
+  override fun getInt(key: String): Int? {
+    return if (prefs.contains(key)) {
+      prefs.getInt(key, -1)
+    } else {
+      null
+    }
+  }
 }
 
 actual val preferences: Preferences = AndroidPreferences

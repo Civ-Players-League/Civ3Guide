@@ -12,6 +12,8 @@ import android.widget.*
 import androidx.core.view.children
 import androidx.core.view.get
 import com.sixbynine.civ3guide.android.R
+import com.sixbynine.civ3guide.android.map.getPointMapper
+import com.sixbynine.civ3guide.android.map.setMapTouchDelegate
 import com.sixbynine.civ3guide.shared.*
 import com.sixbynine.civ3guide.shared.StandardGovernment.DESPOTISM
 import com.sixbynine.civ3guide.shared.mapview.MapTouchDelegate
@@ -33,42 +35,22 @@ class PuzzleView(context: Context, attrs: AttributeSet?) : ScrollView(context, a
   private val explanation = findViewById<TextView>(R.id.explanation)
   private val button = findViewById<Button>(R.id.bottom_button)
 
-  @SuppressLint("ClickableViewAccessibility")
   fun bind(state: PuzzleUiState, isLastPuzzle: Boolean) {
     val (configuration, selectedTile, selectedAction) = state
     val map = configuration.map
 
     image.setSharedImageResource(map.image)
 
-    val pointMapper = getPointMapper(map)
+    val pointMapper = map.getPointMapper(image)
+    image.setMapTouchDelegate(map) { onTileClickListener?.invoke(it) }
 
-    val touchDelegate = MapTouchDelegate(map)
-      image.setOnTouchListener { _, event ->
-      val touchPoint = pointMapper.fromGraphical(PointF(event.x, event.y))
-
-      when (event.action) {
-        MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
-          touchDelegate.onTouch(touchPoint)
-        }
-        MotionEvent.ACTION_UP -> {
-          val tile = touchDelegate.onTouchEnd(touchPoint)
-          onTileClickListener?.invoke(tile)
-        }
-        MotionEvent.ACTION_CANCEL -> {
-          touchDelegate.onTouchEnd(touchPoint)
-        }
-      }
-      true
-    }
-
-    if (selectedTile == null) {
-      highlightView.setHighlightPoints(null, null, Color.BLACK)
-    } else {
-      val bounds = map.getBounds(selectedTile)
-      highlightView.setHighlightPoints(
+    highlightView.clearHighlights()
+    selectedTile?.let {
+      val bounds = map.getBounds(it)
+      highlightView.addHighlight(
         pointMapper.toGraphical(bounds.left),
         pointMapper.toGraphical(bounds.top),
-        Color.argb(83, 0, 0, 255)
+        ClickHighlightView.COLOR_SELECTED
       )
     }
 
@@ -125,35 +107,4 @@ class PuzzleView(context: Context, attrs: AttributeSet?) : ScrollView(context, a
       }
     }
   }
-
-  private fun getPointMapper(map: MapConfiguration) = object: PointMapper {
-    val widthRatio: Float
-      get() = image.width.toFloat() / map.width
-    val heightRatio: Float
-      get() = image.height.toFloat() / map.height
-    val scaleRatio: Float
-      get() = minOf(widthRatio, heightRatio)
-    val extraX: Float
-      get() = (image.width - map.width * scaleRatio) / 2
-    val extraY: Float
-      get() = (image.height - map.height * scaleRatio) / 2
-
-    override fun toGraphical(point: Point): PointF {
-      return PointF(
-        extraX + point.x * scaleRatio,
-        extraY + point.y * scaleRatio
-      )
-    }
-
-    override fun fromGraphical(pointF: PointF): Point {
-      return Point((pointF.x - extraX) / scaleRatio, (pointF.y - extraY) / scaleRatio)
-    }
-  }
-
-  private interface PointMapper {
-    fun toGraphical(point: Point): PointF
-
-    fun fromGraphical(pointF: PointF): Point
-  }
-
 }

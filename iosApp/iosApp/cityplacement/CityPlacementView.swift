@@ -31,6 +31,7 @@ struct CityPlacementView: View {
           MapView(
               map: puzzle.map,
               geo: geo,
+              highlightSelectableTiles: true,
               selectedTile: Binding(
                   get: { selectedTile },
                   set: { value in

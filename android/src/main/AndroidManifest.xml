@@ -27,6 +27,15 @@
             android:name=".workerpuzzle.WorkerPuzzleActivity"
             android:label="@string/home_label_worker_action_title"
             android:exported="false" />
+        <activity
+            android:name=".cityplacement.CityPlacementPuzzleActivity"
+            android:label="@string/city_placement_title"
+            android:exported="false" />
+        <receiver android:name=".notification.NewBetaVersionPackageReplacedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

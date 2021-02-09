@@ -7,7 +7,7 @@ import android.view.View
 
 class ClickHighlightView(context: Context, attrs: AttributeSet?): View(context, attrs) {
 
-    private var path: Path? = null
+    private val highlights = arrayListOf<Pair<Path, Int>>()
 
     private val paint = Paint().apply {
         color = Color.argb(88, 255, 255, 255)
@@ -15,26 +15,34 @@ class ClickHighlightView(context: Context, attrs: AttributeSet?): View(context, 
         strokeJoin = Paint.Join.ROUND
     }
 
-    fun setHighlightPoints(left: PointF?, top: PointF?, color: Int) {
-        if (left == null || top == null) {
-            path = null
-            invalidate()
-            return
-        }
-
-        path = Path().apply {
+    fun addHighlight(left: PointF, top: PointF, color: Int) {
+        val path = Path().apply {
             moveTo(left.x, left.y)
             lineTo(top.x, top.y)
             lineTo(top.x * 2 - left.x, left.y)
             lineTo(top.x, left.y * 2 - top.y)
             lineTo(left.x, left.y)
         }
-        paint.color = color
+        highlights.add(path to color)
+        invalidate()
+    }
+
+    fun clearHighlights() {
+        highlights.clear()
         invalidate()
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        path?.let { canvas.drawPath(it, paint) }
+
+        highlights.forEach { (path, color) ->
+            paint.color = color
+            canvas.drawPath(path, paint)
+        }
+    }
+
+    companion object {
+        val COLOR_SELECTED = Color.argb(83, 0, 0, 255)
+        val COLOR_SELECTABLE = Color.argb(83, 255, 255, 255)
     }
 }

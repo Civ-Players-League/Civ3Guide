@@ -18,6 +18,12 @@ object IosPreferences: Preferences {
     return if (isKeyMissing(key)) null else userDefaults.stringForKey(key)
   }
 
+  override fun putInt(key: String, value: Int) = userDefaults.setInteger(value.toLong(), key)
+
+  override fun getInt(key: String): Int? {
+    return if (isKeyMissing(key)) null else userDefaults.integerForKey(key).toInt()
+  }
+
   private fun isKeyMissing(key: String) = userDefaults.objectForKey(key) == null
 }
 
