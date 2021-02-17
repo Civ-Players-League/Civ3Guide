@@ -24,8 +24,8 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
     implementation("androidx.viewpager2:viewpager2:1.0.0")
 
+    implementation("dev.icerock.moko:resources:0.15.0")
     implementation("de.hdodenhof:circleimageview:3.1.0")
-    implementation("dev.icerock.moko:resources:0.14.0")
 }
 android {
     compileSdkVersion(30)

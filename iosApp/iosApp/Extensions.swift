@@ -52,7 +52,11 @@ extension Text {
     }
     
     init(_ resource: ResourcesStringResource, _ arg1: Int) {
-        self.init(resource.format(arg1: Int32(arg1)))
+        self.init(resource.format(int: Int32(arg1)))
+    }
+    
+    init(_ resource: ResourcesStringResource, _ string: String) {
+        self.init(resource.format(string: string))
     }
 }
 

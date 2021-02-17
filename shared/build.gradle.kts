@@ -31,7 +31,7 @@ kotlin {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
                 implementation("dev.icerock.moko:graphics:0.5.0")
-                implementation("dev.icerock.moko:resources:0.14.0")
+                implementation("dev.icerock.moko:resources:0.15.0")
                 implementation("dev.icerock.moko:parcelize:0.5.0")
             }
         }
@@ -44,7 +44,6 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation("com.google.android.material:material:1.2.1")
-                implementation("dev.icerock.moko:resources:0.14.0")
             }
         }
         val androidTest by getting {

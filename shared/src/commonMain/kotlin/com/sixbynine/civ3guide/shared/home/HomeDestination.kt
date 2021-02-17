@@ -24,6 +24,11 @@ enum class HomeDestination(
     images.settler,
     strings.city_placement_title,
     strings.city_placement_summary
+  ),
+  COMBAT_ODDS(
+    images.warrior,
+    strings.combat_odds_title,
+    strings.combat_odds_summary
   );
 
   companion object {

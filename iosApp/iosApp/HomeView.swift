@@ -6,6 +6,7 @@ struct HomeView: View {
     @State private var isQuizNavigationActive: Bool = false
     @State private var isWorkerActionNavigationActive: Bool = false
     @State private var isCityPlacementNavigationActive: Bool = false
+    @State private var isCombatGameNavigationActive: Bool = false
 
     init() {
         UITableView.appearance().backgroundColor = UIColor.clear
@@ -37,6 +38,16 @@ struct HomeView: View {
                 EmptyView()
             }
             .isDetailLink(false)
+            
+            NavigationLink(
+                    destination: CombatGamePage(
+                        isNavigationActive: $isCombatGameNavigationActive
+                    ),
+                    isActive: $isCombatGameNavigationActive
+            ) {
+                EmptyView()
+            }
+            .isDetailLink(false)
 
             List {
                 Button(action: { isQuizNavigationActive = true}) {
@@ -49,6 +60,10 @@ struct HomeView: View {
                 
                 Button(action: { isCityPlacementNavigationActive = true}) {
                     HomeListItem(destination: .cityPlacement)
+                }
+                
+                Button(action: { isCombatGameNavigationActive = true}) {
+                    HomeListItem(destination: .combatOdds)
                 }
             }.navigationBarTitle(MR.strings().app_name, displayMode: .large)
         }

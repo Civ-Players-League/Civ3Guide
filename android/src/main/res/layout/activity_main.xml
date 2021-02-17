@@ -15,8 +15,7 @@
       app:layout_constraintTop_toTopOf="parent"
       android:layout_marginTop="16dp"
       android:padding="16dp"
-      android:textSize="16sp"
-      android:textColor="@color/colorTextPrimary"/>
+      android:textAppearance="?attr/textAppearanceHeadline6"/>
 
   <ImageView
       android:id="@+id/puzzle_image"

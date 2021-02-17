@@ -8,4 +8,8 @@
     <color name="colorTextCorrect">#4CAF50</color>
     <color name="colorTextIncorrect">#b71c1c</color>
     <color name="colorDivider">#888888</color>
+
+    <color name="green">#4CAF50</color>
+    <color name="red">#b71c1c</color>
+    <color name="yellow">#f5df36</color>
 </resources>

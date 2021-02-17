@@ -27,9 +27,14 @@
 		AA744CC625A5124A0062E039 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA744CC525A5124A0062E039 /* RadioButton.swift */; };
 		AA744CCE25A512630062E039 /* RadioGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA744CCD25A512630062E039 /* RadioGroup.swift */; };
 		AA744CD325A518FE0062E039 /* Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA744CD225A518FE0062E039 /* Interop.swift */; };
+		AA8E69A925DAF26E00C36E28 /* VHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8E69A825DAF26E00C36E28 /* VHStack.swift */; };
+		AA8E69AF25DBBC5A00C36E28 /* CombatGamePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8E69AE25DBBC5A00C36E28 /* CombatGamePage.swift */; };
+		AA9E944825DC54FF00CE9A7A /* HPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9E944725DC54FF00CE9A7A /* HPView.swift */; };
 		AAB584B9257EA8870068D817 /* TileOutputBreakdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB584B8257EA8870068D817 /* TileOutputBreakdown.swift */; };
 		AAD7E4D1257EF3C400838529 /* TileOutputSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E4D0257EF3C400838529 /* TileOutputSummary.swift */; };
 		AAD7E4DD257EF43C00838529 /* PuzzleChoiceSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E4DC257EF43C00838529 /* PuzzleChoiceSummaryView.swift */; };
+		AAE7658625D89CF7000C3447 /* CombatGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE7658525D89CF7000C3447 /* CombatGameView.swift */; };
+		AAE7658C25D9DF40000C3447 /* CombatUnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE7658B25D9DF40000C3447 /* CombatUnitView.swift */; };
 		AAFDAD932576E03B0000B6D7 /* WorkerActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAD922576E03B0000B6D7 /* WorkerActionButton.swift */; };
 		AAFDAD972576E1CA0000B6D7 /* WorkerActionButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAD962576E1CA0000B6D7 /* WorkerActionButtonGroup.swift */; };
 		AAFDAD9B2576F5750000B6D7 /* PuzzlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAD9A2576F5750000B6D7 /* PuzzlePage.swift */; };
@@ -92,9 +97,14 @@
 		AA744CC525A5124A0062E039 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		AA744CCD25A512630062E039 /* RadioGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioGroup.swift; sourceTree = "<group>"; };
 		AA744CD225A518FE0062E039 /* Interop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interop.swift; sourceTree = "<group>"; };
+		AA8E69A825DAF26E00C36E28 /* VHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VHStack.swift; sourceTree = "<group>"; };
+		AA8E69AE25DBBC5A00C36E28 /* CombatGamePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatGamePage.swift; sourceTree = "<group>"; };
+		AA9E944725DC54FF00CE9A7A /* HPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPView.swift; sourceTree = "<group>"; };
 		AAB584B8257EA8870068D817 /* TileOutputBreakdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileOutputBreakdown.swift; sourceTree = "<group>"; };
 		AAD7E4D0257EF3C400838529 /* TileOutputSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileOutputSummary.swift; sourceTree = "<group>"; };
 		AAD7E4DC257EF43C00838529 /* PuzzleChoiceSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleChoiceSummaryView.swift; sourceTree = "<group>"; };
+		AAE7658525D89CF7000C3447 /* CombatGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatGameView.swift; sourceTree = "<group>"; };
+		AAE7658B25D9DF40000C3447 /* CombatUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatUnitView.swift; sourceTree = "<group>"; };
 		AAFDAD922576E03B0000B6D7 /* WorkerActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerActionButton.swift; sourceTree = "<group>"; };
 		AAFDAD962576E1CA0000B6D7 /* WorkerActionButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerActionButtonGroup.swift; sourceTree = "<group>"; };
 		AAFDAD9A2576F5750000B6D7 /* PuzzlePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzlePage.swift; sourceTree = "<group>"; };
@@ -160,6 +170,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				AAE7658425D89CA1000C3447 /* combat */,
 				AA744CD125A518F30062E039 /* interop */,
 				AA744CC425A5123D0062E039 /* view */,
 				AA744CB325A5040F0062E039 /* quiz */,
@@ -233,6 +244,7 @@
 			children = (
 				AA744CC525A5124A0062E039 /* RadioButton.swift */,
 				AA744CCD25A512630062E039 /* RadioGroup.swift */,
+				AA8E69A825DAF26E00C36E28 /* VHStack.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -243,6 +255,17 @@
 				AA744CD225A518FE0062E039 /* Interop.swift */,
 			);
 			path = interop;
+			sourceTree = "<group>";
+		};
+		AAE7658425D89CA1000C3447 /* combat */ = {
+			isa = PBXGroup;
+			children = (
+				AAE7658525D89CF7000C3447 /* CombatGameView.swift */,
+				AAE7658B25D9DF40000C3447 /* CombatUnitView.swift */,
+				AA8E69AE25DBBC5A00C36E28 /* CombatGamePage.swift */,
+				AA9E944725DC54FF00CE9A7A /* HPView.swift */,
+			);
+			path = combat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +423,7 @@
 			files = (
 				AA5332BA2573DD630084921A /* Extensions.swift in Sources */,
 				AAFDAD9B2576F5750000B6D7 /* PuzzlePage.swift in Sources */,
+				AA9E944825DC54FF00CE9A7A /* HPView.swift in Sources */,
 				AA744CBB25A506AA0062E039 /* QuizView.swift in Sources */,
 				AA68A425258AAC68007C030D /* HomeView.swift in Sources */,
 				AA68A429258AACD1007C030D /* HomeListItem.swift in Sources */,
@@ -409,14 +433,18 @@
 				AAD7E4DD257EF43C00838529 /* PuzzleChoiceSummaryView.swift in Sources */,
 				AA744CCE25A512630062E039 /* RadioGroup.swift in Sources */,
 				AA744CC625A5124A0062E039 /* RadioButton.swift in Sources */,
+				AAE7658C25D9DF40000C3447 /* CombatUnitView.swift in Sources */,
 				AA744CD325A518FE0062E039 /* Interop.swift in Sources */,
 				AAFDAD932576E03B0000B6D7 /* WorkerActionButton.swift in Sources */,
 				AA649402258CED290089F7E1 /* PuzzleHelpPage.swift in Sources */,
+				AAE7658625D89CF7000C3447 /* CombatGameView.swift in Sources */,
+				AA8E69A925DAF26E00C36E28 /* VHStack.swift in Sources */,
 				7555FF81242A565900829871 /* SceneDelegate.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				AAFDAD9F257A84F70000B6D7 /* MapView.swift in Sources */,
 				AAFDAD972576E1CA0000B6D7 /* WorkerActionButtonGroup.swift in Sources */,
 				18D10999A101C93BFF688B5A /* CityPlacementView.swift in Sources */,
+				AA8E69AF25DBBC5A00C36E28 /* CombatGamePage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,7 +610,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.4;
+				CURRENT_PROJECT_VERSION = 1.0.7;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = VT9SJH7UKQ;
 				ENABLE_PREVIEWS = YES;
@@ -607,7 +635,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.4;
+				CURRENT_PROJECT_VERSION = 1.0.7;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = VT9SJH7UKQ;
 				ENABLE_PREVIEWS = YES;

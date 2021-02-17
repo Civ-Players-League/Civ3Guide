@@ -15,17 +15,17 @@ object Resources {
 
 fun StringResource.load() = StringDesc.Resource(this).load()
 
-fun StringResource.format(arg1: String): String {
+fun StringResource.format(string: String): String {
   return StringDesc.ResourceFormatted(
     this,
-    arg1
+    string
   ).load()
 }
 
-fun StringResource.format(arg1: Int): String {
+fun StringResource.format(int: Int): String {
   return StringDesc.ResourceFormatted(
     this,
-    arg1
+    int
   ).load()
 }
 

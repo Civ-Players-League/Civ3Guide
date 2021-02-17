@@ -36,6 +36,10 @@
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
             </intent-filter>
         </receiver>
+        <activity
+            android:name=".combat.CombatGameActivity"
+            android:label="@string/combat_odds_title"
+            android:exported="false" />
     </application>
 
 </manifest>

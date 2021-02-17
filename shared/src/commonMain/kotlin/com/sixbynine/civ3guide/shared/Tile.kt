@@ -178,7 +178,7 @@ enum class Terrain(
   val food: Int = 0,
   val shields: Int = 0,
   val commerce: Int = 0,
-  val defenceBonus: Double = 0.0,
+  val defenceBonus: Double = 0.1,
   val movement: Int = 1,
   val disease: Boolean = false
 ) {

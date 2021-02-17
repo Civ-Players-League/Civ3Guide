@@ -4,11 +4,14 @@
     <string name="app_description">Guide and games to improve your skills in Sid Meier\'s Civilization III</string>
     <string name="puzzle_header_prompt">What\'s the best worker move?</string>
     <string name="puzzle_index">Puzzle %d</string>
-    <string name="lets_go">Let\'s go or not</string>
+    <string name="lets_go">Let\'s go</string>
 
     <string name="next">Next</string>
     <string name="done">Done</string>
     <string name="help">Help</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
     <string name="correct">Correct!</string>
     <string name="correct_explanation">Correct! %s</string>
     <string name="incorrect">Incorrect.</string>
@@ -90,4 +93,65 @@
     <string name="city_placement_title">City Placement Puzzles</string>
     <string name="city_placement_summary">Choose the best spot to plant a new city</string>
     <string name="city_placement_prompt">Tap the best new city spot</string>
+
+    <string name="combat_odds_title">Combat Odds Game</string>
+    <string name="combat_odds_summary">Test your ability to estimate whether exchanges are favourable</string>
+    <string name="combat_odds_prompt">Is it favourable to attack?</string>
+    <string name="combat_odds_very_unfavorable">Very unfavourable (ES under 50)</string>
+    <string name="combat_odds_unfavorable">Unfavourable (ES under 80)</string>
+    <string name="combat_odds_even">About even (ES 80-120)</string>
+    <string name="combat_odds_favorable">Favourable (ES over 120)</string>
+    <string name="combat_odds_very_favorable">Very favourable (ES over 200)</string>
+    <string name="combat_odds_very_unlikely">Very unlikely to win (under 20%)</string>
+    <string name="combat_odds_unlikely">Unlikely to win (under 40%)</string>
+    <string name="combat_odds_even_probability">About even (40-60%)</string>
+    <string name="combat_odds_likely">Likely to win (over 60%)</string>
+    <string name="combat_odds_very_likely">Very likely (over 80%)</string>
+    <string name="combat_odds_first_time_explanation">This game tests your ability to estimate whether it\'s worth it to attack a particular unit, based on 1) the probability of victory, and 2) the shield costs of the fighting units.\n\nThe favourability of the exchange is measured as Expected Shields, or ES, a measure of how many enemy shields you expect to destroy in exchange for 100 shields worth of your attacking units. For example, an ES of 30 means for every 100 shields of your attacking units, 30 shields of defending units are destroyed (very bad), while an ES of 200 indicates that you expect your enemy to lose 200 shields for every 100 you lose (very good).</string>
+    <string name="slightly_unfavorable">Slightly unfavourable</string>
+    <string name="unfavorable">Unfavourable</string>
+    <string name="very_unfavorable">Very unfavourable</string>
+    <string name="even">Even</string>
+    <string name="slightly_favorable">Slightly favourable</string>
+    <string name="favorable">Favourable</string>
+    <string name="very_favorable">Very favourable</string>
+
+    <!-- Unit names -->
+    <string name="archer">Archer</string>
+    <string name="bowman">Bowman</string>
+    <string name="chariot">Chariot</string>
+    <string name="chasqui_scout">Chasqui Scout</string>
+    <string name="enkidu_warrior">Enkidu Warrior</string>
+    <string name="gallic_swordsman">Gallic Swordsman</string>
+    <string name="garlic_swordsman">Garlic Swordsman</string>
+    <string name="hoplite">Hoplite</string>
+    <string name="horseman">Horseman</string>
+    <string name="immortals">Immortals</string>
+    <string name="impi">Impi</string>
+    <string name="jaguar_warrior">Jaguar Warrior</string>
+    <string name="javelin_thrower">Javelin Thrower</string>
+    <string name="legionary">Legionary</string>
+    <string name="mounted_warrior">Mounted Warrior</string>
+    <string name="spearman">Spearman</string>
+    <string name="swordsman">Swordsman</string>
+    <string name="three_man_chariot">Three-Man Chariot</string>
+    <string name="war_chariot">War Chariot</string>
+    <string name="warrior">Warrior</string>
+
+    <string name="conscript">Conscript</string>
+    <string name="regular">Regular</string>
+    <string name="veteran">Veteran</string>
+    <string name="elite">Elite</string>
+
+    <string name="fortified">Fortified</string>
+    <string name="town">Town</string>
+    <string name="town_walls">Town with walls</string>
+    <string name="metropolis">Metropolis</string>
+    <string name="defender">Defender</string>
+    <string name="attacker">Attacker</string>
+    <string name="attacker_win_probability_prompt">Is the attacker likely to win?</string>
+    <string name="new_puzzle">New puzzle</string>
+    <string name="p_win">Odds of winning: %s</string>
+    <string name="p_lose">Odds of losing: %s</string>
+    <string name="expected_shields">Expected Shields: %s</string>
 </resources>
