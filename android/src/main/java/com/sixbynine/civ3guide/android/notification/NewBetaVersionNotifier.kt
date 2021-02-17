@@ -16,8 +16,8 @@ import com.sixbynine.civ3guide.shared.preferences
 object NewBetaVersionNotifier {
 
   /** The version of the beta for purposes of showing a notification. */
-  private const val BETA_VERSION_SEQUENCE = 1
-  private const val BETA_VERSION_FEATURES = "New city placement puzzles added"
+  private const val BETA_VERSION_SEQUENCE = 2
+  private const val BETA_VERSION_FEATURES = "New combat odds game"
 
   private const val NOTIFICATION_ID = 1
   private const val KEY_BETA_VERSION_SEQUENCE = "beta_version_sequence_number"

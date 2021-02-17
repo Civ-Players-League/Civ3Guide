@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Note: The way android resources work, regional strings for a language are preferred to the
+         base locale. Therefore, we need to add a non-regional 'en' strings file to get the strings
+         we want in non-US English locales. -->
+    <string name="slightly_unfavorable">Slightly unfavourable</string>
+    <string name="unfavorable">Unfavourable</string>
+    <string name="very_unfavorable">Very unfavourable</string>
+    <string name="slightly_favorable">Slightly favourable</string>
+    <string name="favorable">Favourable</string>
+    <string name="very_favorable">Very favourable</string>
+    <string name="combat_odds_summary">Test your ability to estimate whether exchanges are favourable</string>
+    <string name="combat_odds_prompt">Is it favourable to attack?</string>
+    <string name="combat_odds_first_time_explanation">This game tests your ability to estimate whether it\&apos;s worth it to attack a particular unit, based on 1) the probability of victory, and 2) the shield costs of the fighting units.\n\nThe favourability of the exchange is measured as Expected Shields, or ES, a measure of how many enemy shields you expect to destroy in exchange for 100 shields worth of your attacking units. For example, an ES of 30 means for every 100 shields of your attacking units, 30 shields of defending units are destroyed (very bad), while an ES of 200 indicates that you expect your enemy to lose 200 shields for every 100 you lose (very good).</string>
+</resources>

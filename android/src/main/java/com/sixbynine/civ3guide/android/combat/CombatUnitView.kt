@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.sixbynine.civ3guide.android.R
 import com.sixbynine.civ3guide.shared.Terrain.HILLS
 import com.sixbynine.civ3guide.shared.combat.Engagement
+import com.sixbynine.civ3guide.shared.preferences
 import com.sixbynine.civ3guide.shared.setSharedImageResource
 import com.sixbynine.civ3guide.shared.setTextResource
 
@@ -34,7 +35,6 @@ class CombatUnitView(context: Context, attrs: AttributeSet?) : FrameLayout(conte
   private var engagement: Engagement? = null
   private var isAttacker: Boolean = false
   private var showStats: Boolean = false
-  private var showAlt: Boolean = false
 
   fun setData(engagement: Engagement, isAttacker: Boolean, showStats: Boolean = false) {
     this.engagement = engagement
@@ -117,5 +117,23 @@ class CombatUnitView(context: Context, attrs: AttributeSet?) : FrameLayout(conte
       strength.visibility = View.GONE
       cost.visibility = View.GONE
     }
+  }
+
+  private companion object {
+    const val PREFS_KEY_SHOW_ALT = "show_alt_images"
+
+    private var _showAlt: Boolean? = null
+
+    var showAlt: Boolean
+      get() {
+        _showAlt?.let { return it }
+        return (preferences.getBoolean(PREFS_KEY_SHOW_ALT) ?: false).also {
+          _showAlt = it
+        }
+      }
+      set(value) {
+        _showAlt = value
+        preferences.putBoolean(PREFS_KEY_SHOW_ALT, value)
+      }
   }
 }
