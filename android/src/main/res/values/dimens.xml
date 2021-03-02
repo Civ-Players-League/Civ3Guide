@@ -3,7 +3,8 @@
     <dimen name="puzzle_height">180dp</dimen>
     <dimen name="puzzle_height_taller">240dp</dimen>
     <dimen name="divider_height">1dp</dimen>
-    <dimen name="health_bar_height">12dp</dimen>
-    <dimen name="health_bar_divider_height">1dp</dimen>
+    <dimen name="health_bar_width">5dp</dimen>
+    <dimen name="health_bar_height">16dp</dimen>
+    <dimen name="health_bar_divider_height">2dp</dimen>
     <dimen name="health_bar_outline_width">1dp</dimen>
 </resources>

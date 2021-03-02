@@ -54,8 +54,13 @@ struct CombatGameView: View {
                 
                 if (engagement.acrossRiver) {
                     VStack {
-                        Spacer().frame(idealWidth: 4, maxWidth: 8, maxHeight: .infinity).background(Color.blue)
-                            .padding(8)
+                        Spacer().frame(height: 56)
+                        Image(MR.images().river)
+                            .renderingMode(.template)
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(.blue)
+                            .frame(width: 24, height: 100)
                         Text(MR.strings().river).font(.footnote)
                     }
                     
@@ -281,7 +286,7 @@ struct CombatGameView: View {
                         .frame(width: 16, height: 18)
                 }
                 
-                Text(MR.strings().expected_shields, "\(Int(100 * combatResults.attackerFavorability))")
+                Text(MR.strings().expected_shields, formatPosNeg1DecimalPoint(combatResults.expectedShields))
                 Text("(\(getSummaryFavorabilityText()))")
             }
         } else {
@@ -310,6 +315,15 @@ struct CombatGameView: View {
     
     private func formatPercentage(_ value: Double) -> String {
         return "\(Int(value * 100))%"
+    }
+    
+    private func formatPosNeg1DecimalPoint(_ value: Double) -> String {
+        let oneDpString = "\(Double(Int(value * 10)) / 10.0)"
+        if value > 0 {
+            return "+\(oneDpString)"
+        } else {
+            return oneDpString
+        }
     }
     
     private func getCorrectWinProbabilityIndex() -> Int {

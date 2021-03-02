@@ -16,7 +16,7 @@ enum class StandardUnitType(
   val isUnique: Boolean = false,
   override val altImage: ImageResource? = null,
   override val altLabel: StringResource? = null
-  ) : UnitType {
+) : UnitType {
   ARCHER(strings.archer, images.unitArcher, 2, 1, 1, 20),
   BOWMAN(strings.bowman, images.unitBowman, 2, 2, 1, 20, isUnique = true),
   CHARIOT(strings.chariot, images.unitChariot, 1, 1, 2, 20),
@@ -43,7 +43,15 @@ enum class StandardUnitType(
   MOUNTED_WARRIOR(strings.mounted_warrior, images.unitMountedWarrior, 3, 1, 2, 30, isUnique = true),
   SPEARMAN(strings.spearman, images.unitSpearman, 1, 2, 1, 20),
   SWORDSMAN(strings.swordsman, images.unitSwordsman, 3, 2, 1, 30),
-  THREE_MAN_CHARIOT(strings.three_man_chariot, images.unitThreeManChariot, 2, 2, 2, 30, true),
+  THREE_MAN_CHARIOT(
+    strings.three_man_chariot,
+    images.unitThreeManChariot,
+    2,
+    2,
+    2,
+    30,
+    isUnique = true,
+  ),
   WAR_CHARIOT(strings.war_chariot, images.unitWarChariot, 2, 1, 2, 20, isUnique = true),
   WARRIOR(strings.warrior, images.unitWarrior, 1, 1, 1, 10);
 }

@@ -107,7 +107,7 @@
     <string name="combat_odds_even_probability">About even (40-60%)</string>
     <string name="combat_odds_likely">Likely to win (over 60%)</string>
     <string name="combat_odds_very_likely">Very likely (over 80%)</string>
-    <string name="combat_odds_first_time_explanation">This game tests your ability to estimate whether it\'s worth it to attack a particular unit, based on 1) the probability of victory, and 2) the shield costs of the fighting units.\n\nThe favourability of the exchange is measured as Expected Shields, or ES, a measure of how many enemy shields you expect to destroy in exchange for 100 shields worth of your attacking units. For example, an ES of 30 means for every 100 shields of your attacking units, 30 shields of defending units are destroyed (very bad), while an ES of 200 indicates that you expect your enemy to lose 200 shields for every 100 you lose (very good).</string>
+    <string name="combat_odds_first_time_explanation">This game tests your ability to estimate whether it\'s worth it to attack a particular unit, based on 1) the probability of victory, and 2) the shield costs of the fighting units.\n\nThe favourability of the exchange is measured as Expected Shields, or ES, a measure of how many shields you expect to gain or lose from the exchange on average, compared to your enemy. A positive ES is good for you, a negative ES is bad.</string>
     <string name="slightly_unfavorable">Slightly unfavourable</string>
     <string name="unfavorable">Unfavourable</string>
     <string name="very_unfavorable">Very unfavourable</string>

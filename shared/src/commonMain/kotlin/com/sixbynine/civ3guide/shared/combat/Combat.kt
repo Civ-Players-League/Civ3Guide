@@ -73,6 +73,15 @@ data class CombatResults(val results: List<CombatResult>) {
           (averageRetreatDamageDealt / originalDefenderHealth) * pRetreat
     }
 
+  val expectedShields: Double
+    get() {
+      val pWin = p(ATTACKER_WINS)
+      val pLoss = p(DEFENDER_WINS)
+      val attackerCost = results.first().attacker.type.cost.toDouble()
+      val defenderCost = results.first().defender.type.cost
+      return pWin * defenderCost - pLoss * attackerCost
+    }
+
   fun flatten(): CombatResults {
     val newResultMap = mutableMapOf<Pair<MilitaryUnit, MilitaryUnit>, Double>()
     results.forEach {

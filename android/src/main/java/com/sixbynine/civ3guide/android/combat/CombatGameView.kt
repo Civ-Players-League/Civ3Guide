@@ -32,6 +32,7 @@ class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(contex
   private val expectedShields: TextView = findViewById(R.id.expected_shields)
   private val favorabilitySummary: TextView = findViewById(R.id.favorability_summary)
   private val nextPuzzleButton: View = findViewById(R.id.next_puzzle_button)
+  private val river: View = findViewById(R.id.river)
 
   private var engagement =
     randomEngagement(allowUniqueUnits = true, allowFastUnits = true, allowRetreat = false)
@@ -75,6 +76,12 @@ class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(contex
       bindViews()
     }
 
+    river.visibility = if (engagement.acrossRiver) {
+      View.VISIBLE
+    } else {
+      View.INVISIBLE
+    }
+
     val showResults = likelyChoice != null && favorableChoice != null
     if (!showResults) {
       favorabilityYesButton.bindColors(null)
@@ -98,7 +105,7 @@ class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(contex
     likelihoodNoButton.bindColors(results.p(ATTACKER_WINS) <= 0.5)
 
     winPercentage.visibility = View.VISIBLE
-    val pWinString = "${(results.p(ATTACKER_WINS) * 100).toInt()}%"
+    val pWinString = "${String.format("%.1f", results.p(ATTACKER_WINS) * 100)}%"
     winPercentage.text = context.getString(R.string.p_win, pWinString)
 
     costRatio.visibility = View.VISIBLE
@@ -106,7 +113,13 @@ class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(contex
     costRatio.text = "Cost: $costRatioString"
 
     expectedShields.visibility = View.VISIBLE
-    val eSString = "${(results.attackerFavorability * 100).toInt()}"
+    val eSString = results.expectedShields.let {
+      if (it > 0) {
+        String.format("+%.1f", it)
+      } else {
+        String.format("%.1f", it)
+      }
+    }
     expectedShields.text = context.getString(R.string.expected_shields, eSString)
 
     favorabilitySummary.visibility = View.VISIBLE

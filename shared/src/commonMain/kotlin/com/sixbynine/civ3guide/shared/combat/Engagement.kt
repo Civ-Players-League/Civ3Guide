@@ -42,11 +42,11 @@ fun randomEngagement(
   val attackerDistribution = StandardUnitType.values().mapNotNull { type ->
     var weight = when {
       type.isUnique -> if (allowUniqueUnits) 1.0 else return@mapNotNull null
-      type.isFast -> if (allowFastUnits) 3.0 else return@mapNotNull null
-      else -> 5.0
+      type.isFast -> if (allowFastUnits) 2.5 else return@mapNotNull null
+      else -> 4.0
     }
-    if (type.attack < type.defence) weight /= 1.2
-    if (type.defence < type.attack) weight *= 1.2
+    if (type.attack < type.defence) weight /= 1.5
+    if (type.defence < type.attack) weight *= 1.5
 
     weight to type
   }
@@ -63,11 +63,11 @@ fun randomEngagement(
   val defenderDistribution = StandardUnitType.values().mapNotNull { type ->
     var weight = when {
       type.isUnique -> if (allowUniqueUnits) 1.0 else return@mapNotNull null
-      type.isFast -> if (allowFastUnits) 3.0 else return@mapNotNull null
-      else -> 5.0
+      type.isFast -> if (allowFastUnits) 2.5 else return@mapNotNull null
+      else -> 4.0
     }
-    if (type.attack < type.defence) weight *= 1.2
-    if (type.defence < type.attack) weight /= 1.2
+    if (type.attack < type.defence) weight *= 1.5
+    if (type.defence < type.attack) weight /= 1.5
 
     weight to type
   }
