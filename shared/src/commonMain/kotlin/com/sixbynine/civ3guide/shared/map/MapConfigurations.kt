@@ -1,7 +1,8 @@
-package com.sixbynine.civ3guide.shared
+package com.sixbynine.civ3guide.shared.map
 
-import com.sixbynine.civ3guide.shared.Resource.*
-import com.sixbynine.civ3guide.shared.Terrain.*
+import com.sixbynine.civ3guide.shared.MR.images
+import com.sixbynine.civ3guide.shared.tile.Resource.*
+import com.sixbynine.civ3guide.shared.tile.Terrain.*
 
 object MapConfigurations {
 
@@ -22,7 +23,7 @@ object MapConfigurations {
           TileInfo(319, 64, HILLS, hasRiver = true),
           TileInfo(257, 32, GRASSLAND, hasRiver = true),
         ),
-        image = MR.images.map0
+        image = images.map0
       ),
       MapConfiguration(
         width = 382,
@@ -39,7 +40,7 @@ object MapConfigurations {
           TileInfo(252, 37, GRASSLAND, hasRiver = true),
           TileInfo(308, 65, FOREST, hasRiver = true, coveredTerrain = GRASSLAND),
         ),
-        image = MR.images.map1
+        image = images.map1
       ),
       MapConfiguration(
         width = 380,
@@ -56,7 +57,7 @@ object MapConfigurations {
           TileInfo(244, 37, PLAINS),
           TileInfo(310, 65, PLAINS),
         ),
-        image = MR.images.map2
+        image = images.map2
       ),
       MapConfiguration(
         width = 382,
@@ -80,7 +81,7 @@ object MapConfigurations {
           TileInfo(74, 71, GRASSLAND, hasRiver = true),
           TileInfo(139, 36, GRASSLAND, hasRiver = true),
         ),
-        image = MR.images.map3
+        image = images.map3
       ),
       MapConfiguration(
         width = 380,
@@ -104,7 +105,7 @@ object MapConfigurations {
           TileInfo(73, 70, GRASSLAND, hasRiver = true),
           TileInfo(139, 35, GRASSLAND, hasRiver = true),
         ),
-        image = MR.images.map4
+        image = images.map4
       ),
       MapConfiguration(
         width = 377,
@@ -121,7 +122,7 @@ object MapConfigurations {
           TileInfo(70, 68, DESERT, isIrrigatableViaCityOrLake = true),
           TileInfo(136, 33, HILLS, hasRiver = true),
         ),
-        image = MR.images.map5
+        image = images.map5
       ),
       MapConfiguration(
         width = 514,
@@ -136,7 +137,7 @@ object MapConfigurations {
           TileInfo(130, 148, BONUS_GRASSLAND),
           TileInfo(192, 180, HILLS),
         ),
-        image = MR.images.map6
+        image = images.map6
       ),
       MapConfiguration(
         width = 616,
@@ -151,7 +152,7 @@ object MapConfigurations {
           TileInfo(260, 85, FOREST, coveredTerrain = GRASSLAND),
           TileInfo(197, 117, FOREST, coveredTerrain = GRASSLAND),
         ),
-        image = MR.images.map7
+        image = images.map7
       ),
       MapConfiguration(
         width = 771,
@@ -166,7 +167,7 @@ object MapConfigurations {
           TileInfo(565, 218, BONUS_GRASSLAND, hasRiver = true),
           TileInfo(629, 187, BONUS_GRASSLAND, hasRiver = true),
           ),
-        image = MR.images.map8
+        image = images.map8
       ),
       MapConfiguration(
         width = 718,
@@ -181,7 +182,7 @@ object MapConfigurations {
           TileInfo(536, 188, HILLS, hasRiver = true),
           TileInfo(540, 127, GRASSLAND, hasRiver = true),
         ),
-        image = MR.images.map9
+        image = images.map9
       ),
       MapConfiguration(
         width = 643,
@@ -196,7 +197,7 @@ object MapConfigurations {
           TileInfo(421, 120, FLOOD_PLAIN, hasRiver = true),
           TileInfo(358, 87, FLOOD_PLAIN, hasRiver = true),
         ),
-        image = MR.images.map10
+        image = images.map10
       ),
       MapConfiguration(
         width = 646,
@@ -211,7 +212,7 @@ object MapConfigurations {
           TileInfo(419, 172, PLAINS),
           TileInfo(355, 205, GRASSLAND),
         ),
-        image = MR.images.map11
+        image = images.map11
       ),
       MapConfiguration(
         width = 674,
@@ -225,7 +226,7 @@ object MapConfigurations {
           TileInfo(327, 142, BONUS_GRASSLAND),
           TileInfo(518, 111, HILLS, hasRiver = true),
         ),
-        image = MR.images.map12
+        image = images.map12
       ),
       MapConfiguration(
         width = 766,
@@ -240,7 +241,7 @@ object MapConfigurations {
           TileInfo(576, 147, GRASSLAND),
           TileInfo(642, 115, GRASSLAND),
         ),
-        image = MR.images.map13
+        image = images.map13
       ),
       MapConfiguration(
         width = 724,
@@ -255,7 +256,7 @@ object MapConfigurations {
           TileInfo(366, 175, GRASSLAND),
           TileInfo(238, 111, GRASSLAND),
         ),
-        image = MR.images.map14
+        image = images.map14
       ),
       MapConfiguration(
         width = 657,
@@ -270,7 +271,7 @@ object MapConfigurations {
           TileInfo(278, 69, FLOOD_PLAIN, hasRiver = true),
           TileInfo(340, 100, HILLS, hasRiver = true),
         ),
-        image = MR.images.map15
+        image = images.map15
       ),
       MapConfiguration(
         width = 784,
@@ -287,7 +288,7 @@ object MapConfigurations {
           TileInfo(179, 191, FLOOD_PLAIN, hasRiver = true),
           TileInfo(116, 160, FLOOD_PLAIN, hasRiver = true),
         ),
-        image = MR.images.map16
+        image = images.map16
       )
     )
   }

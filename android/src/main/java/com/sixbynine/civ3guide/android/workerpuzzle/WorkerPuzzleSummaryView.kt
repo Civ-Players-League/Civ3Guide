@@ -8,8 +8,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.sixbynine.civ3guide.android.R
-import com.sixbynine.civ3guide.shared.Terrain
-import com.sixbynine.civ3guide.shared.TileOutputBreakdown
+import com.sixbynine.civ3guide.shared.tile.Terrain
+import com.sixbynine.civ3guide.shared.tile.TileOutputBreakdown
 import com.sixbynine.civ3guide.shared.setTextResource
 
 class WorkerPuzzleSummaryView(

@@ -1,7 +1,7 @@
 import SwiftUI
 import shared
 
-struct PuzzlePage: View {
+struct WorkerActionPuzzlePage: View {
     let puzzleIndex: Int
     @Binding var isNavigationActive : Bool
     @State var selectedTile: TileInfo?
@@ -9,8 +9,11 @@ struct PuzzlePage: View {
     @State private var goToNext: Bool = false
     @State private var showHelp: Bool = false
     
+    private let numPuzzlesPerRow = Int(WorkerPuzzleProgressManager().PUZZLES_PER_ROW)
+    
     var isLastPuzzle: Bool {
-        puzzleIndex + 1 >= WorkerPuzzles().all.count
+        puzzleIndex + 1 >= WorkerPuzzles().all.count ||
+            puzzleIndex % numPuzzlesPerRow == numPuzzlesPerRow - 1
     }
     
     var configuration: WorkerPuzzleConfiguration {
@@ -18,7 +21,11 @@ struct PuzzlePage: View {
     }
     
     var isSolved: Bool {
-        configuration.isOptimal(tile: selectedTile, action: selectedAction)
+        let isSolved = configuration.isOptimal(tile: selectedTile, action: selectedAction)
+        if isSolved {
+            WorkerPuzzleProgressManager().notePuzzleSolved(index: Int32(puzzleIndex))
+        }
+        return isSolved
     }
     
     var body: some View {
@@ -43,7 +50,7 @@ struct PuzzlePage: View {
                         }
                         Spacer()
                         NavigationLink(
-                            destination: PuzzlePage(
+                            destination: WorkerActionPuzzlePage(
                                 puzzleIndex: puzzleIndex + 1,
                                 isNavigationActive: $isNavigationActive
                             ),
@@ -58,7 +65,10 @@ struct PuzzlePage: View {
             PuzzleHelpPage()
         }
         .padding()
-        .navigationBarTitle(Text(MR.strings().puzzle_index, puzzleIndex + 1), displayMode: .inline)
+        .navigationBarTitle(
+            Text(MR.strings().level_s.format(string: getLevelDescription())),
+            displayMode: .inline
+        )
         .navigationBarItems(trailing: Button(MR.strings().help.load()) {
             showHelp = true
         })
@@ -96,12 +106,21 @@ struct PuzzlePage: View {
             }
         }
     }
+    
+    private func getLevelDescription() -> String {
+        let level = puzzleIndex / numPuzzlesPerRow
+        let data = WorkerPuzzleProgressManager().getLevelPageData()
+        let rowData = data.rows[level]
+        let levelIndex = puzzleIndex % numPuzzlesPerRow
+        let totalForLevel = rowData.total
+        return "\(level + 1), \(levelIndex + 1)/\(totalForLevel)"
+    }
 }
 
-struct PuzzlePage_Previews: PreviewProvider {
+struct WorkerActionPuzzlePage_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PuzzlePage(
+            WorkerActionPuzzlePage(
                 puzzleIndex: 0,
                 isNavigationActive: .constant(false),
                 selectedTile: WorkerPuzzles().all.first!.map.tiles[5],

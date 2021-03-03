@@ -1,9 +1,7 @@
 package com.sixbynine.civ3guide.shared.combat
 
-import com.sixbynine.civ3guide.shared.Terrain
-import com.sixbynine.civ3guide.shared.Terrain.*
-import com.sixbynine.civ3guide.shared.combat.CombatResultType.ATTACKER_RETREATS
-import com.sixbynine.civ3guide.shared.combat.CombatResultType.DEFENDER_RETREATS
+import com.sixbynine.civ3guide.shared.tile.Terrain
+import com.sixbynine.civ3guide.shared.tile.Terrain.*
 import com.sixbynine.civ3guide.shared.unit.MilitaryUnit
 import com.sixbynine.civ3guide.shared.unit.StandardUnitType
 import com.sixbynine.civ3guide.shared.unit.UnitRank

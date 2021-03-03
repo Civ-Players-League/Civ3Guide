@@ -1,9 +1,8 @@
 package com.sixbynine.civ3guide.shared.unit
 
 import com.google.common.truth.Truth.assertThat
-import com.sixbynine.civ3guide.shared.Terrain.HILLS
-import com.sixbynine.civ3guide.shared.Terrain.PLAINS
-import com.sixbynine.civ3guide.shared.Tile
+import com.sixbynine.civ3guide.shared.tile.Terrain.HILLS
+import com.sixbynine.civ3guide.shared.tile.Terrain.PLAINS
 import com.sixbynine.civ3guide.shared.combat.CombatCalculator
 import com.sixbynine.civ3guide.shared.combat.CombatResult
 import com.sixbynine.civ3guide.shared.combat.CombatResultType.*

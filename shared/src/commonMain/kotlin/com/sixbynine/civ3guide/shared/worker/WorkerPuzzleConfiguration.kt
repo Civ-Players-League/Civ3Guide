@@ -1,6 +1,8 @@
-package com.sixbynine.civ3guide.shared
+package com.sixbynine.civ3guide.shared.worker
 
 import com.sixbynine.civ3guide.shared.MR.images
+import com.sixbynine.civ3guide.shared.map.MapConfiguration
+import com.sixbynine.civ3guide.shared.map.TileInfo
 import dev.icerock.moko.resources.ImageResource
 
 class WorkerPuzzleConfiguration(

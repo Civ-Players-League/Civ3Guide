@@ -1,8 +1,10 @@
-package com.sixbynine.civ3guide.shared
+package com.sixbynine.civ3guide.shared.worker
 
-import com.sixbynine.civ3guide.shared.Resource.*
-import com.sixbynine.civ3guide.shared.Terrain.*
-import com.sixbynine.civ3guide.shared.WorkerAction.*
+import com.sixbynine.civ3guide.shared.map.MapConfigurations
+import com.sixbynine.civ3guide.shared.tile.Resource.*
+import com.sixbynine.civ3guide.shared.tile.Terrain.*
+import com.sixbynine.civ3guide.shared.map.TileInfo
+import com.sixbynine.civ3guide.shared.worker.WorkerAction.*
 
 object WorkerPuzzles {
 

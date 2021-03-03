@@ -1,9 +1,8 @@
 package com.sixbynine.civ3guide.android.workerpuzzle
 
-import android.util.Log
-import com.sixbynine.civ3guide.shared.TileInfo
-import com.sixbynine.civ3guide.shared.WorkerAction
-import com.sixbynine.civ3guide.shared.WorkerPuzzles
+import com.sixbynine.civ3guide.shared.map.TileInfo
+import com.sixbynine.civ3guide.shared.worker.WorkerAction
+import com.sixbynine.civ3guide.shared.worker.WorkerPuzzles
 
 class PuzzleController {
 

@@ -1,7 +1,5 @@
 package com.sixbynine.civ3guide.shared.combat
 
-import com.sixbynine.civ3guide.shared.Terrain
-import com.sixbynine.civ3guide.shared.Tile
 import com.sixbynine.civ3guide.shared.combat.CombatResultType.*
 import com.sixbynine.civ3guide.shared.unit.MilitaryUnit
 

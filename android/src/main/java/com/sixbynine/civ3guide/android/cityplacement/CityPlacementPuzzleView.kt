@@ -1,7 +1,6 @@
 package com.sixbynine.civ3guide.android.cityplacement
 
 import android.content.Context
-import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
 import android.widget.Button
@@ -16,7 +15,7 @@ import com.sixbynine.civ3guide.android.R
 import com.sixbynine.civ3guide.android.map.getPointMapper
 import com.sixbynine.civ3guide.android.map.setMapTouchDelegate
 import com.sixbynine.civ3guide.android.workerpuzzle.ClickHighlightView
-import com.sixbynine.civ3guide.shared.TileInfo
+import com.sixbynine.civ3guide.shared.map.TileInfo
 import com.sixbynine.civ3guide.shared.setSharedImageResource
 
 class CityPlacementPuzzleView(context: Context, attrs: AttributeSet?) : ScrollView(context, attrs) {

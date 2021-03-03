@@ -24,7 +24,7 @@ struct HomeView: View {
             }.isDetailLink(false)
             
             NavigationLink(
-                destination: PuzzlePage(puzzleIndex: 0, isNavigationActive: $isWorkerActionNavigationActive),
+                destination: WorkerActionHomePage(isNavigationActive: $isWorkerActionNavigationActive),
                 isActive: $isWorkerActionNavigationActive
             ) {
                 EmptyView()
@@ -50,6 +50,10 @@ struct HomeView: View {
             .isDetailLink(false)
 
             List {
+                Button(action: { isCombatGameNavigationActive = true}) {
+                    HomeListItem(destination: .combatOdds)
+                }
+                
                 Button(action: { isQuizNavigationActive = true}) {
                     HomeListItem(destination: .quiz)
                 }
@@ -60,10 +64,6 @@ struct HomeView: View {
                 
                 Button(action: { isCityPlacementNavigationActive = true}) {
                     HomeListItem(destination: .cityPlacement)
-                }
-                
-                Button(action: { isCombatGameNavigationActive = true}) {
-                    HomeListItem(destination: .combatOdds)
                 }
             }.navigationBarTitle(MR.strings().app_name, displayMode: .large)
         }

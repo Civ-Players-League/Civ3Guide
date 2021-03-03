@@ -19,8 +19,14 @@
 		7555FFA1242A565B00829871 /* iosAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FFA0242A565B00829871 /* iosAppUITests.swift */; };
 		7555FFB2242A642300829871 /* shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; };
 		7555FFB3242A642300829871 /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA1FB45C25EFD65C00CCAB31 /* WorkerActionHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1FB45B25EFD65C00CCAB31 /* WorkerActionHomePage.swift */; };
+		AA1FB46525F001DD00CCAB31 /* LevelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1FB46425F001DD00CCAB31 /* LevelRow.swift */; };
 		AA5332BA2573DD630084921A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5332B92573DD630084921A /* Extensions.swift */; };
-		AA649402258CED290089F7E1 /* PuzzleHelpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA649401258CED290089F7E1 /* PuzzleHelpPage.swift */; };
+		AA66756825EF9AFD00899741 /* WorkerActionPuzzlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66756725EF9AFD00899741 /* WorkerActionPuzzlePage.swift */; };
+		AA66756E25EF9B5D00899741 /* WorkerActionButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66756D25EF9B5D00899741 /* WorkerActionButtonGroup.swift */; };
+		AA66757425EF9B8D00899741 /* WorkerActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66757325EF9B8D00899741 /* WorkerActionButton.swift */; };
+		AA66757A25EF9C2C00899741 /* PuzzleHelpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66757925EF9C2C00899741 /* PuzzleHelpPage.swift */; };
+		AA66758025EF9C4700899741 /* PuzzleChoiceSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66757F25EF9C4700899741 /* PuzzleChoiceSummaryView.swift */; };
 		AA68A425258AAC68007C030D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA68A424258AAC68007C030D /* HomeView.swift */; };
 		AA68A429258AACD1007C030D /* HomeListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA68A428258AACD1007C030D /* HomeListItem.swift */; };
 		AA744CBB25A506AA0062E039 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA744CBA25A506AA0062E039 /* QuizView.swift */; };
@@ -32,12 +38,8 @@
 		AA9E944825DC54FF00CE9A7A /* HPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9E944725DC54FF00CE9A7A /* HPView.swift */; };
 		AAB584B9257EA8870068D817 /* TileOutputBreakdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB584B8257EA8870068D817 /* TileOutputBreakdown.swift */; };
 		AAD7E4D1257EF3C400838529 /* TileOutputSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E4D0257EF3C400838529 /* TileOutputSummary.swift */; };
-		AAD7E4DD257EF43C00838529 /* PuzzleChoiceSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E4DC257EF43C00838529 /* PuzzleChoiceSummaryView.swift */; };
 		AAE7658625D89CF7000C3447 /* CombatGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE7658525D89CF7000C3447 /* CombatGameView.swift */; };
 		AAE7658C25D9DF40000C3447 /* CombatUnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE7658B25D9DF40000C3447 /* CombatUnitView.swift */; };
-		AAFDAD932576E03B0000B6D7 /* WorkerActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAD922576E03B0000B6D7 /* WorkerActionButton.swift */; };
-		AAFDAD972576E1CA0000B6D7 /* WorkerActionButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAD962576E1CA0000B6D7 /* WorkerActionButtonGroup.swift */; };
-		AAFDAD9B2576F5750000B6D7 /* PuzzlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAD9A2576F5750000B6D7 /* PuzzlePage.swift */; };
 		AAFDAD9F257A84F70000B6D7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFDAD9E257A84F70000B6D7 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,8 +91,14 @@
 		7555FFA0242A565B00829871 /* iosAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosAppUITests.swift; sourceTree = "<group>"; };
 		7555FFA2242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7555FFB1242A642300829871 /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = "../shared/build/xcode-frameworks/shared.framework"; sourceTree = "<group>"; };
+		AA1FB45B25EFD65C00CCAB31 /* WorkerActionHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerActionHomePage.swift; sourceTree = "<group>"; };
+		AA1FB46425F001DD00CCAB31 /* LevelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelRow.swift; sourceTree = "<group>"; };
 		AA5332B92573DD630084921A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		AA649401258CED290089F7E1 /* PuzzleHelpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleHelpPage.swift; sourceTree = "<group>"; };
+		AA66756725EF9AFD00899741 /* WorkerActionPuzzlePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerActionPuzzlePage.swift; sourceTree = "<group>"; };
+		AA66756D25EF9B5D00899741 /* WorkerActionButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerActionButtonGroup.swift; sourceTree = "<group>"; };
+		AA66757325EF9B8D00899741 /* WorkerActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerActionButton.swift; sourceTree = "<group>"; };
+		AA66757925EF9C2C00899741 /* PuzzleHelpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleHelpPage.swift; sourceTree = "<group>"; };
+		AA66757F25EF9C4700899741 /* PuzzleChoiceSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleChoiceSummaryView.swift; sourceTree = "<group>"; };
 		AA68A424258AAC68007C030D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		AA68A428258AACD1007C030D /* HomeListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListItem.swift; sourceTree = "<group>"; };
 		AA744CBA25A506AA0062E039 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
@@ -102,12 +110,8 @@
 		AA9E944725DC54FF00CE9A7A /* HPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPView.swift; sourceTree = "<group>"; };
 		AAB584B8257EA8870068D817 /* TileOutputBreakdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileOutputBreakdown.swift; sourceTree = "<group>"; };
 		AAD7E4D0257EF3C400838529 /* TileOutputSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileOutputSummary.swift; sourceTree = "<group>"; };
-		AAD7E4DC257EF43C00838529 /* PuzzleChoiceSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleChoiceSummaryView.swift; sourceTree = "<group>"; };
 		AAE7658525D89CF7000C3447 /* CombatGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatGameView.swift; sourceTree = "<group>"; };
 		AAE7658B25D9DF40000C3447 /* CombatUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatUnitView.swift; sourceTree = "<group>"; };
-		AAFDAD922576E03B0000B6D7 /* WorkerActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerActionButton.swift; sourceTree = "<group>"; };
-		AAFDAD962576E1CA0000B6D7 /* WorkerActionButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerActionButtonGroup.swift; sourceTree = "<group>"; };
-		AAFDAD9A2576F5750000B6D7 /* PuzzlePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzlePage.swift; sourceTree = "<group>"; };
 		AAFDAD9E257A84F70000B6D7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,12 +174,12 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				AA1FB46325F001CD00CCAB31 /* level */,
+				AA66756625EF9AE000899741 /* workeraction */,
 				AAE7658425D89CA1000C3447 /* combat */,
 				AA744CD125A518F30062E039 /* interop */,
 				AA744CC425A5123D0062E039 /* view */,
 				AA744CB325A5040F0062E039 /* quiz */,
-				AAFDAD9A2576F5750000B6D7 /* PuzzlePage.swift */,
-				AAFDAD922576E03B0000B6D7 /* WorkerActionButton.swift */,
 				AAB584B8257EA8870068D817 /* TileOutputBreakdown.swift */,
 				AAFDAD9E257A84F70000B6D7 /* MapView.swift */,
 				7555FF7E242A565900829871 /* AppDelegate.swift */,
@@ -186,12 +190,9 @@
 				7555FF8C242A565B00829871 /* Info.plist */,
 				7555FF86242A565B00829871 /* Preview Content */,
 				AA5332B92573DD630084921A /* Extensions.swift */,
-				AAFDAD962576E1CA0000B6D7 /* WorkerActionButtonGroup.swift */,
 				AAD7E4D0257EF3C400838529 /* TileOutputSummary.swift */,
-				AAD7E4DC257EF43C00838529 /* PuzzleChoiceSummaryView.swift */,
 				AA68A424258AAC68007C030D /* HomeView.swift */,
 				AA68A428258AACD1007C030D /* HomeListItem.swift */,
-				AA649401258CED290089F7E1 /* PuzzleHelpPage.swift */,
 				18D1023F706EDE1A7D2F420E /* cityplacement */,
 			);
 			path = iosApp;
@@ -229,6 +230,27 @@
 				7555FFB1242A642300829871 /* shared.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA1FB46325F001CD00CCAB31 /* level */ = {
+			isa = PBXGroup;
+			children = (
+				AA1FB46425F001DD00CCAB31 /* LevelRow.swift */,
+			);
+			path = level;
+			sourceTree = "<group>";
+		};
+		AA66756625EF9AE000899741 /* workeraction */ = {
+			isa = PBXGroup;
+			children = (
+				AA66756725EF9AFD00899741 /* WorkerActionPuzzlePage.swift */,
+				AA66756D25EF9B5D00899741 /* WorkerActionButtonGroup.swift */,
+				AA66757325EF9B8D00899741 /* WorkerActionButton.swift */,
+				AA66757925EF9C2C00899741 /* PuzzleHelpPage.swift */,
+				AA66757F25EF9C4700899741 /* PuzzleChoiceSummaryView.swift */,
+				AA1FB45B25EFD65C00CCAB31 /* WorkerActionHomePage.swift */,
+			);
+			path = workeraction;
 			sourceTree = "<group>";
 		};
 		AA744CB325A5040F0062E039 /* quiz */ = {
@@ -421,8 +443,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA66757A25EF9C2C00899741 /* PuzzleHelpPage.swift in Sources */,
 				AA5332BA2573DD630084921A /* Extensions.swift in Sources */,
-				AAFDAD9B2576F5750000B6D7 /* PuzzlePage.swift in Sources */,
 				AA9E944825DC54FF00CE9A7A /* HPView.swift in Sources */,
 				AA744CBB25A506AA0062E039 /* QuizView.swift in Sources */,
 				AA68A425258AAC68007C030D /* HomeView.swift in Sources */,
@@ -430,19 +452,21 @@
 				AAD7E4D1257EF3C400838529 /* TileOutputSummary.swift in Sources */,
 				7555FF7F242A565900829871 /* AppDelegate.swift in Sources */,
 				AAB584B9257EA8870068D817 /* TileOutputBreakdown.swift in Sources */,
-				AAD7E4DD257EF43C00838529 /* PuzzleChoiceSummaryView.swift in Sources */,
+				AA66758025EF9C4700899741 /* PuzzleChoiceSummaryView.swift in Sources */,
+				AA66757425EF9B8D00899741 /* WorkerActionButton.swift in Sources */,
 				AA744CCE25A512630062E039 /* RadioGroup.swift in Sources */,
 				AA744CC625A5124A0062E039 /* RadioButton.swift in Sources */,
 				AAE7658C25D9DF40000C3447 /* CombatUnitView.swift in Sources */,
 				AA744CD325A518FE0062E039 /* Interop.swift in Sources */,
-				AAFDAD932576E03B0000B6D7 /* WorkerActionButton.swift in Sources */,
-				AA649402258CED290089F7E1 /* PuzzleHelpPage.swift in Sources */,
+				AA66756E25EF9B5D00899741 /* WorkerActionButtonGroup.swift in Sources */,
 				AAE7658625D89CF7000C3447 /* CombatGameView.swift in Sources */,
 				AA8E69A925DAF26E00C36E28 /* VHStack.swift in Sources */,
+				AA66756825EF9AFD00899741 /* WorkerActionPuzzlePage.swift in Sources */,
 				7555FF81242A565900829871 /* SceneDelegate.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				AAFDAD9F257A84F70000B6D7 /* MapView.swift in Sources */,
-				AAFDAD972576E1CA0000B6D7 /* WorkerActionButtonGroup.swift in Sources */,
+				AA1FB45C25EFD65C00CCAB31 /* WorkerActionHomePage.swift in Sources */,
+				AA1FB46525F001DD00CCAB31 /* LevelRow.swift in Sources */,
 				18D10999A101C93BFF688B5A /* CityPlacementView.swift in Sources */,
 				AA8E69AF25DBBC5A00C36E28 /* CombatGamePage.swift in Sources */,
 			);
@@ -610,7 +634,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 1.0.9;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = VT9SJH7UKQ;
 				ENABLE_PREVIEWS = YES;
@@ -635,7 +659,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 1.0.9;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = VT9SJH7UKQ;
 				ENABLE_PREVIEWS = YES;

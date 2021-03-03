@@ -7,7 +7,7 @@ import android.widget.Checkable
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import com.sixbynine.civ3guide.android.R
-import com.sixbynine.civ3guide.shared.WorkerAction
+import com.sixbynine.civ3guide.shared.worker.WorkerAction
 import com.sixbynine.civ3guide.shared.setSharedImageResource
 
 class WorkerActionButton(

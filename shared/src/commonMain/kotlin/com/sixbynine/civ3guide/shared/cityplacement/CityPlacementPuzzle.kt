@@ -1,8 +1,8 @@
 package com.sixbynine.civ3guide.shared.cityplacement
 
-import com.sixbynine.civ3guide.shared.MapConfiguration
-import com.sixbynine.civ3guide.shared.MapConfigurations
-import com.sixbynine.civ3guide.shared.TileInfo
+import com.sixbynine.civ3guide.shared.map.MapConfiguration
+import com.sixbynine.civ3guide.shared.map.MapConfigurations
+import com.sixbynine.civ3guide.shared.map.TileInfo
 
 data class CityPlacementPuzzle(
   val map: MapConfiguration,

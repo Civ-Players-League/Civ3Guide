@@ -29,8 +29,8 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
-                implementation("dev.icerock.moko:graphics:0.5.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.0.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.1")
                 implementation("dev.icerock.moko:resources:0.15.0")
                 implementation("dev.icerock.moko:parcelize:0.5.0")
             }
@@ -49,9 +49,10 @@ kotlin {
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.13.1")
+                implementation("junit:junit:4.13.2")
                 implementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
-                implementation("com.google.truth:truth:1.1")
+                implementation("com.google.truth:truth:1.1.2")
+                implementation("org.robolectric:robolectric:4.4")
             }
         }
         val iosMain by getting

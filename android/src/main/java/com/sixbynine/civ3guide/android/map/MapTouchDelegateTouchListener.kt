@@ -4,9 +4,9 @@ import android.annotation.SuppressLint
 import android.graphics.PointF
 import android.view.MotionEvent
 import android.view.View
-import com.sixbynine.civ3guide.shared.MapConfiguration
-import com.sixbynine.civ3guide.shared.TileInfo
-import com.sixbynine.civ3guide.shared.mapview.MapTouchDelegate
+import com.sixbynine.civ3guide.shared.map.MapConfiguration
+import com.sixbynine.civ3guide.shared.map.TileInfo
+import com.sixbynine.civ3guide.shared.map.MapTouchDelegate
 
 @SuppressLint("ClickableViewAccessibility")
 fun View.setMapTouchDelegate(

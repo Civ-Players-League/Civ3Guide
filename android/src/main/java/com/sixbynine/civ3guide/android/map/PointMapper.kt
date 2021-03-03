@@ -2,8 +2,8 @@ package com.sixbynine.civ3guide.android.map
 
 import android.graphics.PointF
 import android.view.View
-import com.sixbynine.civ3guide.shared.MapConfiguration
-import com.sixbynine.civ3guide.shared.Point
+import com.sixbynine.civ3guide.shared.map.MapConfiguration
+import com.sixbynine.civ3guide.shared.worker.Point
 
 interface PointMapper {
   fun toGraphical(point: Point): PointF

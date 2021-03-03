@@ -1,8 +1,6 @@
-package com.sixbynine.civ3guide.shared.mapview
+package com.sixbynine.civ3guide.shared.map
 
-import com.sixbynine.civ3guide.shared.MapConfiguration
-import com.sixbynine.civ3guide.shared.Point
-import com.sixbynine.civ3guide.shared.TileInfo
+import com.sixbynine.civ3guide.shared.worker.Point
 
 class MapTouchDelegate(private val map: MapConfiguration) {
 

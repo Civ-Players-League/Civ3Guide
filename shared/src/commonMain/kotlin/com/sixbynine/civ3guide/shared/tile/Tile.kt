@@ -1,8 +1,10 @@
-package com.sixbynine.civ3guide.shared
+package com.sixbynine.civ3guide.shared.tile
 
-import com.sixbynine.civ3guide.shared.Improvement.*
+import com.sixbynine.civ3guide.shared.tile.Improvement.*
 import com.sixbynine.civ3guide.shared.MR.strings
-import com.sixbynine.civ3guide.shared.Terrain.*
+import com.sixbynine.civ3guide.shared.tile.Terrain.*
+import com.sixbynine.civ3guide.shared.tile.TileOutputBreakdown.Modifier
+import com.sixbynine.civ3guide.shared.worker.WorkerAction
 import dev.icerock.moko.resources.StringResource
 
 data class Tile(
@@ -96,7 +98,7 @@ data class Tile(
 
   fun getOutputBreakdown(): TileOutputBreakdown {
     val baseOutput = terrain.getOutput()
-    val modifiers = mutableListOf<TileOutputBreakdown.Modifier>()
+    val modifiers = mutableListOf<Modifier>()
 
     fun addModifier(
       label: StringResource,
@@ -106,7 +108,7 @@ data class Tile(
       defenceBonus: Double = 0.0
     ) {
       modifiers.add(
-        TileOutputBreakdown.Modifier(
+        Modifier(
           label,
           TileOutput(food, shields, commerce, defenceBonus)
         )
@@ -119,7 +121,7 @@ data class Tile(
 
     if (resource != null) {
       modifiers.add(
-        TileOutputBreakdown.Modifier(
+        Modifier(
           resource.label,
           resource.getOutput()
         )

@@ -1,10 +1,12 @@
 package com.sixbynine.civ3guide.shared
 
-import com.sixbynine.civ3guide.shared.Improvement.*
-import com.sixbynine.civ3guide.shared.Resource.CATTLE
-import com.sixbynine.civ3guide.shared.Resource.GOLD
-import com.sixbynine.civ3guide.shared.Terrain.*
-import com.sixbynine.civ3guide.shared.WorkerAction.CLEAR_FOREST
+import com.sixbynine.civ3guide.shared.tile.Improvement.*
+import com.sixbynine.civ3guide.shared.tile.Resource.CATTLE
+import com.sixbynine.civ3guide.shared.tile.Resource.GOLD
+import com.sixbynine.civ3guide.shared.tile.Terrain.*
+import com.sixbynine.civ3guide.shared.tile.Tile
+import com.sixbynine.civ3guide.shared.tile.TileOutput
+import com.sixbynine.civ3guide.shared.worker.WorkerAction.CLEAR_FOREST
 import org.junit.Test
 import kotlin.test.assertEquals
 

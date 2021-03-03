@@ -1,6 +1,9 @@
 package com.sixbynine.civ3guide.shared
 
-import com.sixbynine.civ3guide.shared.TileOutputBreakdown.Modifier
+import com.sixbynine.civ3guide.shared.tile.Tile
+import com.sixbynine.civ3guide.shared.tile.TileOutput
+import com.sixbynine.civ3guide.shared.tile.TileOutputBreakdown
+import com.sixbynine.civ3guide.shared.tile.TileOutputBreakdown.Modifier
 
 interface Government {
   fun getOutput(tile: Tile): TileOutput

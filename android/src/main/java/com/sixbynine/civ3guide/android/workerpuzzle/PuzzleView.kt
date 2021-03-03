@@ -1,12 +1,8 @@
 package com.sixbynine.civ3guide.android.workerpuzzle
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
-import android.graphics.PointF
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.widget.*
 import androidx.core.view.children
@@ -16,7 +12,9 @@ import com.sixbynine.civ3guide.android.map.getPointMapper
 import com.sixbynine.civ3guide.android.map.setMapTouchDelegate
 import com.sixbynine.civ3guide.shared.*
 import com.sixbynine.civ3guide.shared.StandardGovernment.DESPOTISM
-import com.sixbynine.civ3guide.shared.mapview.MapTouchDelegate
+import com.sixbynine.civ3guide.shared.map.TileInfo
+import com.sixbynine.civ3guide.shared.tile.Tile
+import com.sixbynine.civ3guide.shared.worker.WorkerAction
 
 class PuzzleView(context: Context, attrs: AttributeSet?) : ScrollView(context, attrs) {
 

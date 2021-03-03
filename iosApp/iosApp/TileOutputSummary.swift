@@ -31,7 +31,7 @@ struct TileOutputSummary: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 20, height: 20)
-        }.frame(width: 50, alignment: .trailing)
+        }.frame(width: 60, alignment: .trailing)
         .hidden(isAdditive && value == 0)
     }
 }

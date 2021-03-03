@@ -7,7 +7,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import com.sixbynine.civ3guide.android.R
-import com.sixbynine.civ3guide.shared.Terrain.HILLS
+import com.sixbynine.civ3guide.shared.tile.Terrain.HILLS
 import com.sixbynine.civ3guide.shared.combat.Engagement
 import com.sixbynine.civ3guide.shared.preferences
 import com.sixbynine.civ3guide.shared.setSharedImageResource

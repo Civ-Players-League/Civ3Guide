@@ -1,5 +1,9 @@
-package com.sixbynine.civ3guide.shared
+package com.sixbynine.civ3guide.shared.map
 
+import com.sixbynine.civ3guide.shared.tile.Resource
+import com.sixbynine.civ3guide.shared.tile.Terrain
+import com.sixbynine.civ3guide.shared.tile.Tile
+import com.sixbynine.civ3guide.shared.worker.Point
 import dev.icerock.moko.resources.ImageResource
 import kotlin.math.abs
 
