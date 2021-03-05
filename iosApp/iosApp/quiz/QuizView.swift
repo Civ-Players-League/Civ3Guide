@@ -15,9 +15,15 @@ struct QuizView: View {
     }
     
     var isSolved: Bool {
-        uiState.selectedAnswer?.isCorrect ?? false
+        if uiState.selectedAnswer?.isCorrect ?? false {
+            QuizProgressManager().notePuzzleSolved(index: Int32(quizIndex))
+            return true
+        } else {
+            return false
+        }
     }
     
+    private let numPuzzlesPerRow: Int
     private let isLastQuiz: Bool
     
     init(isNavigationActive: Binding<Bool>, quizIndex: Int = 0) {
@@ -26,7 +32,10 @@ struct QuizView: View {
         self._uiState = State(
             initialValue: QuizUiState.Companion().forQuizIndex(index: Int32(quizIndex))
         )
-        self.isLastQuiz = quizIndex >= Quiz.Companion().all.count - 1
+        let quizzesPerRow = Int(LevelManager().PUZZLES_PER_ROW)
+        self.numPuzzlesPerRow = quizzesPerRow
+        self.isLastQuiz = quizIndex >= Quiz.Companion().all.count - 1 ||
+            quizIndex % quizzesPerRow == quizzesPerRow - 1
     }
     
     var body: some View {
@@ -65,7 +74,10 @@ struct QuizView: View {
             }.padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .navigationBarTitle(Text(MR.strings().puzzle_index, quizIndex + 1), displayMode: .inline)
+        .navigationBarTitle(
+            Text(getLevelDescription()),
+            displayMode: .inline
+        )
         .navigationBarItems(
             trailing: Button(
                 (isLastQuiz ? MR.strings().done : MR.strings().next).load()
@@ -90,6 +102,17 @@ struct QuizView: View {
                 quizIndex: quizIndex + 1
             )
         }
+    }
+    
+    private func getLevelDescription() -> String {
+        let level = quizIndex / numPuzzlesPerRow
+        let data = QuizProgressManager().getLevelPageData()
+        let rowData = data.rows[level]
+        let totalForLevel = rowData.total
+        return Levels.getLevelDescription(
+            index: quizIndex,
+            total: Int(totalForLevel)
+        )
     }
 }
 

@@ -17,14 +17,14 @@ struct HomeView: View {
         VStack {
             Text(MR.strings().app_description).padding()
             NavigationLink(
-                    destination: QuizView(isNavigationActive: $isQuizNavigationActive),
+                    destination: QuizHomePage(),
                     isActive: $isQuizNavigationActive
             ) {
                 EmptyView()
             }.isDetailLink(false)
             
             NavigationLink(
-                destination: WorkerActionHomePage(isNavigationActive: $isWorkerActionNavigationActive),
+                destination: WorkerActionHomePage(),
                 isActive: $isWorkerActionNavigationActive
             ) {
                 EmptyView()
@@ -32,7 +32,7 @@ struct HomeView: View {
             .isDetailLink(false)
             
             NavigationLink(
-                    destination: CityPlacementView(puzzleIndex: 0, isNavigationActive: $isCityPlacementNavigationActive),
+                    destination: CityPlacementHomePage(),
                     isActive: $isCityPlacementNavigationActive
             ) {
                 EmptyView()

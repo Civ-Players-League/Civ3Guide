@@ -289,6 +289,68 @@ object MapConfigurations {
           TileInfo(116, 160, FLOOD_PLAIN, hasRiver = true),
         ),
         image = images.map16
+      ),
+      MapConfiguration(
+        width = 663,
+        height = 397,
+        tileWidth = 640 / 5f,
+        tileHeight = 385 / 6f,
+        tiles = listOf(
+          TileInfo(345, 233, TUNDRA),
+          TileInfo(345, 169, GRASSLAND),
+          TileInfo(406, 204, GRASSLAND, resource = WINE),
+          TileInfo(473, 233, TUNDRA),
+          TileInfo(407, 266, TUNDRA),
+          TileInfo(278, 200, TUNDRA),
+        ),
+        image = images.map17
+      ),
+      MapConfiguration(
+        width = 677,
+        height = 411,
+        tileWidth = 640 / 5f,
+        tileHeight = 385 / 6f,
+        tiles = listOf(
+          TileInfo(251, 120, PLAINS),
+          TileInfo(188, 152, DESERT, resource = OASIS),
+          TileInfo(252, 57, PLAINS),
+          TileInfo(316, 89, PLAINS),
+          TileInfo(381, 122, PLAINS, resource = IVORY),
+          TileInfo(314, 152, HILLS),
+          TileInfo(252, 185, FOREST, coveredTerrain = PLAINS),
+        ),
+        image = images.map18
+      ),
+      MapConfiguration(
+        width = 616,
+        height = 345,
+        tileWidth = 640 / 5f,
+        tileHeight = 385 / 6f,
+        tiles = listOf(
+          TileInfo(295, 158, FOREST, coveredTerrain = TUNDRA),
+          TileInfo(295, 222, FOREST, resource = GAME, coveredTerrain = TUNDRA),
+          TileInfo(358, 190, FOREST, coveredTerrain = TUNDRA),
+          TileInfo(359, 125, FOREST, coveredTerrain = TUNDRA),
+          TileInfo(165, 158, FOREST, coveredTerrain = TUNDRA),
+          TileInfo(231, 127, TUNDRA),
+        ),
+        image = images.map19
+      ),
+      MapConfiguration(
+        width = 710,
+        height = 351,
+        tileWidth = 640 / 5f,
+        tileHeight = 385 / 6f,
+        tiles = listOf(
+          TileInfo(416, 180, FOREST, coveredTerrain = GRASSLAND),
+          TileInfo(415, 114, FOREST, coveredTerrain = PLAINS),
+          TileInfo(350, 146, PLAINS),
+          TileInfo(350, 80, PLAINS),
+          TileInfo(285, 113, PLAINS),
+          TileInfo(416, 49, FOREST, coveredTerrain = PLAINS),
+          TileInfo(350, 17, PLAINS),
+        ),
+        image = images.map20
       )
     )
   }

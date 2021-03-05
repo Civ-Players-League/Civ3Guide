@@ -44,6 +44,14 @@ data class CityPlacementPuzzle(
     private val WRONG_PLANT_TOO_CLOSE_TO_CAPITAL =
       Answer("Incorrect! That's too close to your capital. You can plant a little bit further away")
 
+    private val WRONG_PLANT_COAST_BETTER_THAN_SEA =
+      Answer(
+        "Incorrect! Coast tiles give more commerce than sea tiles. Better to plant to get " +
+            "the maximum number of coast tiles"
+      )
+    private val WRONG_PLANT_WASTES_BG =
+      Answer("Incorrect! This city spot wastes the bonus grassland!")
+
     val all: List<CityPlacementPuzzle> by lazy {
       listOf(
         CityPlacementPuzzle(
@@ -197,7 +205,7 @@ data class CityPlacementPuzzle(
           ),
           Answer(
             "Incorrect. This one is fine, but the gold won't be very useful early game. " +
-              "Better to plant within range of more southern grassland tiles"
+                "Better to plant within range of more southern grassland tiles"
           ),
           WRONG_PLANT_BONUS_FOOD,
           Answer(
@@ -243,6 +251,74 @@ data class CityPlacementPuzzle(
             "Incorrect. Unless you desperately need these wines, you should aim to plant within " +
                 "range of the high production tiles southwest of Seoul"
           )
+        ),
+        CityPlacementPuzzle(
+          MapConfigurations.all[17],
+          Answer(
+            "Correct! this has high production for the hills and forests, and lots of food from " +
+                "the grassland",
+            isCorrect = true
+          ),
+          Answer(
+            "Correct. This is weaker late game, but early game it gets all the bonus grassland " +
+                "immediately and would be a god spot if you wanted to do an early military rush",
+            isCorrect = true
+          ),
+          WRONG_PLANT_BONUS_FOOD,
+          Answer("Incorrect. Plant nearer to the grassland so this city has more food late game"),
+          Answer("Incorrect. Plant nearer to the grassland so this city has more food late game"),
+          Answer("Incorrect. Don't plant on the bonus grassland unless you have a good reason"),
+        ),
+        CityPlacementPuzzle(
+          MapConfigurations.all[18],
+          Answer("Correct! This gets all available tiles and is coastal", isCorrect = true),
+          WRONG_PLANT_BONUS_FOOD,
+          Answer(
+            "Incorrect! This city wastes two desert tiles north of Salamanca. The Iroquois are " +
+                "an agricultural civ, so desert tiles give solid yields when irrigated. Don't " +
+                "waste them!"
+          ),
+          Answer(
+            "Incorrect! This city wastes two desert tiles north of Salamanca. The Iroquois are " +
+                "an agricultural civ, so desert tiles give solid yields when irrigated. Don't " +
+                "waste them!"
+          ),
+          WRONG_PLANT_1_AWAY_FROM_COAST,
+          WRONG_PLANT_1_AWAY_FROM_COAST,
+          WRONG_PLANT_1_AWAY_FROM_COAST
+        ),
+        CityPlacementPuzzle(
+          MapConfigurations.all[19],
+          Answer(
+            "Correct! This gets the deer immediately, and the maximum number of coast tiles",
+            isCorrect = true
+          ),
+          WRONG_PLANT_BONUS_FOOD,
+          WRONG_PLANT_COAST_BETTER_THAN_SEA,
+          WRONG_PLANT_COAST_BETTER_THAN_SEA,
+          WRONG_PLANT_COAST_BETTER_THAN_SEA,
+          WRONG_PLANT_COAST_BETTER_THAN_SEA
+        ),
+        CityPlacementPuzzle(
+          MapConfigurations.all[20],
+          Answer(
+            "Correct! This works great if you want a strong city early, due to the bonus grassland",
+            isCorrect = true
+          ),
+          Answer(
+            "Correct! This is the optimal late game city. It gets all available tiles, although " +
+                "it doesn't have the bonus grassland until it gets a border expand",
+            isCorrect = true
+          ),
+          Answer(
+            "Incorrect! This is 3 tiles from your cap and wastes some land tiles, so it's " +
+                "weak late game, but it's not next to the bonus grassland, so it's weak early " +
+                "game too"
+          ),
+          WRONG_PLANT_WASTES_BG,
+          WRONG_PLANT_WASTES_BG,
+          WRONG_PLANT_WASTES_BG,
+          Answer("Incorrect! You're just trolling at this point")
         )
       )
     }

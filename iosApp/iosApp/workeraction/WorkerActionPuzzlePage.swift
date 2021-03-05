@@ -9,7 +9,7 @@ struct WorkerActionPuzzlePage: View {
     @State private var goToNext: Bool = false
     @State private var showHelp: Bool = false
     
-    private let numPuzzlesPerRow = Int(WorkerPuzzleProgressManager().PUZZLES_PER_ROW)
+    private let numPuzzlesPerRow = Int(LevelManager().PUZZLES_PER_ROW)
     
     var isLastPuzzle: Bool {
         puzzleIndex + 1 >= WorkerPuzzles().all.count ||
@@ -66,7 +66,7 @@ struct WorkerActionPuzzlePage: View {
         }
         .padding()
         .navigationBarTitle(
-            Text(MR.strings().level_s.format(string: getLevelDescription())),
+            Text(getLevelDescription()),
             displayMode: .inline
         )
         .navigationBarItems(trailing: Button(MR.strings().help.load()) {
@@ -111,9 +111,11 @@ struct WorkerActionPuzzlePage: View {
         let level = puzzleIndex / numPuzzlesPerRow
         let data = WorkerPuzzleProgressManager().getLevelPageData()
         let rowData = data.rows[level]
-        let levelIndex = puzzleIndex % numPuzzlesPerRow
         let totalForLevel = rowData.total
-        return "\(level + 1), \(levelIndex + 1)/\(totalForLevel)"
+        return Levels.getLevelDescription(
+            index: puzzleIndex,
+            total: Int(totalForLevel)
+        )
     }
 }
 

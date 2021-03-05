@@ -1,35 +1,35 @@
 import SwiftUI
 import shared
 
-struct WorkerActionHomePage: View {
+struct CityPlacementHomePage: View {
     
-    @State private var data = WorkerPuzzleProgressManager().getLevelPageData()
+    @State private var data = CityPlacementProgressManager().getLevelPageData()
     
     var body: some View {
         VStack {
-            Text(MR.strings().worker_puzzle_intro_text)
+            Text(MR.strings().city_placement_intro)
                 .padding()
             LevelList(data) { launchIndex, isNavigationActive in
-                WorkerActionPuzzlePage(
+                CityPlacementView(
                     puzzleIndex: Int(launchIndex),
                     isNavigationActive: isNavigationActive
                 )
             }
         }
         .navigationBarTitle(
-            Text(MR.strings().home_label_worker_action_title),
+            Text(MR.strings().city_placement_title),
             displayMode: .inline
         )
         .onAppear {
             withAnimation {
-                data = WorkerPuzzleProgressManager().getLevelPageData()
+                data = CityPlacementProgressManager().getLevelPageData()
             }
         }
     }
 }
 
-struct WorkerActionHomePage_Previews: PreviewProvider {
+struct CityPlacementHomePage_Previews: PreviewProvider {
     static var previews: some View {
-        WorkerActionHomePage()
+        CityPlacementHomePage()
     }
 }

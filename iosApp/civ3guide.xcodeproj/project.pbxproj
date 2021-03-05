@@ -21,6 +21,10 @@
 		7555FFB3242A642300829871 /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA1FB45C25EFD65C00CCAB31 /* WorkerActionHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1FB45B25EFD65C00CCAB31 /* WorkerActionHomePage.swift */; };
 		AA1FB46525F001DD00CCAB31 /* LevelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1FB46425F001DD00CCAB31 /* LevelRow.swift */; };
+		AA28268925F26F1700BFE242 /* QuizHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28268825F26F1700BFE242 /* QuizHomePage.swift */; };
+		AA28268D25F26F8600BFE242 /* LevelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28268C25F26F8600BFE242 /* LevelList.swift */; };
+		AA28269125F2748700BFE242 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28269025F2748700BFE242 /* Levels.swift */; };
+		AA28269525F278EE00BFE242 /* CityPlacementHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28269425F278EE00BFE242 /* CityPlacementHomePage.swift */; };
 		AA5332BA2573DD630084921A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5332B92573DD630084921A /* Extensions.swift */; };
 		AA66756825EF9AFD00899741 /* WorkerActionPuzzlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66756725EF9AFD00899741 /* WorkerActionPuzzlePage.swift */; };
 		AA66756E25EF9B5D00899741 /* WorkerActionButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66756D25EF9B5D00899741 /* WorkerActionButtonGroup.swift */; };
@@ -93,6 +97,10 @@
 		7555FFB1242A642300829871 /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = "../shared/build/xcode-frameworks/shared.framework"; sourceTree = "<group>"; };
 		AA1FB45B25EFD65C00CCAB31 /* WorkerActionHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerActionHomePage.swift; sourceTree = "<group>"; };
 		AA1FB46425F001DD00CCAB31 /* LevelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelRow.swift; sourceTree = "<group>"; };
+		AA28268825F26F1700BFE242 /* QuizHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHomePage.swift; sourceTree = "<group>"; };
+		AA28268C25F26F8600BFE242 /* LevelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelList.swift; sourceTree = "<group>"; };
+		AA28269025F2748700BFE242 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
+		AA28269425F278EE00BFE242 /* CityPlacementHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPlacementHomePage.swift; sourceTree = "<group>"; };
 		AA5332B92573DD630084921A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AA66756725EF9AFD00899741 /* WorkerActionPuzzlePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerActionPuzzlePage.swift; sourceTree = "<group>"; };
 		AA66756D25EF9B5D00899741 /* WorkerActionButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerActionButtonGroup.swift; sourceTree = "<group>"; };
@@ -146,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				18D1015819B157C935935D9D /* CityPlacementView.swift */,
+				AA28269425F278EE00BFE242 /* CityPlacementHomePage.swift */,
 			);
 			path = cityplacement;
 			sourceTree = "<group>";
@@ -236,6 +245,8 @@
 			isa = PBXGroup;
 			children = (
 				AA1FB46425F001DD00CCAB31 /* LevelRow.swift */,
+				AA28268C25F26F8600BFE242 /* LevelList.swift */,
+				AA28269025F2748700BFE242 /* Levels.swift */,
 			);
 			path = level;
 			sourceTree = "<group>";
@@ -257,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				AA744CBA25A506AA0062E039 /* QuizView.swift */,
+				AA28268825F26F1700BFE242 /* QuizHomePage.swift */,
 			);
 			path = quiz;
 			sourceTree = "<group>";
@@ -443,14 +455,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA28269525F278EE00BFE242 /* CityPlacementHomePage.swift in Sources */,
 				AA66757A25EF9C2C00899741 /* PuzzleHelpPage.swift in Sources */,
 				AA5332BA2573DD630084921A /* Extensions.swift in Sources */,
 				AA9E944825DC54FF00CE9A7A /* HPView.swift in Sources */,
 				AA744CBB25A506AA0062E039 /* QuizView.swift in Sources */,
 				AA68A425258AAC68007C030D /* HomeView.swift in Sources */,
 				AA68A429258AACD1007C030D /* HomeListItem.swift in Sources */,
+				AA28268D25F26F8600BFE242 /* LevelList.swift in Sources */,
 				AAD7E4D1257EF3C400838529 /* TileOutputSummary.swift in Sources */,
+				AA28268925F26F1700BFE242 /* QuizHomePage.swift in Sources */,
 				7555FF7F242A565900829871 /* AppDelegate.swift in Sources */,
+				AA28269125F2748700BFE242 /* Levels.swift in Sources */,
 				AAB584B9257EA8870068D817 /* TileOutputBreakdown.swift in Sources */,
 				AA66758025EF9C4700899741 /* PuzzleChoiceSummaryView.swift in Sources */,
 				AA66757425EF9B8D00899741 /* WorkerActionButton.swift in Sources */,
@@ -634,7 +650,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.9;
+				CURRENT_PROJECT_VERSION = 1.0.10;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = VT9SJH7UKQ;
 				ENABLE_PREVIEWS = YES;
@@ -659,7 +675,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.9;
+				CURRENT_PROJECT_VERSION = 1.0.10;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = VT9SJH7UKQ;
 				ENABLE_PREVIEWS = YES;
