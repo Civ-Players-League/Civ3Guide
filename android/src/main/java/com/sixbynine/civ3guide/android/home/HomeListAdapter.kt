@@ -8,10 +8,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sixbynine.civ3guide.android.R
+import com.sixbynine.civ3guide.android.cityplacement.CityPlacementHomeActivity
 import com.sixbynine.civ3guide.android.cityplacement.CityPlacementPuzzleActivity
 import com.sixbynine.civ3guide.android.combat.CombatGameActivity
 import com.sixbynine.civ3guide.android.quiz.QuizActivity
+import com.sixbynine.civ3guide.android.quiz.QuizHomeActivity
 import com.sixbynine.civ3guide.android.workerpuzzle.WorkerPuzzleActivity
+import com.sixbynine.civ3guide.android.workerpuzzle.WorkerPuzzleHomeActivity
 import com.sixbynine.civ3guide.shared.home.HomeDestination
 import com.sixbynine.civ3guide.shared.home.HomeDestination.*
 import com.sixbynine.civ3guide.shared.setSharedImageResource
@@ -40,9 +43,9 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
 
   private fun navigateToDestination(context: Context, destination: HomeDestination) {
     val intent = when (destination) {
-      QUIZ -> Intent(context, QuizActivity::class.java)
-      WORKER_PUZZLE -> Intent(context, WorkerPuzzleActivity::class.java)
-      CITY_PLACEMENT -> Intent(context, CityPlacementPuzzleActivity::class.java)
+      QUIZ -> Intent(context, QuizHomeActivity::class.java)
+      WORKER_PUZZLE -> Intent(context, WorkerPuzzleHomeActivity::class.java)
+      CITY_PLACEMENT -> Intent(context, CityPlacementHomeActivity::class.java)
       COMBAT_ODDS -> Intent(context, CombatGameActivity::class.java)
     }
     context.startActivity(intent)

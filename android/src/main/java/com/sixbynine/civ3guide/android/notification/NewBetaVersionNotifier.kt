@@ -30,6 +30,12 @@ object NewBetaVersionNotifier {
       return
     }
 
+    if (previousVersion == null) {
+      Logger.d("First run, storing the current sequence")
+      preferences.putInt(KEY_BETA_VERSION_SEQUENCE, BETA_VERSION_SEQUENCE)
+      return
+    }
+
     Logger.d("Upgraded to a new beta version, showing the notification")
     preferences.putInt(KEY_BETA_VERSION_SEQUENCE, BETA_VERSION_SEQUENCE)
     val context = Civ3GuideApplication.instance

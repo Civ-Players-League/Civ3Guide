@@ -4,7 +4,6 @@ plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization") version "1.4.10"
     id("com.android.library")
-    id("kotlin-android-extensions")
     id("dev.icerock.mobile.multiplatform-resources")
 }
 group = "com.sixbynine.civ3guide"
@@ -13,7 +12,6 @@ version = "1.0-SNAPSHOT"
 repositories {
     gradlePluginPortal()
     google()
-    jcenter()
     maven(url = "https://dl.bintray.com/icerockdev/moko")
     mavenCentral()
 }

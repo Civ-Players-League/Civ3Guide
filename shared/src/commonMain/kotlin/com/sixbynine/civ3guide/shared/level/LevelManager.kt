@@ -120,6 +120,7 @@ data class LevelPageData(
   val rows: List<LevelPageRowData>
 )
 
+@Serializable
 data class LevelPageRowData(
   val completed: Int = 0,
   val total: Int = 0,

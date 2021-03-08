@@ -1,16 +1,22 @@
 package com.sixbynine.civ3guide.android.workerpuzzle
 
+import com.sixbynine.civ3guide.android.cityplacement.CityPlacementPuzzleUiState
+import com.sixbynine.civ3guide.android.cityplacement.isLastIndex
+import com.sixbynine.civ3guide.shared.cityplacement.CityPlacementProgressManager
+import com.sixbynine.civ3guide.shared.cityplacement.CityPlacementPuzzle
+import com.sixbynine.civ3guide.shared.level.LevelPageRowData
 import com.sixbynine.civ3guide.shared.map.TileInfo
 import com.sixbynine.civ3guide.shared.worker.WorkerAction
+import com.sixbynine.civ3guide.shared.worker.WorkerPuzzleProgressManager
 import com.sixbynine.civ3guide.shared.worker.WorkerPuzzles
 
-class PuzzleController {
+class PuzzleController(val rowData: LevelPageRowData) {
 
   private val states = mutableListOf<PuzzleUiState>()
   private val observers = mutableSetOf<OnPuzzleStatesChangedObserver>()
 
   init {
-    states.add(PuzzleUiState(WorkerPuzzles.all.first()))
+    states.add(PuzzleUiState(WorkerPuzzles.all[rowData.launchIndex]))
   }
 
   fun getNumPuzzlesToDisplay(): Int {
@@ -21,14 +27,16 @@ class PuzzleController {
     return states[index]
   }
 
-  fun isLastPuzzle(index: Int): Boolean {
-    return index >= WorkerPuzzles.all.size - 1
-  }
+  fun isLastPuzzle(index: Int) = rowData.isLastIndex(index)
 
   fun setWorkerAction(puzzleIndex: Int, action: WorkerAction?) {
     val previousPuzzle = states[puzzleIndex]
     if (previousPuzzle.selectedAction == action) return
     val puzzle = previousPuzzle.copy(selectedAction = action)
+
+    if (puzzle.isSolved()) {
+      WorkerPuzzleProgressManager.notePuzzleSolved(states.size - 1 + rowData.launchIndex)
+    }
 
     states[puzzleIndex] = puzzle
     maybeAddNewPuzzle()
@@ -49,8 +57,8 @@ class PuzzleController {
   }
 
   private fun maybeAddNewPuzzle() {
-    if (states.lastOrNull()?.isSolved() == true && states.size <= WorkerPuzzles.all.size - 1) {
-      states.add(PuzzleUiState(WorkerPuzzles.all[states.size]))
+    if (states.lastOrNull()?.isSolved() == true && !isLastPuzzle(states.size - 1)) {
+      states.add(PuzzleUiState(WorkerPuzzles.all[states.size + rowData.launchIndex]))
     }
   }
 
