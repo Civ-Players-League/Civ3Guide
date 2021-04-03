@@ -17,17 +17,26 @@ import com.sixbynine.civ3guide.shared.unit.veteran
 class CombatGameActivity : AppCompatActivity() {
 
   private var showStats = false
+  private var advanceToPuzzle = false
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_combat_game)
     supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+    savedInstanceState?.let {
+      advanceToPuzzle = it.getBoolean(KEY_ADVANCE_TO_PUZZLE)
+    }
     bindViews()
   }
 
   override fun onCreateOptionsMenu(menu: Menu?): Boolean {
     menuInflater.inflate(R.menu.menu_combat, menu)
     return true
+  }
+
+  override fun onSaveInstanceState(outState: Bundle) {
+    super.onSaveInstanceState(outState)
+    outState.putBoolean(KEY_ADVANCE_TO_PUZZLE, advanceToPuzzle)
   }
 
   override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
@@ -58,7 +67,7 @@ class CombatGameActivity : AppCompatActivity() {
   }
 
   private fun bindViews() {
-    if (CombatPuzzles.shouldShowFirstTimePage()) {
+    if (CombatPuzzles.shouldShowFirstTimePage() && !advanceToPuzzle) {
       findViewById<View>(R.id.game).visibility = View.GONE
       findViewById<View>(R.id.intro_layout).visibility = View.VISIBLE
       findViewById<CombatUnitView>(R.id.intro_attacker).setData(
@@ -71,6 +80,7 @@ class CombatGameActivity : AppCompatActivity() {
       )
       findViewById<View>(R.id.bottom_button).setOnClickListener {
         CombatPuzzles.noteFirstTimePageSeen()
+        advanceToPuzzle = true
         bindViews()
       }
       return
@@ -96,6 +106,7 @@ class CombatGameActivity : AppCompatActivity() {
   }
 
   private companion object {
+    private const val KEY_ADVANCE_TO_PUZZLE = "advance_to_puzzle"
     private val sampleEngagement = Engagement(
       attacker = veteran(WARRIOR),
       defender = veteran(SPEARMAN),

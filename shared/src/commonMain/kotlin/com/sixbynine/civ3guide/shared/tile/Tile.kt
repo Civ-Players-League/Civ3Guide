@@ -13,6 +13,7 @@ data class Tile(
   val resource: Resource? = null,
   val hasRiver: Boolean = false,
   val coveredTerrain: Terrain? = null,
+  val previousTerrain: Terrain? = null,
   private val isIrrigatableViaCity: Boolean = false
 ) {
 
@@ -30,7 +31,8 @@ data class Tile(
     }
   }
 
-  fun withAction(workerAction: WorkerAction): Tile {
+  fun withAction(workerAction: WorkerAction?): Tile {
+    if (workerAction == null) return this
     val newImprovements = improvements.toMutableList()
     when (workerAction) {
       WorkerAction.MINE -> {
@@ -51,13 +53,14 @@ data class Tile(
         newImprovements.remove(RAILROAD)
         newImprovements.add(RAILROAD)
       }
-      WorkerAction.CLEAR_FOREST -> {
+      WorkerAction.CLEAR_FOREST, WorkerAction.CLEAR_WETLANDS -> {
         check(coveredTerrain != null) {
-          "Cannot clear forest without covered terrain specified"
+          "Cannot clear forest/wetlands without covered terrain specified"
         }
         return copy(
           terrain = coveredTerrain,
-          coveredTerrain = null
+          coveredTerrain = null,
+          previousTerrain = terrain
         )
       }
     }
@@ -78,6 +81,10 @@ data class Tile(
         add(WorkerAction.CLEAR_FOREST)
       }
 
+      if (terrain == JUNGLE || terrain == MARSH) {
+        add(WorkerAction.CLEAR_WETLANDS)
+      }
+
       if (terrain in MINEABLE_TERRAINS) {
         add(WorkerAction.MINE)
       }
@@ -92,11 +99,11 @@ data class Tile(
    * Returns the output of the tile, based on the terrain, improvements, and resources. This does
    * not take into account penalties or bonuses from governments or golden ages.
    */
-  fun getOutput(): TileOutput {
-    return getOutputBreakdown().totalOutput
+  fun getOutput(isAgricultural: Boolean): TileOutput {
+    return getOutputBreakdown(isAgricultural).totalOutput
   }
 
-  fun getOutputBreakdown(): TileOutputBreakdown {
+  fun getOutputBreakdown(isAgricultural: Boolean): TileOutputBreakdown {
     val baseOutput = terrain.getOutput()
     val modifiers = mutableListOf<Modifier>()
 
@@ -131,9 +138,16 @@ data class Tile(
     val isRailroaded = RAILROAD in improvements
 
     if (IRRIGATION in improvements) {
-      addModifier(strings.irrigation, food = 1)
-      if (isRailroaded) {
-        addModifier(strings.railroad, food = 1)
+      if (isAgricultural && terrain == DESERT) {
+        addModifier(strings.irrigation_agricultural, food = 2)
+        if (isRailroaded) {
+          addModifier(strings.railroad, food = 0)
+        }
+      } else {
+        addModifier(strings.irrigation, food = 1)
+        if (isRailroaded) {
+          addModifier(strings.railroad, food = 1)
+        }
       }
     }
 
@@ -159,7 +173,7 @@ data class Tile(
 
   private companion object {
     val IRRIGATABLE_TERRAINS = listOf(BONUS_GRASSLAND, DESERT, FLOOD_PLAIN, GRASSLAND, PLAINS)
-    val MINEABLE_TERRAINS = listOf(BONUS_GRASSLAND, GRASSLAND, PLAINS, HILLS, MOUNTAIN, TUNDRA)
+    val MINEABLE_TERRAINS = listOf(BONUS_GRASSLAND, DESERT, GRASSLAND, PLAINS, HILLS, MOUNTAIN, TUNDRA)
     val ROADABLE_TERRAINS = Terrain.values().toList() - listOf(COAST, LAKE, OCEAN, SEA, VOLCANO)
   }
 }
@@ -193,7 +207,7 @@ enum class Terrain(
   HILLS(strings.hills, food = 1, shields = 1, defenceBonus = 0.5, movement = 2),
   JUNGLE(strings.jungle, food = 1, defenceBonus = 0.25, movement = 3, disease = true),
   LAKE(strings.lake, food = 2, commerce = 2),
-  MARSH(strings.bonus_grassland, food = 1, defenceBonus = 0.2, movement = 2, disease = true),
+  MARSH(strings.marsh, food = 1, defenceBonus = 0.2, movement = 2, disease = true),
   MOUNTAIN(strings.mountains, shields = 1, defenceBonus = 1.0, movement = 3),
   OCEAN(strings.ocean),
   PLAINS(strings.plains, food = 1, shields = 1),

@@ -38,7 +38,11 @@ class PuzzleViewPagerAdapter(
       controller.setWorkerTile(position, it)
     }
     holder.view.onActionButtonClickListener = {
-      controller.setWorkerAction(position, it)
+      if (controller.getPuzzle(position).selectedAction == it) {
+        controller.setWorkerAction(position, null)
+      } else {
+        controller.setWorkerAction(position, it)
+      }
     }
     holder.view.onNextDoneClickListener = {
       onPuzzleNextDoneClicked()

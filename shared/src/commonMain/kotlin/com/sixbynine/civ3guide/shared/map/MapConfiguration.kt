@@ -10,8 +10,8 @@ import kotlin.math.abs
 data class MapConfiguration(
   val width: Int,
   val height: Int,
-  val tileWidth: Float,
-  val tileHeight: Float,
+  val tileWidth: Float = 640 / 5f,
+  val tileHeight: Float = 385 / 6f,
   val tiles: List<TileInfo>,
   val image: ImageResource
 ) {

@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.doOnNextLayout
 import com.sixbynine.civ3guide.android.R
 import com.sixbynine.civ3guide.android.map.getPointMapper
+import com.sixbynine.civ3guide.android.map.roundCorners
 import com.sixbynine.civ3guide.android.map.setMapTouchDelegate
 import com.sixbynine.civ3guide.android.workerpuzzle.ClickHighlightView
 import com.sixbynine.civ3guide.shared.map.TileInfo
@@ -55,6 +56,7 @@ class CityPlacementPuzzleView(context: Context, attrs: AttributeSet?) : ScrollVi
     image.setSharedImageResource(map.image)
 
     val pointMapper = map.getPointMapper(image)
+    pointMapper.roundCorners(image)
     image.setMapTouchDelegate(map) { onTileClickListener?.invoke(it) }
 
     highlightView.clearHighlights()

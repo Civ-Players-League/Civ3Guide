@@ -5,11 +5,12 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.ScrollView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.button.MaterialButton
 import com.sixbynine.civ3guide.android.R
-import com.sixbynine.civ3guide.android.ktx.getColor
 import com.sixbynine.civ3guide.android.ktx.getColorStateList
 import com.sixbynine.civ3guide.shared.combat.CombatCalculator
+import com.sixbynine.civ3guide.shared.combat.CombatExplainer
 import com.sixbynine.civ3guide.shared.combat.CombatResultType.ATTACKER_WINS
 import com.sixbynine.civ3guide.shared.combat.randomEngagement
 
@@ -32,6 +33,7 @@ class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(contex
   private val expectedShields: TextView = findViewById(R.id.expected_shields)
   private val favorabilitySummary: TextView = findViewById(R.id.favorability_summary)
   private val nextPuzzleButton: View = findViewById(R.id.next_puzzle_button)
+  private val explainButton: View = findViewById(R.id.explain_button)
   private val river: View = findViewById(R.id.river)
 
   private var engagement =
@@ -93,6 +95,7 @@ class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(contex
       expectedShields.visibility = View.GONE
       favorabilitySummary.visibility = View.GONE
       nextPuzzleButton.visibility = View.GONE
+      explainButton.visibility = View.GONE
       return
     }
 
@@ -142,6 +145,15 @@ class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(contex
         randomEngagement(allowUniqueUnits = true, allowFastUnits = true, allowRetreat = false)
       newPuzzleListener?.invoke()
       bindViews()
+    }
+
+    explainButton.visibility = View.VISIBLE
+    explainButton.setOnClickListener {
+      AlertDialog.Builder(context)
+        .setTitle(R.string.combat_explanation)
+        .setMessage(CombatExplainer.explain(engagement))
+        .create()
+        .show()
     }
   }
 

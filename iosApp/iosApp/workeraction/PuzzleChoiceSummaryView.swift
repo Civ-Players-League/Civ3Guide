@@ -2,6 +2,7 @@ import SwiftUI
 import shared
 
 struct PuzzleChoiceSummaryView: View {
+    let configuration: WorkerPuzzleConfiguration
     let government: Government?
     let tile: Tile
     let action: WorkerAction?
@@ -16,7 +17,11 @@ struct PuzzleChoiceSummaryView: View {
     var body: some View {
         VStack{
             Spacer().frame(height: 8)
-            TileOutputBreakdown(tile: effectiveTile, government: government)
+            TileOutputBreakdown(
+                configuration: configuration,
+                tile: effectiveTile,
+                government: government
+            )
         }
     }
 }
@@ -24,6 +29,7 @@ struct PuzzleChoiceSummaryView: View {
 struct PuzzleChoiceSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         PuzzleChoiceSummaryView(
+            configuration: WorkerPuzzles().all.first!,
             government: StandardGovernment.despotism,
             tile: MapConfigurations().all.first!.tiles[0].tile,
             action: .mine,

@@ -2,11 +2,13 @@ package com.sixbynine.civ3guide.android.workerpuzzle
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.view.updateLayoutParams
 import com.sixbynine.civ3guide.android.R
 import com.sixbynine.civ3guide.shared.tile.Terrain
 import com.sixbynine.civ3guide.shared.tile.TileOutputBreakdown
@@ -66,7 +68,14 @@ class WorkerPuzzleSummaryView(
   private inline fun inflateRow(modifier: Row.() -> Unit) {
     LayoutInflater.from(context).inflate(R.layout.puzzle_summary_row, this, false).let {
       addView(it)
-      Row(it).modifier()
+      val row = Row(it)
+
+      val width = row.foodLabel.paint.measureText("+2") + 32 * resources.displayMetrics.density
+      row.foodGroup.updateLayoutParams { this.width = width.toInt() }
+      row.shieldsGroup.updateLayoutParams { this.width = width.toInt() }
+      row.commerceGroup.updateLayoutParams { this.width = width.toInt() }
+
+      row.modifier()
     }
   }
 
@@ -78,7 +87,7 @@ class WorkerPuzzleSummaryView(
     }
   }
 
-  private class Row(view: View) {
+  private class Row(private val view: View) {
     val label = view.findViewById<TextView>(R.id.label)
     val foodGroup = view.findViewById<View>(R.id.food_group)
     val foodLabel = view.findViewById<TextView>(R.id.food_label)

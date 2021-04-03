@@ -148,6 +148,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginTop="8dp"
             android:textAppearance="?attr/textAppearanceBody1" />
 
         <TextView
@@ -155,6 +156,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginTop="8dp"
             android:textAppearance="?attr/textAppearanceBody1" />
 
         <TextView
@@ -164,12 +166,32 @@
             android:gravity="center"
             android:textAppearance="?attr/textAppearanceBody1" />
 
-        <Button
-            android:id="@+id/next_puzzle_button"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="New puzzle" />
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/explain_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/explain" />
+
+            <Space
+                android:layout_width="16dp"
+                android:layout_height="1dp"/>
+
+            <Button
+                android:id="@+id/next_puzzle_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/new_puzzle" />
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
 </merge>

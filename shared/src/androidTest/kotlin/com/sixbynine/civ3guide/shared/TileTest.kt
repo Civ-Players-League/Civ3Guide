@@ -63,8 +63,12 @@ class TileTest {
     food: Int = 0,
     shields: Int = 0,
     commerce: Int = 0,
-    defence: Double = 0.0
+    defence: Double = 0.0,
+    isAgricultural: Boolean = false
   ) {
-    assertEquals(TileOutput(food, shields, commerce, defence), tile.getOutput())
+    assertEquals(
+      TileOutput(food, shields, commerce, defence),
+      tile.getOutput(isAgricultural = isAgricultural)
+    )
   }
 }

@@ -58,8 +58,8 @@ struct MapView: View {
                 width: CGFloat(Float(map.width) * getScaleFactor()),
                 height: CGFloat(Float(map.height) * getScaleFactor()),
                 alignment: .center)
-            .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
-            .overlay(Rectangle().stroke(Color.black, lineWidth: 1).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/))
+            .cornerRadius(16.0)
+            .overlay(Rectangle().stroke(Color.black, lineWidth: 1).cornerRadius(16.0))
     }
     
     @ViewBuilder

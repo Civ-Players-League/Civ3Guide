@@ -84,6 +84,7 @@ struct WorkerActionPuzzlePage: View {
             )
             
             PuzzleChoiceSummaryView(
+                configuration: configuration,
                 government: StandardGovernment.despotism,
                 tile: tile.tile,
                 action: selectedAction,
@@ -92,7 +93,15 @@ struct WorkerActionPuzzlePage: View {
             
             if (selectedAction != nil) {
                 Spacer().frame(height: 16)
-                Text(isSolved ? MR.strings().worker_action_optimal : MR.strings().worker_action_not_optimal)
+                if isSolved && configuration.extraExplanation != nil {
+                    Text("\(MR.strings().worker_action_optimal.load()).\n\(configuration.extraExplanation!)")
+                        .multilineTextAlignment(.center)
+                } else {
+                    Text(
+                        isSolved
+                            ? MR.strings().worker_action_optimal
+                            : MR.strings().worker_action_not_optimal)
+                }
             }
             if (isSolved) {
                 Button(isLastPuzzle ? MR.strings().done.load() : MR.strings().next.load()) {

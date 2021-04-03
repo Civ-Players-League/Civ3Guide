@@ -11,5 +11,5 @@
     <string name="very_favorable">Very favourable</string>
     <string name="combat_odds_summary">Test your ability to estimate whether exchanges are favourable</string>
     <string name="combat_odds_prompt">Is it favourable to attack?</string>
-    <string name="combat_odds_first_time_explanation">This game tests your ability to estimate whether it\&apos;s worth it to attack a particular unit, based on 1) the probability of victory, and 2) the shield costs of the fighting units.\n\nThe favourability of the exchange is measured as Expected Shields, or ES, a measure of how many shields you expect to gain or lose from the exchange on average, compared to your enemy. A positive ES is good for you, a negative ES is bad.</string>
+    <string name="combat_odds_first_time_explanation">This game tests your ability to estimate whether it\&apos;s worth it to attack a particular unit, based on 1) the probability of victory, and 2) the shield costs of the fighting units.\n\nThe favourability of the exchange is measured as Expected Shields, or ES, a measure of how many shields you expect to gain or lose from the exchange on average, compared to your enemy. A positive ES is good for you, a negative ES is bad.\n\nYou can view the stats and cost of the units in the puzzle using the button in the top bar.</string>
 </resources>

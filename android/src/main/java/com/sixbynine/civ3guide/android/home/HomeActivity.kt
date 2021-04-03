@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sixbynine.civ3guide.android.R
+import com.sixbynine.civ3guide.android.notification.NewBetaVersionNotifier
 
 class HomeActivity : AppCompatActivity() {
 

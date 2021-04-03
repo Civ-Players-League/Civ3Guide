@@ -22,7 +22,7 @@
         
         <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/puzzle_height"
             android:layout_margin="16dp"
             android:layout_gravity="center">
             <ImageView
@@ -32,7 +32,7 @@
                 android:scaleType="fitCenter"
                 android:foregroundGravity="center"
                 android:importantForAccessibility="no"
-                tools:src="@drawable/civ3puzzle1"/>
+                tools:src="@drawable/map0"/>
             <com.sixbynine.civ3guide.android.workerpuzzle.ClickHighlightView
                 android:id="@+id/click_highlight_view"
                 android:layout_width="match_parent"

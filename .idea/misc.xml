@@ -10,13 +10,17 @@
         <entry key="android/src/main/res/layout/activity_city_placement_home.xml" value="0.125" />
         <entry key="android/src/main/res/layout/activity_combat_game.xml" value="0.1" />
         <entry key="android/src/main/res/layout/activity_quiz_home.xml" value="0.1" />
+        <entry key="android/src/main/res/layout/activity_worker_puzzle.xml" value="0.11195542046605876" />
         <entry key="android/src/main/res/layout/activity_worker_puzzle_home.xml" value="0.25" />
+        <entry key="android/src/main/res/layout/combat_game_contents.xml" value="0.165" />
+        <entry key="android/src/main/res/layout/combat_unit_view_contents.xml" value="0.165" />
         <entry key="android/src/main/res/layout/levels_list_checkbox.xml" value="0.1140625" />
         <entry key="android/src/main/res/layout/levels_list_contents.xml" value="0.1" />
         <entry key="android/src/main/res/layout/levels_list_row.xml" value="0.2880886426592798" />
-        <entry key="android/src/main/res/layout/puzzle_summary_row.xml" value="0.1140625" />
+        <entry key="android/src/main/res/layout/puzzle_summary_row.xml" value="0.1" />
         <entry key="android/src/main/res/layout/view_city_placement_puzzle.xml" value="0.11458333333333333" />
         <entry key="android/src/main/res/layout/view_city_placement_puzzle_contents.xml" value="0.11458333333333333" />
+        <entry key="android/src/main/res/layout/view_puzzle_contents.xml" value="0.25" />
         <entry key="android/src/main/res/menu/menu_puzzle.xml" value="0.1" />
       </map>
     </option>

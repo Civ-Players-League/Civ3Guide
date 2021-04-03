@@ -10,15 +10,14 @@
         android:id="@+id/label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="5"
+        android:layout_weight="1"
         android:textAppearance="?textAppearanceBody1"
         tools:text="@string/despotism_penalty"/>
 
     <LinearLayout
         android:id="@+id/food_group"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:gravity="end|center_vertical">
 
         <TextView
@@ -41,9 +40,8 @@
 
     <LinearLayout
         android:id="@+id/shields_group"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:gravity="end|center_vertical">
 
         <TextView
@@ -66,9 +64,8 @@
 
     <LinearLayout
         android:id="@+id/commerce_group"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:gravity="end|center_vertical">
 
         <TextView

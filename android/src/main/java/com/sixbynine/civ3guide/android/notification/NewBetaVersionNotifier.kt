@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationCompat.BigTextStyle
 import androidx.core.app.NotificationManagerCompat
 import com.sixbynine.civ3guide.android.R
 import com.sixbynine.civ3guide.android.home.HomeActivity
@@ -16,8 +17,8 @@ import com.sixbynine.civ3guide.shared.preferences
 object NewBetaVersionNotifier {
 
   /** The version of the beta for purposes of showing a notification. */
-  private const val BETA_VERSION_SEQUENCE = 2
-  private const val BETA_VERSION_FEATURES = "New combat odds game"
+  private const val BETA_VERSION_SEQUENCE = 3
+  private const val BETA_VERSION_FEATURES = "More puzzles, combat odds explanation"
 
   private const val NOTIFICATION_ID = 1
   private const val KEY_BETA_VERSION_SEQUENCE = "beta_version_sequence_number"
@@ -51,6 +52,7 @@ object NewBetaVersionNotifier {
       .setContentTitle("New beta version installed")
       .setContentText(BETA_VERSION_FEATURES)
       .setSmallIcon(R.drawable.ic_notification)
+      .setStyle(BigTextStyle().bigText(BETA_VERSION_FEATURES))
       .setContentIntent(launchIntent)
       .setAutoCancel(true)
       .build()

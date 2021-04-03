@@ -6,9 +6,9 @@ import com.sixbynine.civ3guide.shared.tile.TileOutputBreakdown
 import com.sixbynine.civ3guide.shared.tile.TileOutputBreakdown.Modifier
 
 interface Government {
-  fun getOutput(tile: Tile): TileOutput
+  fun getOutput(tile: Tile, isAgricultural: Boolean): TileOutput
 
-  fun getOutputBreakdown(tile: Tile): TileOutputBreakdown
+  fun getOutputBreakdown(tile: Tile, isAgricultural: Boolean): TileOutputBreakdown
 }
 
 enum class StandardGovernment : Government {
@@ -21,12 +21,12 @@ enum class StandardGovernment : Government {
   FASCISM,
   COMMUNISM;
 
-  override fun getOutput(tile: Tile): TileOutput {
-    return getOutputBreakdown(tile).totalOutput
+  override fun getOutput(tile: Tile, isAgricultural: Boolean): TileOutput {
+    return getOutputBreakdown(tile, isAgricultural).totalOutput
   }
 
-  override fun getOutputBreakdown(tile: Tile): TileOutputBreakdown {
-    val baseOutputBreakdown = tile.getOutputBreakdown()
+  override fun getOutputBreakdown(tile: Tile, isAgricultural: Boolean): TileOutputBreakdown {
+    val baseOutputBreakdown = tile.getOutputBreakdown(isAgricultural)
     val baseOutput = baseOutputBreakdown.totalOutput
     return when (this) {
       ANARCHY, DESPOTISM -> {

@@ -12,6 +12,12 @@ import com.sixbynine.civ3guide.shared.combat.Engagement
 import com.sixbynine.civ3guide.shared.preferences
 import com.sixbynine.civ3guide.shared.setSharedImageResource
 import com.sixbynine.civ3guide.shared.setTextResource
+import com.sixbynine.civ3guide.shared.tile.Terrain
+import com.sixbynine.civ3guide.shared.unit.MilitaryUnit
+import com.sixbynine.civ3guide.shared.unit.StandardUnitType.ARCHER
+import com.sixbynine.civ3guide.shared.unit.StandardUnitType.SPEARMAN
+import com.sixbynine.civ3guide.shared.unit.UnitRank.REGULAR
+import com.sixbynine.civ3guide.shared.unit.UnitRank.VETERAN
 
 class CombatUnitView(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
 
@@ -83,7 +89,7 @@ class CombatUnitView(context: Context, attrs: AttributeSet?) : FrameLayout(conte
       fortified.visibility = View.VISIBLE
     }
 
-    if (isAttacker || (engagement.cityDefenceBonus != null && engagement.terrain != HILLS)) {
+    if (isAttacker) {
       terrain.visibility = View.GONE
     } else {
       terrain.visibility = View.VISIBLE

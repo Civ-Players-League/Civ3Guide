@@ -16,6 +16,7 @@ struct CombatGameView: View {
     @State private var likelyToWinButton: TriStateBool = .none
     @State private var favorabilityButton: TriStateBool = .none
     @State private var showStats: Bool = false
+    @State private var showExplanation: Bool = false
     
     var body: some View {
         GeometryReader { geo in
@@ -143,7 +144,7 @@ struct CombatGameView: View {
                 Spacer().frame(height: 16)
                 
                 if showResult {
-                    Button("New puzzle") {
+                    Button(MR.strings().new_puzzle.load()) {
                         withAnimation {
                             engagement = getNewEngagement()
                             selectedLikelyToWinOption = 2.0
@@ -151,6 +152,23 @@ struct CombatGameView: View {
                             likelyToWinButton = .none
                             favorabilityButton = .none
                             showStats = false
+                        }
+                    }
+                    
+                    Spacer().frame(height: 24)
+                    
+                    Button(MR.strings().explain.load()) {
+                        withAnimation {
+                            showExplanation = true
+                        }
+                    }
+                    .sheet(isPresented: $showExplanation) {
+                        ScrollView(showsIndicators: false) {
+                            VStack {
+                                Text(MR.strings().combat_explanation).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                Spacer().frame(height: 8)
+                                Text(CombatExplainer().explain(engagement: engagement))
+                            }.padding()
                         }
                     }
                 }

@@ -351,7 +351,197 @@ object MapConfigurations {
           TileInfo(350, 17, PLAINS),
         ),
         image = images.map20
-      )
+      ),
+      MapConfiguration(
+        width = 385,
+        height = 193,
+        tiles = listOf(
+          TileInfo(190, 0, PLAINS, hasRiver = true),
+          TileInfo(256, 30, PLAINS, hasRiver = true),
+          TileInfo(320, 64, PLAINS, hasRiver = true),
+          TileInfo(255, 96, FOREST, coveredTerrain = GRASSLAND, hasRiver = true),
+          TileInfo(190, 127, FOREST, coveredTerrain = GRASSLAND),
+          TileInfo(126, 95, FOREST, coveredTerrain = GRASSLAND),
+          TileInfo(65, 63, FOREST, coveredTerrain = PLAINS),
+          TileInfo(127, 30, DESERT, resource = OASIS, isIrrigatableViaCityOrLake = true),
+        ),
+        image = images.map21
+      ),
+      MapConfiguration(
+        width = 379,
+        height = 189,
+        tiles = listOf(
+          TileInfo(188, 2, BONUS_GRASSLAND, isIrrigatableViaCityOrLake = true),
+          TileInfo(251, 33, GRASSLAND, resource = CATTLE, hasRiver = true),
+          TileInfo(315, 64, GRASSLAND, hasRiver = true),
+          TileInfo(251, 96, FOREST, coveredTerrain = GRASSLAND, hasRiver = true),
+          TileInfo(186, 127, FOREST, coveredTerrain = GRASSLAND),
+          TileInfo(122, 95, FOREST, coveredTerrain = GRASSLAND),
+          TileInfo(61, 63, BONUS_GRASSLAND, hasRiver = true),
+          TileInfo(123, 30, GRASSLAND, hasRiver = true),
+        ),
+        image = images.map22
+      ),
+      MapConfiguration(
+        width = 376,
+        height = 188,
+        tiles = listOf(
+          TileInfo(188, 0, PLAINS, hasRiver = true),
+          TileInfo(251, 30, GRASSLAND, resource = SILK, hasRiver = true),
+          TileInfo(251, 93, FOREST, resource = SILK, coveredTerrain = GRASSLAND),
+          TileInfo(186, 124, FOREST, resource = SILK, coveredTerrain = GRASSLAND),
+          TileInfo(122, 92, BONUS_GRASSLAND, hasRiver = true),
+          TileInfo(61, 60, GRASSLAND, hasRiver = true),
+          TileInfo(123, 30, GRASSLAND, hasRiver = true),
+        ),
+        image = images.map23
+      ),
+      MapConfiguration(
+        width = 378,
+        height = 185,
+        tiles = listOf(
+          TileInfo(251, 33, PLAINS, resource = SUGAR),
+          TileInfo(315, 64, PLAINS),
+          TileInfo(251, 96, BONUS_GRASSLAND),
+          TileInfo(186, 127, GRASSLAND),
+          TileInfo(122, 95, GRASSLAND),
+          TileInfo(123, 30, GRASSLAND),
+        ),
+        image = images.map24
+      ),
+      MapConfiguration(
+        width = 382,
+        height = 195,
+        tiles = listOf(
+          TileInfo(188, 2, GRASSLAND, resource = CATTLE),
+          TileInfo(251, 33, BONUS_GRASSLAND),
+          TileInfo(122, 95, FOREST, coveredTerrain = PLAINS),
+          TileInfo(61, 63, PLAINS),
+          TileInfo(123, 30, GRASSLAND),
+        ),
+        image = images.map25
+      ),
+      MapConfiguration(
+        width = 375,
+        height = 193,
+        tiles = listOf(
+          TileInfo(250, 35, HILLS, resource = SUGAR),
+          TileInfo(185, 129, PLAINS),
+          TileInfo(121, 97, PLAINS),
+          TileInfo(60, 65, PLAINS, resource = WINE),
+        ),
+        image = images.map26
+      ),
+      MapConfiguration(
+        width = 380,
+        height = 186,
+        tiles = listOf(
+          TileInfo(188, 2, GRASSLAND, isIrrigatableViaCityOrLake = true),
+          TileInfo(251, 33, GRASSLAND, isIrrigatableViaCityOrLake = true),
+          TileInfo(315, 64, GRASSLAND, isIrrigatableViaCityOrLake = true),
+          TileInfo(186, 127, GRASSLAND, resource = CATTLE, isIrrigatableViaCityOrLake = true),
+          TileInfo(122, 95, GRASSLAND, isIrrigatableViaCityOrLake = true),
+          TileInfo(123, 30, GRASSLAND, isIrrigatableViaCityOrLake = true),
+        ),
+        image = images.map27
+      ),
+      MapConfiguration(
+        width = 370,
+        height = 200,
+        tiles = listOf(
+          TileInfo(184, 12, HILLS),
+          TileInfo(247, 43, BONUS_GRASSLAND, hasRiver = true),
+          TileInfo(311, 74, PLAINS, hasRiver = true),
+          TileInfo(247, 106, PLAINS, resource = WHEAT, hasRiver = true),
+          TileInfo(182, 137, PLAINS, isIrrigatableViaCityOrLake = true),
+          TileInfo(118, 105, PLAINS, isIrrigatableViaCityOrLake = true),
+          TileInfo(57, 73, HILLS),
+          TileInfo(119, 40, HILLS, resource = GOLD),
+        ),
+        image = images.map28
+      ),
+      MapConfiguration(
+        width = 380,
+        height = 195,
+        tiles = listOf(
+          TileInfo(188, 8, BONUS_GRASSLAND, isIrrigatableViaCityOrLake = true),
+          TileInfo(251, 39, MOUNTAIN, hasRiver = true),
+          TileInfo(315, 70, HILLS, resource = GOLD, hasRiver = true),
+          TileInfo(251, 102, MOUNTAIN, hasRiver = true),
+          TileInfo(186, 133, PLAINS, hasRiver = true),
+          TileInfo(122, 101, FOREST, coveredTerrain = GRASSLAND, hasRiver = true),
+          TileInfo(61, 69, FOREST, coveredTerrain = GRASSLAND),
+          TileInfo(123, 36, GRASSLAND, resource = CATTLE, isIrrigatableViaCityOrLake = true),
+        ),
+        image = images.map29
+      ),
+      MapConfiguration(
+        width = 379,
+        height = 192,
+        tiles = listOf(
+          TileInfo(188, 4, DESERT),
+          TileInfo(251, 35, HILLS),
+          TileInfo(315, 66, BONUS_GRASSLAND),
+          TileInfo(61, 65, PLAINS),
+          TileInfo(123, 32, PLAINS, resource = CATTLE),
+        ),
+        image = images.map30
+      ),
+      MapConfiguration(
+        width = 373,
+        height = 190,
+        tiles = listOf(
+          TileInfo(185, 0, PLAINS, hasRiver = true),
+          TileInfo(248, 31, PLAINS, resource = HORSES, hasRiver = true),
+          TileInfo(312, 62, MOUNTAIN),
+          TileInfo(248, 94, PLAINS, isIrrigatableViaCityOrLake = true),
+          TileInfo(183, 125, PLAINS, resource = CATTLE, isIrrigatableViaCityOrLake = true),
+          TileInfo(119, 93, PLAINS, hasRiver = true),
+          TileInfo(58, 61, FOREST, coveredTerrain = PLAINS, hasRiver = true),
+          TileInfo(120, 28, PLAINS, hasRiver = true),
+        ),
+        image = images.map31
+      ),
+      MapConfiguration(
+        width = 381,
+        height = 205,
+        tiles = listOf(
+          TileInfo(190, 10, MOUNTAIN, hasRiver = true),
+          TileInfo(253, 39, JUNGLE, resource = BANANA, coveredTerrain = GRASSLAND, hasRiver = true),
+          TileInfo(317, 72, BONUS_GRASSLAND, hasRiver = true),
+          TileInfo(253, 104, MOUNTAIN, hasRiver = true),
+          TileInfo(188, 135, GRASSLAND, hasRiver = true),
+          TileInfo(124, 103, MOUNTAIN, hasRiver = true),
+          TileInfo(63, 71, JUNGLE, resource = SPICE, coveredTerrain = GRASSLAND),
+          TileInfo(125, 38, JUNGLE, coveredTerrain = GRASSLAND),
+        ),
+        image = images.map32
+      ),
+      MapConfiguration(
+        width = 371,
+        height = 195,
+        tiles = listOf(
+          TileInfo(256, 34, HILLS),
+          TileInfo(320, 67, HILLS, resource = GOLD),
+          TileInfo(256, 99, JUNGLE, coveredTerrain = GRASSLAND),
+          TileInfo(191, 130, JUNGLE, resource = GEMS, coveredTerrain = GRASSLAND),
+          TileInfo(127, 98, JUNGLE, coveredTerrain = GRASSLAND),
+          TileInfo(66, 66, JUNGLE, resource = BANANA, coveredTerrain = GRASSLAND),
+        ),
+        image = images.map33
+      ),
+      MapConfiguration(
+        width = 388,
+        height = 199,
+        tiles = listOf(
+          TileInfo(196, 8, HILLS, hasRiver = true),
+          TileInfo(259, 37, JUNGLE, coveredTerrain = GRASSLAND, hasRiver = true),
+          TileInfo(323, 70, JUNGLE, coveredTerrain = GRASSLAND, hasRiver = true),
+          TileInfo(259, 102, JUNGLE, coveredTerrain = GRASSLAND, resource = SPICE, hasRiver = true),
+          TileInfo(131, 36, JUNGLE, resource = BANANA, coveredTerrain = GRASSLAND, hasRiver = true),
+        ),
+        image = images.map34
+      ),
     )
   }
 }

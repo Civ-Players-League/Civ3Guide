@@ -43,8 +43,8 @@ fun randomEngagement(
       type.isFast -> if (allowFastUnits) 2.5 else return@mapNotNull null
       else -> 4.0
     }
-    if (type.attack < type.defence) weight /= 1.5
-    if (type.defence < type.attack) weight *= 1.5
+    if (type.attack < type.defence) weight /= 1.3
+    if (type.defence < type.attack) weight *= 1.3
 
     weight to type
   }
@@ -64,8 +64,8 @@ fun randomEngagement(
       type.isFast -> if (allowFastUnits) 2.5 else return@mapNotNull null
       else -> 4.0
     }
-    if (type.attack < type.defence) weight *= 1.5
-    if (type.defence < type.attack) weight /= 1.5
+    if (type.attack < type.defence) weight *= 1.3
+    if (type.defence < type.attack) weight /= 1.3
 
     weight to type
   }

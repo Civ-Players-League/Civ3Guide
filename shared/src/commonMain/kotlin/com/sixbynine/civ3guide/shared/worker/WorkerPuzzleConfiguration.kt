@@ -7,6 +7,8 @@ import dev.icerock.moko.resources.ImageResource
 
 class WorkerPuzzleConfiguration(
   val map: MapConfiguration,
+  val isAgricultural: Boolean,
+  val extraExplanation: String?,
   private val optimalActions: Set<Pair<TileInfo, WorkerAction>>
 ) {
 
@@ -22,6 +24,7 @@ data class Point(val x: Float, val y: Float) {
 
 enum class WorkerAction(val image: ImageResource) {
   CLEAR_FOREST(images.clearForest),
+  CLEAR_WETLANDS(images.clearWetlands),
   MINE(images.buildMine),
   IRRIGATE(images.irrigate),
   ROAD(images.buildRoad),
