@@ -8,6 +8,7 @@ import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.core.view.doOnPreDraw
 import com.sixbynine.civ3guide.android.R
 import com.sixbynine.civ3guide.shared.map.MapConfiguration
+import com.sixbynine.civ3guide.shared.util.Dimensions
 import com.sixbynine.civ3guide.shared.worker.Point
 
 interface PointMapper {
@@ -18,7 +19,7 @@ interface PointMapper {
   fun fromGraphical(pointF: PointF): Point
 }
 
-fun MapConfiguration.getPointMapper(image: View) = object: PointMapper {
+fun Dimensions.getPointMapper(image: View) = object: PointMapper {
   val widthRatio: Float
     get() = image.width.toFloat() / width
   val heightRatio: Float
@@ -41,6 +42,8 @@ fun MapConfiguration.getPointMapper(image: View) = object: PointMapper {
     return Point((pointF.x - extraX) / scaleRatio, (pointF.y - extraY) / scaleRatio)
   }
 }
+
+fun MapConfiguration.getPointMapper(image: View) = dimensions.getPointMapper(image)
 
 fun PointMapper.roundCorners(image: ImageView) {
   val resources = image.resources

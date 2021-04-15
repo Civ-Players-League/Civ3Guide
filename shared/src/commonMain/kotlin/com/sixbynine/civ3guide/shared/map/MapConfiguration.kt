@@ -3,6 +3,7 @@ package com.sixbynine.civ3guide.shared.map
 import com.sixbynine.civ3guide.shared.tile.Resource
 import com.sixbynine.civ3guide.shared.tile.Terrain
 import com.sixbynine.civ3guide.shared.tile.Tile
+import com.sixbynine.civ3guide.shared.util.Dimensions
 import com.sixbynine.civ3guide.shared.worker.Point
 import dev.icerock.moko.resources.ImageResource
 import kotlin.math.abs
@@ -15,6 +16,9 @@ data class MapConfiguration(
   val tiles: List<TileInfo>,
   val image: ImageResource
 ) {
+
+  val dimensions: Dimensions
+    get() = Dimensions(width = width, height = height)
 
   fun getBounds(tile: TileInfo): TileBounds {
     val top = tile.top

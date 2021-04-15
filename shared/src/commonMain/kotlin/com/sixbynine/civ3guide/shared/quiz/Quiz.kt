@@ -1,16 +1,24 @@
 package com.sixbynine.civ3guide.shared.quiz
 
 import com.sixbynine.civ3guide.shared.MR.images
+import com.sixbynine.civ3guide.shared.util.Dimensions
 import dev.icerock.moko.resources.ImageResource
 
 data class Quiz(
   val image: ImageResource,
+  val imageDimensions: Dimensions,
   val question: String,
   val answers: List<QuizAnswer>
 ) {
 
-  constructor(image: ImageResource, question: String, vararg answers: QuizAnswer) : this(
+  constructor(
+    image: ImageResource,
+    dimensions: Dimensions,
+    question: String,
+    vararg answers: QuizAnswer
+  ) : this(
     image,
+    dimensions,
     question,
     answers.toList()
   )
@@ -20,6 +28,7 @@ data class Quiz(
       listOf(
         Quiz(
           images.quiz0,
+          Dimensions(width = 427, height = 240),
           "Why is irrigating this tile not the correct first worker move?",
           QuizAnswer(
             "Because the +1 food from irrigating is lost to the despotism penalty. I should mine instead.",
@@ -41,6 +50,7 @@ data class Quiz(
         ),
         Quiz(
           images.quiz1,
+          Dimensions(width = 409, height = 226),
           "Why is irrigating this plains tile the wrong worker move?",
           QuizAnswer(
             "The bonus food is lost to the despotism penalty.",
@@ -62,6 +72,7 @@ data class Quiz(
         ),
         Quiz(
           images.quiz2,
+          Dimensions(417, 220),
           "Why is mining this cow the wrong move?",
           QuizAnswer(
             "It's better to irrigate, because food is more important early game than shields.",

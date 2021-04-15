@@ -21,4 +21,8 @@ object Logger {
     Log.w(TAG, message, t)
   }
 
+  fun e(message: String, t: Throwable? = null) {
+    Log.e(TAG, message, t)
+  }
+
 }

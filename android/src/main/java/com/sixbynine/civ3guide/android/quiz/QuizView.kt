@@ -10,6 +10,8 @@ import androidx.core.content.ContextCompat
 import com.sixbynine.civ3guide.android.R
 import com.sixbynine.civ3guide.android.ktx.checkAt
 import com.sixbynine.civ3guide.android.ktx.indexOfChildWithId
+import com.sixbynine.civ3guide.android.map.getPointMapper
+import com.sixbynine.civ3guide.android.map.roundCorners
 import com.sixbynine.civ3guide.shared.quiz.QuizUiState
 import com.sixbynine.civ3guide.shared.setSharedImageResource
 
@@ -31,6 +33,7 @@ class QuizView(context: Context, attrs: AttributeSet?) : ScrollView(context, att
   fun bind(state: QuizUiState, isLastQuiz: Boolean) {
     title.text = state.quiz.question
     image.setSharedImageResource(state.quiz.image)
+    state.quiz.imageDimensions.getPointMapper(image).roundCorners(image)
     state.quiz.answers.forEachIndexed { index, answer ->
       val radioButton = answers.getChildAt(index) as RadioButton
       radioButton.text = answer.text

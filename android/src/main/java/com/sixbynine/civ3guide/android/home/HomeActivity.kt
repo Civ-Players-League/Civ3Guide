@@ -1,15 +1,20 @@
 package com.sixbynine.civ3guide.android.home
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sixbynine.civ3guide.android.R
 import com.sixbynine.civ3guide.android.notification.NewBetaVersionNotifier
+import com.sixbynine.civ3guide.android.util.Logger
 
 class HomeActivity : AppCompatActivity() {
-
-  //private lateinit var puzzleImage: ImageView
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -18,81 +23,38 @@ class HomeActivity : AppCompatActivity() {
     val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
     recyclerView.adapter = HomeListAdapter()
     recyclerView.layoutManager = LinearLayoutManager(this)
+  }
 
-    /*setContentView(layout.activity_main)
+  override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    menuInflater.inflate(R.menu.menu_home, menu)
+    return true
+  }
+  override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+    R.id.action_multiplayer -> {
+      try {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(MULTIPLAYER_URL)))
+      } catch (e: ActivityNotFoundException) {
+        Logger.e("Couldn't launch multiplayer url", e)
+        Toast.makeText(this, R.string.error_no_web_browser, Toast.LENGTH_SHORT).show()
+      }
+      true
+    }
+    R.id.action_feedback -> {
+      val intent =
+        Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "sixbynineapps@gmail.com", null))
+          .putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_email_subject))
+      try {
+        startActivity(Intent.createChooser(intent, getString(R.string.send_email)))
+      } catch (e: ActivityNotFoundException) {
+        Logger.e("Couldn't launch email", e)
+        Toast.makeText(this, R.string.error_no_email_client, Toast.LENGTH_SHORT).show()
+      }
+      true
+    }
+    else -> super.onOptionsItemSelected(item)
+  }
 
-    puzzleImage = findViewById(id.puzzle_image)
-    puzzleImage.setImageResource(drawable.civ3puzzle1)*/
-
-    //val highlightView = findViewById<ClickHighlightView>(id.click_highlight_view)
-
-    //val drawable = ContextCompat.getDrawable(this, drawable.civ3puzzle1)!!
-
-    /*GlobalScope.launch {
-        val textAsset = readTextAsset("puzzles/puzzle0.json") ?: return@launch
-        val configuration = WorkerPuzzleConfiguration.create(textAsset)
-
-        withContext(Dispatchers.Main) {
-            val scaleFactor = puzzleImage.getActualScaleRatio()
-
-            fun Point.toGraphicalPointF(): PointF {
-                return PointF(x * scaleFactor, y * scaleFactor)
-            }
-
-            fun showClick(cell: TileCoordinate) {
-                val (highlightLeft, highlightTop) = configuration.run {
-                    cell.left.toGraphicalPointF() to cell.top.toGraphicalPointF()
-                }
-                val isCorrect = cell == configuration.answerCell
-                highlightView.setHighlightPoints(highlightLeft, highlightTop, if (isCorrect) Color.parseColor("#AA00FF2B") else Color.parseColor("#AAFF0033"))
-            }
-
-            @Suppress("ClickableViewAccessibility")
-            puzzleImage.setOnTouchListener(
-                object : View.OnTouchListener {
-
-                    private var downTime: Long? = null
-                    private var downCell: TileCoordinate? = null
-
-                    override fun onTouch(view: View, event: MotionEvent): Boolean {
-                        val point = Point(
-                            x = event.x / scaleFactor,
-                            y = event.y / scaleFactor
-                        )
-                        val cell = configuration.getTile(point)
-                        when (event.action) {
-                            MotionEvent.ACTION_DOWN -> {
-                                downTime = System.currentTimeMillis()
-                                downCell = cell
-                            }
-                            MotionEvent.ACTION_UP -> {
-                                if (cell != downCell) {
-                                    downTime = null
-                                    downCell = null
-                                    highlightView.setHighlightPoints(null, null, Color.TRANSPARENT)
-                                } else {
-                                    showClick(cell)
-                                }
-                                view.performClick()
-                            }
-                            MotionEvent.ACTION_MOVE -> {
-                                if (cell != downCell) {
-                                    downTime = null
-                                    downCell = null
-                                }
-                            }
-                            MotionEvent.ACTION_CANCEL -> {
-                                downTime = null
-                                downCell = null
-                                highlightView.setHighlightPoints(null, null, Color.TRANSPARENT)
-                            }
-                        }
-                        return true
-                    }
-
-
-                })
-        }
-    }*/
+  private companion object {
+    const val MULTIPLAYER_URL = "https://civplayersciv3league.com"
   }
 }

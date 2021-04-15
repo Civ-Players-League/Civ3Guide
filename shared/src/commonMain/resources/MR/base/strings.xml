@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
-    <string name="app_name">Civ III Wizard</string>
+    <string name="app_name">Sidvisor: Guide for Civ III</string>
     <string name="app_description">Guide and games to improve your skills in Sid Meier\'s Civilization III</string>
     <string name="puzzle_header_prompt">What\'s the best worker move?</string>
     <string name="puzzle_index">Puzzle %d</string>
     <string name="lets_go">Let\'s go</string>
+    <string name="multiplayer">Multiplayer</string>
+    <string name="send_feedback">Feedback</string>
 
     <string name="next">Next</string>
     <string name="done">Done</string>
@@ -87,7 +89,7 @@
     <string name="home_label_worker_action_summary">Choose the optimal first worker action at the start of a game</string>
     <string name="home_label_quiz_title">Early Game Quizzes</string>
     <string name="home_label_quiz_summary">Take a quiz to test your knowledge of the best actions to take at the start of the game</string>
-    <string name="quiz_intro">Test your knowledge fo the best actions to take at the start of the game. The concepts here are foundational to your early game <play class=""></play></string>
+    <string name="quiz_intro">Test your knowledge of the best actions to take at the start of the game. The concepts here are foundational to your early game <play class=""></play></string>
 
     <string name="worker_puzzle_help_title">Worker puzzle</string>
     <string name="worker_puzzle_help_text">The goal of this puzzle is to choose the optimal worker action to start the game given your starting location and tiles.\n\nThe optimal action will be the one that improves the value of your best tile. Your priorities should be food, shields, then commerce, in that order.\n\nIn these puzzles, you\'re in Despotism, so mind the Despotism penalty which will reduce any outputs greater than two by one.\n\n\To solve the puzzle:\n\t1. Select a tile\n\t2. Choose a worker action\n</string>
@@ -163,4 +165,9 @@
 
     <string name="level_x">Level %d</string>
     <string name="level_s">Level %s</string>
+
+    <string name="send_email">Send email</string>
+    <string name="feedback_email_subject">Sidvisor Feedback</string>
+    <string name="error_no_web_browser">Failed to launch web browser</string>
+    <string name="error_no_email_client">Failed to launch email</string>
 </resources>
