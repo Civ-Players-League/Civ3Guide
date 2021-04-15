@@ -41,7 +41,9 @@ class HomeActivity : AppCompatActivity() {
     }
     R.id.action_feedback -> {
       val intent =
-        Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "sixbynineapps@gmail.com", null))
+        Intent(Intent.ACTION_SENDTO)
+          .setData(Uri.parse("mailto:$FEEDBACK_EMAIL"))
+          .putExtra(Intent.EXTRA_EMAIL, FEEDBACK_EMAIL)
           .putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_email_subject))
       try {
         startActivity(Intent.createChooser(intent, getString(R.string.send_email)))
@@ -56,5 +58,6 @@ class HomeActivity : AppCompatActivity() {
 
   private companion object {
     const val MULTIPLAYER_URL = "https://civplayersciv3league.com"
+    const val FEEDBACK_EMAIL = "sixbynineapps@gmail.com"
   }
 }

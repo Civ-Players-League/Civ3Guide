@@ -35,8 +35,8 @@ android {
         applicationId = "com.sixbynine.civ3guide.android"
         minSdkVersion(21)
         targetSdkVersion(30)
-        versionCode = 9
-        versionName = "20210325.1"
+        versionCode = 10
+        versionName = "20210415.1"
     }
     buildTypes {
         getByName("release") {

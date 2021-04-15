@@ -44,7 +44,8 @@
             android:exported="false"
             android:label="@string/city_placement_title" />
 
-        <receiver android:name=".notification.NewBetaVersionPackageReplacedReceiver">
+        <receiver android:name=".notification.NewBetaVersionPackageReplacedReceiver"
+            android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>

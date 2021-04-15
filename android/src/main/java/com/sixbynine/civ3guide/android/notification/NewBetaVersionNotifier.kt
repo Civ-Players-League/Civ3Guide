@@ -16,6 +16,8 @@ import com.sixbynine.civ3guide.shared.preferences
 
 object NewBetaVersionNotifier {
 
+  private const val IS_BETA_VERSION = false
+
   /** The version of the beta for purposes of showing a notification. */
   private const val BETA_VERSION_SEQUENCE = 3
   private const val BETA_VERSION_FEATURES = "More puzzles, combat odds explanation"
@@ -25,6 +27,8 @@ object NewBetaVersionNotifier {
   private const val CHANNEL_ID = "new_beta_version"
   
   fun checkForNewBetaVersion() {
+    if (!IS_BETA_VERSION) return
+
     val previousVersion = preferences.getInt(KEY_BETA_VERSION_SEQUENCE)
     if (previousVersion == BETA_VERSION_SEQUENCE) {
       Logger.d("Previous version had the same beta sequence, not showing a notification")
