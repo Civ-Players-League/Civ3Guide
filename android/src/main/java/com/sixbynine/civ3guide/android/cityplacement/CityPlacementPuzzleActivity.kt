@@ -1,13 +1,19 @@
 package com.sixbynine.civ3guide.android.cityplacement
 
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.sixbynine.civ3guide.android.R
 import com.sixbynine.civ3guide.android.util.Logger
+import com.sixbynine.civ3guide.android.workerpuzzle.WorkerPuzzleActivity.HelpDialogFragment
 import com.sixbynine.civ3guide.shared.level.LevelPageRowData
 import kotlinx.serialization.protobuf.ProtoBuf
 
@@ -53,6 +59,30 @@ class CityPlacementPuzzleActivity : AppCompatActivity() {
   override fun onSupportNavigateUp(): Boolean {
     finish()
     return true
+  }
+
+  override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    menuInflater.inflate(R.menu.menu_city_placement, menu)
+    return super.onCreateOptionsMenu(menu)
+  }
+
+  override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    return when (item.itemId) {
+      R.id.help -> {
+        HelpDialogFragment().showNow(supportFragmentManager, "HelpDialog")
+        true
+      }
+      else -> super.onOptionsItemSelected(item)
+    }
+  }
+
+  class HelpDialogFragment : DialogFragment() {
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+      return AlertDialog.Builder(requireContext())
+        .setTitle(R.string.city_placement_title)
+        .setMessage(R.string.city_placement_help_text)
+        .create()
+    }
   }
 
   companion object {

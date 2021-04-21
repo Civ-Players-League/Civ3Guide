@@ -15,11 +15,6 @@ enum class HomeDestination(
     strings.combat_odds_title,
     strings.combat_odds_summary
   ),
-  QUIZ(
-    images.scout,
-    strings.home_label_quiz_title,
-    strings.home_label_quiz_summary
-  ),
   WORKER_PUZZLE(
     images.worker,
     strings.home_label_worker_action_title,

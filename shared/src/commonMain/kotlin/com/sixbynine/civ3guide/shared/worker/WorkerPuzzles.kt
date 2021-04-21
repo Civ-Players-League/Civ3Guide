@@ -110,7 +110,11 @@ object WorkerPuzzles {
       workerPuzzleConfiguration(mapIndex = 32) {
         if (it.tile.terrain == BONUS_GRASSLAND) listOf(MINE) else emptyList()
       },
-      workerPuzzleConfiguration(mapIndex = 33) {
+      workerPuzzleConfiguration(
+        mapIndex = 33,
+        extraExplanation = "You can't irrigate the banana, so it's best to get bonus commerce " +
+            "from working the gems"
+      ) {
         if (it.tile.resource == GEMS) listOf(CLEAR_WETLANDS) else emptyList()
       },
       workerPuzzleConfiguration(

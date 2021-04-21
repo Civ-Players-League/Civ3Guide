@@ -1,11 +1,3 @@
-//
-//  HPView.swift
-//  Civ III Wizard
-//
-//  Created by Steven Kideckel on 2021-02-16.
-//  Copyright © 2021 orgName. All rights reserved.
-//
-
 import SwiftUI
 
 struct HPView: View {

@@ -47,6 +47,8 @@ struct QuizView: View {
                 Image(quiz.image)
                     .resizable()
                     .scaledToFit()
+                    .cornerRadius(16.0)
+                    .overlay(Rectangle().stroke(Color.black, lineWidth: 1).cornerRadius(16.0))
                 
                 Spacer().frame(height: 8)
                 

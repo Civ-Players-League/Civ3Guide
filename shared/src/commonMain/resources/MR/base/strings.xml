@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
     <string name="app_name">Sidvisor: Guide for Civ III</string>
+    <string name="app_name_short">Sidvisor</string>
     <string name="app_description">Guide and games to improve your skills in Sid Meier\'s Civilization III</string>
     <string name="puzzle_header_prompt">What\'s the best worker move?</string>
     <string name="puzzle_index">Puzzle %d</string>
@@ -99,6 +100,7 @@
     <string name="city_placement_summary">Choose the best spot to plant a new city</string>
     <string name="city_placement_prompt">Tap the best new city spot</string>
     <string name="city_placement_intro">Choose the optimal tile to plant your next city! Balance food and production, get access to resources, and don\'t waste tiles!</string>
+    <string name="city_placement_help_text">Pick the city spot that will make your civ the strongest in the mid-to-late game.\n\nPlanting cities 3-5 tiles is usually ideal for this. Avoid wasting tiles, pick spots that have a good mix of food and production, and don\'t plant on bonus food tiles!</string>
 
     <string name="combat_odds_title">Combat Odds Game</string>
     <string name="combat_odds_summary">Test your ability to estimate whether exchanges are favourable</string>

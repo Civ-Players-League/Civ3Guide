@@ -6,15 +6,11 @@ struct WorkerActionHomePage: View {
     @State private var data = WorkerPuzzleProgressManager().getLevelPageData()
     
     var body: some View {
-        VStack {
-            Text(MR.strings().worker_puzzle_intro_text)
-                .padding()
-            LevelList(data) { launchIndex, isNavigationActive in
-                WorkerActionPuzzlePage(
-                    puzzleIndex: Int(launchIndex),
-                    isNavigationActive: isNavigationActive
-                )
-            }
+        LevelList(data, header: MR.strings().worker_puzzle_intro_text) { launchIndex, isNavigationActive in
+            WorkerActionPuzzlePage(
+                puzzleIndex: Int(launchIndex),
+                isNavigationActive: isNavigationActive
+            )
         }
         .navigationBarTitle(
             Text(MR.strings().home_label_worker_action_title),

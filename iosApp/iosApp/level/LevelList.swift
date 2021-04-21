@@ -3,6 +3,7 @@ import shared
 
 struct LevelList<Destination>: View where Destination : View {
     
+    let header: ResourcesStringResource
     let data: LevelPageData
     let destination: (Int, Binding<Bool>) -> Destination
     
@@ -10,14 +11,16 @@ struct LevelList<Destination>: View where Destination : View {
     
     init(
         _ data: LevelPageData,
+        header: ResourcesStringResource,
         @ViewBuilder destination: @escaping (Int, Binding<Bool>) -> Destination) {
         self.data = data
+        self.header = header
         self.destination = destination
     }
     
     
     var body: some View {
-        VStack {
+        ZStack {
             ForEach(0..<data.rows.count, id: \.self) { rowIndex in
                 NavigationLink(
                     destination: destination(
@@ -40,13 +43,19 @@ struct LevelList<Destination>: View where Destination : View {
                 }
                 .isDetailLink(false)
             }
-            List {
-                ForEach(0..<data.rows.count, id: \.self) { rowIndex in
-                    Button(action: { activeLevelIndex = rowIndex }) {
-                        createRow(rowIndex, data.rows[rowIndex])
-                    }
-                    .disabled(data.rows[rowIndex].isLocked)
+        }
+        List {
+            VStack {
+                Text(header)
+                
+                Spacer().frame(height: 8)
+            }
+            
+            ForEach(0..<data.rows.count, id: \.self) { rowIndex in
+                Button(action: { activeLevelIndex = rowIndex }) {
+                    createRow(rowIndex, data.rows[rowIndex])
                 }
+                .disabled(data.rows[rowIndex].isLocked)
             }
         }
     }
@@ -65,7 +74,8 @@ struct LevelList<Destination>: View where Destination : View {
 struct LevelList_Previews: PreviewProvider {
     static var previews: some View {
         LevelList(
-            LevelPageData(rows: [])
+            LevelPageData(rows: []),
+            header: MR.strings().app_description
         ) { index, isNavigationActive in
             EmptyView()
         }

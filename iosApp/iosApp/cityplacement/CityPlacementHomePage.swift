@@ -6,15 +6,11 @@ struct CityPlacementHomePage: View {
     @State private var data = CityPlacementProgressManager().getLevelPageData()
     
     var body: some View {
-        VStack {
-            Text(MR.strings().city_placement_intro)
-                .padding()
-            LevelList(data) { launchIndex, isNavigationActive in
-                CityPlacementView(
-                    puzzleIndex: Int(launchIndex),
-                    isNavigationActive: isNavigationActive
-                )
-            }
+        LevelList(data, header: MR.strings().city_placement_intro) { launchIndex, isNavigationActive in
+            CityPlacementView(
+                puzzleIndex: Int(launchIndex),
+                isNavigationActive: isNavigationActive
+            )
         }
         .navigationBarTitle(
             Text(MR.strings().city_placement_title),

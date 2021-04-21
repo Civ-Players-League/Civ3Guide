@@ -43,7 +43,6 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
 
   private fun navigateToDestination(context: Context, destination: HomeDestination) {
     val intent = when (destination) {
-      QUIZ -> Intent(context, QuizHomeActivity::class.java)
       WORKER_PUZZLE -> Intent(context, WorkerPuzzleHomeActivity::class.java)
       CITY_PLACEMENT -> Intent(context, CityPlacementHomeActivity::class.java)
       COMBAT_ODDS -> Intent(context, CombatGameActivity::class.java)
