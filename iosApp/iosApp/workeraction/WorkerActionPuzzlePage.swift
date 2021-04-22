@@ -62,7 +62,10 @@ struct WorkerActionPuzzlePage: View {
             }
         }
         .sheet(isPresented: $showHelp) {
-            PuzzleHelpPage()
+            HelpPage(
+                title: MR.strings().home_label_worker_action_title,
+                message: MR.strings().worker_puzzle_help_text
+            )
         }
         .padding()
         .navigationBarTitle(

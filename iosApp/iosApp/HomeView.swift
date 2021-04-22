@@ -6,7 +6,6 @@ struct HomeView: View {
     let feedbackLink = URL(string: "mailto:sixbynineapps@gmail.com")
     
     let destinations = HomeDestination.Companion().getAll()
-    @State private var isQuizNavigationActive: Bool = false
     @State private var isWorkerActionNavigationActive: Bool = false
     @State private var isCityPlacementNavigationActive: Bool = false
     @State private var isCombatGameNavigationActive: Bool = false
@@ -21,12 +20,6 @@ struct HomeView: View {
             ScrollView {
                 VStack {
                     Text(MR.strings().app_description).padding()
-                    NavigationLink(
-                        destination: QuizHomePage(),
-                        isActive: $isQuizNavigationActive
-                    ) {
-                        EmptyView()
-                    }.isDetailLink(false)
                     
                     NavigationLink(
                         destination: WorkerActionHomePage(),
@@ -57,10 +50,6 @@ struct HomeView: View {
                     List {
                         Button(action: { isCombatGameNavigationActive = true}) {
                             HomeListItem(destination: .combatOdds)
-                        }
-                        
-                        Button(action: { isQuizNavigationActive = true}) {
-                            HomeListItem(destination: .quiz)
                         }
                         
                         Button(action: { isWorkerActionNavigationActive = true}) {

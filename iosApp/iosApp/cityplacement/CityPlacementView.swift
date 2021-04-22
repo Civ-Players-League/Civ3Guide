@@ -7,6 +7,7 @@ struct CityPlacementView: View {
     
     @State private var goToNext: Bool = false
     @State private var selectedTile: TileInfo?
+    @State private var showHelp: Bool = false
     
     private let numPuzzlesPerRow = Int(LevelManager().PUZZLES_PER_ROW)
     
@@ -51,6 +52,19 @@ struct CityPlacementView: View {
                         Text(answer.explanation)
                             .multilineTextAlignment(.center)
                             .foregroundColor(answer.isCorrect ? .green : .red)
+                        
+                        if (answer.isCorrect) {
+                            Spacer().frame(height: 16)
+                            Button(
+                                (isLastPuzzle ? MR.strings().done : MR.strings().next).load()
+                            ) {
+                                if isLastPuzzle {
+                                    isNavigationActive = false
+                                } else {
+                                    goToNext = true
+                                }
+                            }
+                        }
                     }
                     
                     NavigationLink(
@@ -65,18 +79,15 @@ struct CityPlacementView: View {
             }
         }
         .navigationBarTitle(Text(getLevelDescription()), displayMode: .inline)
-        .navigationBarItems(
-            trailing: Button(
-                (isLastPuzzle ? MR.strings().done : MR.strings().next).load()
-            ) {
-                if isLastPuzzle {
-                    isNavigationActive = false
-                } else {
-                    goToNext = true
-                }
-            }
-            .disabled(!(selectedTileAnswer?.isCorrect ?? false))
-        )
+        .navigationBarItems(trailing: Button(MR.strings().help.load()) {
+            showHelp = true
+        })
+        .sheet(isPresented: $showHelp) {
+            HelpPage(
+                title: MR.strings().city_placement_title,
+                message: MR.strings().city_placement_help_text
+            )
+        }
         .padding()
     }
     
