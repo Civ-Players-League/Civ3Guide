@@ -17,6 +17,7 @@ struct CombatGameView: View {
     @State private var favorabilityButton: TriStateBool = .none
     @State private var showStats: Bool = false
     @State private var showExplanation: Bool = false
+    @State private var difficultyLevel: Difficulty = CombatDifficultyManager().difficulty
     
     var body: some View {
         GeometryReader { geo in
@@ -170,6 +171,29 @@ struct CombatGameView: View {
                                 Text(CombatExplainer().explain(engagement: engagement))
                             }.padding()
                         }
+                    }
+                    
+                    if #available(iOS 14.0, *) {
+                        Spacer().frame(height: 24)
+                        Picker(
+                            "\(MR.strings().difficulty_level.load()) \(difficultyLevel.displayName)",
+                            selection: Binding(
+                                get: { Int(difficultyLevel.number) },
+                                set: { newValue in
+                                    difficultyLevel = Difficulty.Companion().all.first(where: { difficulty in
+                                        difficulty.number == newValue
+                                    })!
+                                    CombatDifficultyManager().difficulty = difficultyLevel
+                                }
+                            )
+                        ) {
+                            ForEach(Difficulty.Companion().all, id: \.self) { difficulty in
+                                Text(difficulty.displayName).tag(Int(difficulty.number))
+                            }
+                        }
+                        .pickerStyle(MenuPickerStyle())
+                    } else {
+                        // TODO: Write a fallback for devices not on iOS 14
                     }
                 }
                

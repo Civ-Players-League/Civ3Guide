@@ -7,6 +7,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import com.sixbynine.civ3guide.android.R
+import com.sixbynine.civ3guide.android.ktx.isRtl
 import com.sixbynine.civ3guide.shared.tile.Terrain.HILLS
 import com.sixbynine.civ3guide.shared.combat.Engagement
 import com.sixbynine.civ3guide.shared.preferences
@@ -76,7 +77,7 @@ class CombatUnitView(context: Context, attrs: AttributeSet?) : FrameLayout(conte
     image.setSharedImageResource(
       if (showAlt) unit.type.altImage ?: unit.type.image else unit.type.image
     )
-    image.scaleX = if (isAttacker) 1f else -1f
+    image.scaleX = if (isAttacker xor isRtl) 1f else -1f
     unitName.setTextResource(
       if (showAlt) unit.type.altLabel ?: unit.type.label else unit.type.label
     )

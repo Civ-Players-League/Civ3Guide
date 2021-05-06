@@ -11,10 +11,12 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?textAppearanceBody1"
         android:paddingHorizontal="16dp"
+        android:gravity="start"
+        android:layout_gravity="start"
         tools:text="Level 1"/>
 
     <LinearLayout

@@ -13,13 +13,14 @@ enum class StandardUnitType(
   override val defence: Int,
   override val movement: Int,
   override val cost: Int,
-  val isUnique: Boolean = false,
+  override val isUnique: Boolean = false,
   override val altImage: ImageResource? = null,
-  override val altLabel: StringResource? = null
+  override val altLabel: StringResource? = null,
+  override val isWheeled: Boolean = false
 ) : UnitType {
   ARCHER(strings.archer, images.unitArcher, 2, 1, 1, 20),
   BOWMAN(strings.bowman, images.unitBowman, 2, 2, 1, 20, isUnique = true),
-  CHARIOT(strings.chariot, images.unitChariot, 1, 1, 2, 20),
+  CHARIOT(strings.chariot, images.unitChariot, 1, 1, 2, 20, isWheeled = true),
   CHASQUI_SCOUT(strings.chasqui_scout, images.unitChasquiScout, 1, 1, 2, 20, isUnique = true),
   ENKIDU_WARRIOR(strings.enkidu_warrior, images.unitEnkiduWarrior, 1, 2, 1, 10, isUnique = true),
   GALLIC_SWORDSMAN(
@@ -51,7 +52,17 @@ enum class StandardUnitType(
     2,
     30,
     isUnique = true,
+    isWheeled = true
   ),
-  WAR_CHARIOT(strings.war_chariot, images.unitWarChariot, 2, 1, 2, 20, isUnique = true),
+  WAR_CHARIOT(
+    strings.war_chariot,
+    images.unitWarChariot,
+    2,
+    1,
+    2,
+    20,
+    isUnique = true,
+    isWheeled = true
+  ),
   WARRIOR(strings.warrior, images.unitWarrior, 1, 1, 1, 10);
 }

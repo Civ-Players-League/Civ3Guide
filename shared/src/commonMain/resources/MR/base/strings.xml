@@ -172,4 +172,6 @@
     <string name="feedback_email_subject">Sidvisor Feedback</string>
     <string name="error_no_web_browser">Failed to launch web browser</string>
     <string name="error_no_email_client">Failed to launch email</string>
+
+    <string name="difficulty_level">Difficulty level:</string>
 </resources>

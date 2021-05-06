@@ -4,6 +4,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Intent
+import android.content.pm.PackageManager.NameNotFoundException
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationCompat.BigTextStyle
@@ -16,18 +17,16 @@ import com.sixbynine.civ3guide.shared.preferences
 
 object NewBetaVersionNotifier {
 
-  private const val IS_BETA_VERSION = false
-
   /** The version of the beta for purposes of showing a notification. */
-  private const val BETA_VERSION_SEQUENCE = 3
-  private const val BETA_VERSION_FEATURES = "More puzzles, combat odds explanation"
+  private const val BETA_VERSION_SEQUENCE = 4
+  private const val BETA_VERSION_FEATURES = "Difficulty levels for combat odds game"
 
   private const val NOTIFICATION_ID = 1
   private const val KEY_BETA_VERSION_SEQUENCE = "beta_version_sequence_number"
   private const val CHANNEL_ID = "new_beta_version"
   
   fun checkForNewBetaVersion() {
-    if (!IS_BETA_VERSION) return
+    if (!isBetaVersion()) return
 
     val previousVersion = preferences.getInt(KEY_BETA_VERSION_SEQUENCE)
     if (previousVersion == BETA_VERSION_SEQUENCE) {
@@ -71,5 +70,15 @@ object NewBetaVersionNotifier {
     notificationManager.notify(NOTIFICATION_ID, notification)
 
   }
-  
+
+  private fun isBetaVersion(): Boolean {
+    val context = Civ3GuideApplication.instance
+    val packageManager = context.packageManager
+    val packageInfo = try {
+      packageManager.getPackageInfo(context.packageName, /* flags= */ 0)
+    } catch (e: NameNotFoundException) {
+      return false
+    }
+    return packageInfo.versionName?.endsWith("beta") ?: false
+  }
 }

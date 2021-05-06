@@ -21,6 +21,10 @@ interface UnitType {
 
   val altImage: ImageResource?
 
+  val isUnique: Boolean
+
   val isFast: Boolean
     get() = movement >= 2
+
+  val isWheeled: Boolean
 }

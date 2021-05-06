@@ -11,6 +11,8 @@ import com.sixbynine.civ3guide.android.R
 import com.sixbynine.civ3guide.android.cityplacement.CityPlacementHomeActivity
 import com.sixbynine.civ3guide.android.cityplacement.CityPlacementPuzzleActivity
 import com.sixbynine.civ3guide.android.combat.CombatGameActivity
+import com.sixbynine.civ3guide.android.ktx.isLtr
+import com.sixbynine.civ3guide.android.ktx.isRtl
 import com.sixbynine.civ3guide.android.quiz.QuizActivity
 import com.sixbynine.civ3guide.android.quiz.QuizHomeActivity
 import com.sixbynine.civ3guide.android.workerpuzzle.WorkerPuzzleActivity
@@ -34,6 +36,7 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
     val destination = destinations[position]
     holder.image.setSharedImageResource(destination.image)
+    holder.image.scaleX = if (holder.image.isLtr) 1f else -1f
     holder.title.setTextResource(destination.title)
     holder.summary.setTextResource(destination.summary)
     holder.rootView.setOnClickListener { navigateToDestination(it.context, destination) }

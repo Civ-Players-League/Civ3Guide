@@ -39,3 +39,9 @@ fun View.getAttrResId(@AttrRes attrId: Int): Int? {
     array.recycle()
   }
 }
+
+val View.isLtr: Boolean
+  get() = !isRtl
+
+val View.isRtl: Boolean
+  get() = resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL

@@ -191,7 +191,31 @@
 
         </LinearLayout>
 
+        <RelativeLayout
+            android:id="@+id/difficulty_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/difficulty_level_prompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/difficulty_level"
+                android:paddingHorizontal="16dp"
+                android:textAppearance="?attr/textAppearanceBody1"/>
+
+            <!-- If we add RTL strings, this should be to end instead of to right. -->
+            <Spinner
+                android:id="@+id/difficulty_level_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/difficulty_level_prompt"
+                android:popupBackground="?attr/colorBackgroundFloating"
+                android:layout_toRightOf="@id/difficulty_level_prompt" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 </merge>

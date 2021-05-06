@@ -1,11 +1,13 @@
 package com.sixbynine.civ3guide.shared.combat
 
+import com.sixbynine.civ3guide.shared.combat.Difficulty.RANDOM
 import com.sixbynine.civ3guide.shared.tile.Terrain
 import com.sixbynine.civ3guide.shared.tile.Terrain.*
 import com.sixbynine.civ3guide.shared.unit.MilitaryUnit
 import com.sixbynine.civ3guide.shared.unit.StandardUnitType
 import com.sixbynine.civ3guide.shared.unit.UnitRank
 import com.sixbynine.civ3guide.shared.unit.UnitRank.*
+import kotlin.math.absoluteValue
 import kotlin.random.Random
 
 data class Engagement(
@@ -14,12 +16,43 @@ data class Engagement(
   val terrain: Terrain,
   val acrossRiver: Boolean = false,
   val cityDefenceBonus: Double? = null
-)
+) {
+  val isInvalid: Boolean
+    get() = !isValid
+
+  val isValid: Boolean
+    get() {
+      // Garlic swordsmen can't fight each other :(
+      if (attacker.type == defender.type && attacker.type.isUnique) return false
+      if ((attacker.type.isWheeled || defender.type.isWheeled) &&
+        terrain in listOf(VOLCANO, MARSH, MOUNTAIN, JUNGLE)
+      ) {
+        return false
+      }
+      return true
+    }
+}
+
+enum class Difficulty(val number: Int) {
+  RANDOM(0),
+  CHIEFTAIN(1),
+  REGENT(2),
+  EMPEROR(3),
+  SID(4);
+
+  val displayName: String
+    get() = name.first().toString() + name.substring(1).toLowerCase()
+
+  companion object {
+    val all: List<Difficulty>
+      get() = values().toList()
+  }
+}
 
 fun randomEngagement(
   allowUniqueUnits: Boolean,
   allowFastUnits: Boolean,
-  allowRetreat: Boolean
+  allowRetreat: Boolean,
 ): Engagement {
   if (allowRetreat) {
     return randomEngagement(allowUniqueUnits, allowFastUnits)
@@ -27,13 +60,23 @@ fun randomEngagement(
   while (true) {
     val engagement = randomEngagement(allowUniqueUnits, allowFastUnits)
     val results = CombatCalculator.calculateCombatResults(engagement)
-    if (results.results.none { it.isRetreat }) {
-      return engagement
+
+    val engagementDifficulty = when (results.attackerFavorability) {
+      in 0.9..1.1 -> Difficulty.SID
+      in 0.667..0.9, in 1.1..1.5 -> Difficulty.EMPEROR
+      in 0.4..0.667, in 1.5..2.0 -> Difficulty.REGENT
+      else -> Difficulty.CHIEFTAIN
     }
+
+    val targetDifficulty = CombatDifficultyManager.difficulty
+    if (engagement.isInvalid) continue
+    if (engagementDifficulty != targetDifficulty && targetDifficulty != RANDOM) continue
+    if (results.results.any { it.isRetreat }) continue
+    return engagement
   }
 }
 
-fun randomEngagement(
+private fun randomEngagement(
   allowUniqueUnits: Boolean,
   allowFastUnits: Boolean
 ): Engagement {

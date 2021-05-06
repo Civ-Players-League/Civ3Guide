@@ -10,8 +10,8 @@
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 11,
-      "versionName": "20210421.1",
+      "versionCode": 13,
+      "versionName": "20210506.1.beta",
       "outputFile": "android-release.apk"
     }
   ]

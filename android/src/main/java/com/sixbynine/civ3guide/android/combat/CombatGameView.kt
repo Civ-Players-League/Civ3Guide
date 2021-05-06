@@ -3,16 +3,14 @@ package com.sixbynine.civ3guide.android.combat
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import android.widget.ScrollView
-import android.widget.TextView
+import android.widget.*
+import android.widget.AdapterView.OnItemSelectedListener
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.button.MaterialButton
 import com.sixbynine.civ3guide.android.R
 import com.sixbynine.civ3guide.android.ktx.getColorStateList
-import com.sixbynine.civ3guide.shared.combat.CombatCalculator
-import com.sixbynine.civ3guide.shared.combat.CombatExplainer
+import com.sixbynine.civ3guide.shared.combat.*
 import com.sixbynine.civ3guide.shared.combat.CombatResultType.ATTACKER_WINS
-import com.sixbynine.civ3guide.shared.combat.randomEngagement
 
 class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(context, attrs) {
 
@@ -35,9 +33,15 @@ class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(contex
   private val nextPuzzleButton: View = findViewById(R.id.next_puzzle_button)
   private val explainButton: View = findViewById(R.id.explain_button)
   private val river: View = findViewById(R.id.river)
+  private val difficultyLevelSpinner: Spinner = findViewById(R.id.difficulty_level_spinner)
+  private val difficultyLayout: View = findViewById(R.id.difficulty_layout)
 
   private var engagement =
-    randomEngagement(allowUniqueUnits = true, allowFastUnits = true, allowRetreat = false)
+    randomEngagement(
+      allowUniqueUnits = true,
+      allowFastUnits = true,
+      allowRetreat = false,
+    )
 
   private var likelyChoice: Boolean? = null
   private var favorableChoice: Boolean? = null
@@ -96,16 +100,17 @@ class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(contex
       favorabilitySummary.visibility = View.GONE
       nextPuzzleButton.visibility = View.GONE
       explainButton.visibility = View.GONE
+      difficultyLayout.visibility = View.GONE
       return
     }
 
     val results = CombatCalculator.calculateCombatResults(engagement)
 
-    favorabilityYesButton.bindColors(results.attackerFavorability >= 1)
-    favorabilityNoButton.bindColors(results.attackerFavorability <= 1)
+    favorabilityYesButton.bindColors(results.attackerFavorability >= 0.995)
+    favorabilityNoButton.bindColors(results.attackerFavorability < 1.005)
 
-    likelihoodYesButton.bindColors(results.p(ATTACKER_WINS) >= 0.5)
-    likelihoodNoButton.bindColors(results.p(ATTACKER_WINS) <= 0.5)
+    likelihoodYesButton.bindColors(results.p(ATTACKER_WINS) >= 0.4995)
+    likelihoodNoButton.bindColors(results.p(ATTACKER_WINS) < 0.5005)
 
     winPercentage.visibility = View.VISIBLE
     val pWinString = "${String.format("%.1f", results.p(ATTACKER_WINS) * 100)}%"
@@ -142,7 +147,11 @@ class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(contex
       likelyChoice = null
       favorableChoice = null
       engagement =
-        randomEngagement(allowUniqueUnits = true, allowFastUnits = true, allowRetreat = false)
+        randomEngagement(
+          allowUniqueUnits = true,
+          allowFastUnits = true,
+          allowRetreat = false,
+        )
       newPuzzleListener?.invoke()
       bindViews()
     }
@@ -155,6 +164,26 @@ class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(contex
         .create()
         .show()
     }
+
+    difficultyLayout.visibility = View.VISIBLE
+    if (difficultyLevelSpinner.adapter == null) {
+      difficultyLevelSpinner.adapter =
+        ArrayAdapter(
+          context,
+          R.layout.simple_spinner_item,
+          Difficulty.values().map { it.displayName }
+        )
+      difficultyLevelSpinner.setSelection(CombatDifficultyManager.difficulty.number)
+      difficultyLevelSpinner.onItemSelectedListener = object: OnItemSelectedListener {
+        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+          CombatDifficultyManager.difficulty = Difficulty.values()[position]
+        }
+
+        override fun onNothingSelected(parent: AdapterView<*>?) {}
+      }
+    }
+
+
   }
 
   private fun MaterialButton.bindColors(isCorrect: Boolean?) {
