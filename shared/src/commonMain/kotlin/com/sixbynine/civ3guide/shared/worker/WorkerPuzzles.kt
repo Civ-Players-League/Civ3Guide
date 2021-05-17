@@ -102,7 +102,7 @@ object WorkerPuzzles {
         if (it.tile.resource == CATTLE) listOf(IRRIGATE) else emptyList()
       },
       workerPuzzleConfiguration(mapIndex = 30) {
-        if (it.tile.terrain == BONUS_GRASSLAND) listOf(MINE) else emptyList()
+        if (it.tile.resource == CATTLE) listOf(ROAD) else emptyList()
       },
       workerPuzzleConfiguration(mapIndex = 31) {
         if (it.tile.resource == CATTLE) listOf(IRRIGATE) else emptyList()
@@ -123,6 +123,30 @@ object WorkerPuzzles {
             "this tile after chopping."
       ) {
         if (it.tile.resource == BANANA) listOf(CLEAR_WETLANDS) else emptyList()
+      },
+      workerPuzzleConfiguration(mapIndex = 35) {
+        if (it.tile.resource == CATTLE) listOf(MINE) else emptyList()
+      },
+      workerPuzzleConfiguration(
+        mapIndex = 36,
+        extraExplanation = "This sugar is on the same side of the river, so it will " +
+          "provide more mobility when roaded."
+      ) {
+        if (it.top == Point(124, 97)) listOf(MINE) else emptyList()
+      },
+      workerPuzzleConfiguration(mapIndex = 37) {
+        if (it.tile.resource == WHEAT) listOf(MINE) else emptyList()
+      },
+      workerPuzzleConfiguration(
+        mapIndex = 38,
+        isAgricultural = true,
+        extraExplanation = "You have plenty of food and production here. Because of this, you " +
+            "can focus on commerce and roading towards your second city spot."
+      ) {
+        if (it.tile.resource == GAME && it.tile.hasRiver) listOf(ROAD) else emptyList()
+      },
+      workerPuzzleConfiguration(mapIndex = 39) {
+        if (it.tile.resource == WHEAT) listOf(IRRIGATE) else emptyList()
       },
     )
   }

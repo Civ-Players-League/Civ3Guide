@@ -7,9 +7,11 @@ import com.sixbynine.civ3guide.shared.unit.MilitaryUnit
 import com.sixbynine.civ3guide.shared.unit.StandardUnitType
 import com.sixbynine.civ3guide.shared.unit.UnitRank
 import com.sixbynine.civ3guide.shared.unit.UnitRank.*
+import kotlinx.serialization.Serializable
 import kotlin.math.absoluteValue
 import kotlin.random.Random
 
+@Serializable
 data class Engagement(
   val attacker: MilitaryUnit,
   val defender: MilitaryUnit,

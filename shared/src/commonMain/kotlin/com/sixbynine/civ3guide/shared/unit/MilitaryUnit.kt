@@ -3,7 +3,9 @@ package com.sixbynine.civ3guide.shared.unit
 import com.sixbynine.civ3guide.shared.MR.strings
 import com.sixbynine.civ3guide.shared.unit.UnitRank.*
 import dev.icerock.moko.resources.StringResource
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class MilitaryUnit(
   val rank: UnitRank,
   val type: UnitType,

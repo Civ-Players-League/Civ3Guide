@@ -8,6 +8,7 @@ import android.widget.AdapterView.OnItemSelectedListener
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.button.MaterialButton
 import com.sixbynine.civ3guide.android.R
+import com.sixbynine.civ3guide.android.combat.explanation.CombatExplanationActivity
 import com.sixbynine.civ3guide.android.ktx.getColorStateList
 import com.sixbynine.civ3guide.shared.combat.*
 import com.sixbynine.civ3guide.shared.combat.CombatResultType.ATTACKER_WINS
@@ -158,11 +159,12 @@ class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(contex
 
     explainButton.visibility = View.VISIBLE
     explainButton.setOnClickListener {
-      AlertDialog.Builder(context)
+      /*AlertDialog.Builder(context)
         .setTitle(R.string.combat_explanation)
         .setMessage(CombatExplainer.explain(engagement))
         .create()
-        .show()
+        .show()*/
+      context.startActivity(CombatExplanationActivity.createIntent(context, engagement))
     }
 
     difficultyLayout.visibility = View.VISIBLE

@@ -4,8 +4,10 @@ import com.sixbynine.civ3guide.shared.MR.images
 import com.sixbynine.civ3guide.shared.MR.strings
 import dev.icerock.moko.resources.ImageResource
 import dev.icerock.moko.resources.StringResource
+import kotlinx.serialization.Serializable
 
 /** Standard unit types available in standard game / MPT. */
+@Serializable
 enum class StandardUnitType(
   override val label: StringResource,
   override val image: ImageResource,

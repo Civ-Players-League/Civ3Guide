@@ -43,6 +43,10 @@
             android:name=".cityplacement.CityPlacementHomeActivity"
             android:exported="false"
             android:label="@string/city_placement_title" />
+        <activity
+            android:name=".combat.explanation.CombatExplanationActivity"
+            android:exported="false"
+            android:label="@string/combat_explanation"/>
 
         <receiver android:name=".notification.NewBetaVersionPackageReplacedReceiver"
             android:enabled="false">
