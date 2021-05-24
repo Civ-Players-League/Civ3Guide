@@ -5,9 +5,15 @@ import com.sixbynine.civ3guide.shared.MR.strings
 import dev.icerock.moko.resources.ImageResource
 import dev.icerock.moko.resources.StringResource
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.Serializer
+import kotlinx.serialization.descriptors.PrimitiveKind
+import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.encoding.Decoder
+import kotlinx.serialization.encoding.Encoder
 
 /** Standard unit types available in standard game / MPT. */
-@Serializable
+@Serializable(with = StandardUnitTypeSerializer::class)
 enum class StandardUnitType(
   override val label: StringResource,
   override val image: ImageResource,
@@ -67,4 +73,18 @@ enum class StandardUnitType(
     isWheeled = true
   ),
   WARRIOR(strings.warrior, images.unitWarrior, 1, 1, 1, 10);
+}
+
+@Serializer(forClass = StandardUnitType::class)
+object StandardUnitTypeSerializer {
+  override fun deserialize(decoder: Decoder): StandardUnitType {
+    return StandardUnitType.values()[decoder.decodeInt()]
+  }
+
+  override val descriptor: SerialDescriptor
+    get() = PrimitiveSerialDescriptor("StandardUnitType", PrimitiveKind.INT)
+
+  override fun serialize(encoder: Encoder, value: StandardUnitType) {
+    encoder.encodeInt(value.ordinal)
+  }
 }
