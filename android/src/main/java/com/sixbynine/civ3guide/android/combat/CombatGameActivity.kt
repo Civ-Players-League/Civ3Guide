@@ -7,6 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.sixbynine.civ3guide.android.R
+import com.sixbynine.civ3guide.android.base.BaseActivity
 import com.sixbynine.civ3guide.shared.tile.Terrain
 import com.sixbynine.civ3guide.shared.combat.CombatPuzzles
 import com.sixbynine.civ3guide.shared.combat.Engagement
@@ -14,7 +15,7 @@ import com.sixbynine.civ3guide.shared.unit.StandardUnitType.SPEARMAN
 import com.sixbynine.civ3guide.shared.unit.StandardUnitType.WARRIOR
 import com.sixbynine.civ3guide.shared.unit.veteran
 
-class CombatGameActivity : AppCompatActivity() {
+class CombatGameActivity : BaseActivity() {
 
   private var showStats = false
   private var advanceToPuzzle = false

@@ -2,7 +2,7 @@ package com.sixbynine.civ3guide.shared
 
 import android.app.Application
 
-class Civ3GuideApplication : Application() {
+open class Civ3GuideApplication : Application() {
 
   override fun onCreate() {
     super.onCreate()

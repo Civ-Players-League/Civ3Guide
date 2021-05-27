@@ -3,12 +3,13 @@ package com.sixbynine.civ3guide.android.quiz
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sixbynine.civ3guide.android.R
+import com.sixbynine.civ3guide.android.base.BaseActivity
 import com.sixbynine.civ3guide.android.level.LevelsList
 import com.sixbynine.civ3guide.android.level.LevelsList.OnLevelClickListener
 import com.sixbynine.civ3guide.shared.level.LevelPageRowData
 import com.sixbynine.civ3guide.shared.quiz.QuizProgressManager
 
-class QuizHomeActivity : AppCompatActivity() {
+class QuizHomeActivity : BaseActivity() {
   private lateinit var levelsList: LevelsList
 
   override fun onCreate(savedInstanceState: Bundle?) {

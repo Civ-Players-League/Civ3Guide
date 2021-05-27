@@ -3,6 +3,7 @@ plugins {
     kotlin("plugin.serialization") version "1.4.10"
     kotlin("android")
     id("kotlin-android")
+    id("com.google.gms.google-services")
 }
 group = "com.sixbynine.civ3guide"
 version = "1.0-SNAPSHOT"
@@ -28,6 +29,10 @@ dependencies {
 
     implementation("dev.icerock.moko:resources:0.15.0")
     implementation("de.hdodenhof:circleimageview:3.1.0")
+
+    implementation(platform("com.google.firebase:firebase-bom:28.0.1"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-analytics-ktx")
 }
 android {
     compileSdkVersion(30)
@@ -35,8 +40,8 @@ android {
         applicationId = "com.sixbynine.civ3guide.android"
         minSdkVersion(21)
         targetSdkVersion(30)
-        versionCode = 13
-        versionName = "20210506.1.beta"
+        versionCode = 14
+        versionName = "20210527.1"
     }
     buildTypes {
         getByName("release") {

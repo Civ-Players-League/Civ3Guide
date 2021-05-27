@@ -3,12 +3,13 @@ package com.sixbynine.civ3guide.android.cityplacement
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sixbynine.civ3guide.android.R
+import com.sixbynine.civ3guide.android.base.BaseActivity
 import com.sixbynine.civ3guide.android.level.LevelsList
 import com.sixbynine.civ3guide.android.level.LevelsList.OnLevelClickListener
 import com.sixbynine.civ3guide.shared.cityplacement.CityPlacementProgressManager
 import com.sixbynine.civ3guide.shared.level.LevelPageRowData
 
-class CityPlacementHomeActivity : AppCompatActivity() {
+class CityPlacementHomeActivity : BaseActivity() {
 
   private lateinit var levelsList: LevelsList
 

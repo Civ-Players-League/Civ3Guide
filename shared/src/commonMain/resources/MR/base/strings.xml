@@ -163,7 +163,7 @@
     <string name="combat_explanation">Combat explanation</string>
     <string name="p_win">Odds of winning: %s</string>
     <string name="p_lose">Odds of losing: %s</string>
-    <string name="expected_shields">Expected Shields: %s</string>
+    <string name="expected_shields">Expected shields: %s</string>
 
     <string name="level_x">Level %d</string>
     <string name="level_s">Level %s</string>
@@ -174,4 +174,9 @@
     <string name="error_no_email_client">Failed to launch email</string>
 
     <string name="difficulty_level">Difficulty level:</string>
+    <string name="probability_attacker_wins_header">Probability attacker wins: %s</string>
+    <string name="probability_defender_wins_header">Probability defender wins: %s</string>
+    <string name="effective_defence_header">Effective defence: %s</string>
+    <string name="base_defence_x">Base defence: %s</string>
+    <string name="expected_shields_formula">Probability attacker wins x Cost of defender - Probability defender wins x Cost of attacker</string>
 </resources>

@@ -10,6 +10,7 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.30")
         classpath("com.android.tools.build:gradle:4.1.2")
         classpath("dev.icerock.moko:resources-generator:0.15.0")
+        classpath("com.google.gms:google-services:4.3.8")
     }
 }
 group = "com.sixbynine.civ3guide"

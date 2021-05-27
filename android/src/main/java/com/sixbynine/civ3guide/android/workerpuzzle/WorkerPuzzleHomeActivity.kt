@@ -3,12 +3,13 @@ package com.sixbynine.civ3guide.android.workerpuzzle
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sixbynine.civ3guide.android.R
+import com.sixbynine.civ3guide.android.base.BaseActivity
 import com.sixbynine.civ3guide.android.level.LevelsList
 import com.sixbynine.civ3guide.android.level.LevelsList.OnLevelClickListener
 import com.sixbynine.civ3guide.shared.level.LevelPageRowData
 import com.sixbynine.civ3guide.shared.worker.WorkerPuzzleProgressManager
 
-class WorkerPuzzleHomeActivity : AppCompatActivity() {
+class WorkerPuzzleHomeActivity : BaseActivity() {
 
   private lateinit var levelsList: LevelsList
 

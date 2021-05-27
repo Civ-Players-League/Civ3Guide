@@ -4,6 +4,8 @@ import com.sixbynine.civ3guide.shared.MR.strings
 import com.sixbynine.civ3guide.shared.combat.CombatResultType.ATTACKER_WINS
 import com.sixbynine.civ3guide.shared.combat.CombatResultType.DEFENDER_WINS
 import com.sixbynine.civ3guide.shared.load
+import com.sixbynine.civ3guide.shared.util.formatAsPercentage
+import com.sixbynine.civ3guide.shared.util.round
 import kotlin.math.roundToInt
 
 object CombatExplainer {
@@ -45,33 +47,9 @@ object CombatExplainer {
       .appendLine()
       .append("Defence bonus:")
       .appendLine()
-    var defenceMultiplier = 1.0
-    if (defender.isFortified) {
-      explanation.appendLine("\t+25% from fortification")
-      defenceMultiplier += 0.25
-    }
-    if (acrossRiver) {
-      explanation.appendLine("\t+25% from river")
-      defenceMultiplier += 0.25
-    }
-    defenceMultiplier += terrain.getOutput().defenceBonus
-    explanation
-      .append("\t+")
-      .append(terrain.getOutput().defenceBonus.printAsPercentage())
-      .append(" from ")
-      .appendLine(terrain.label.load())
-
-    defenceMultiplier += cityDefenceBonus ?: 0.0
-    if (cityDefenceBonus != null) {
-      explanation
-        .append("\t+")
-        .append(cityDefenceBonus.printAsPercentage())
-        .append(" from ")
-      when (cityDefenceBonus) {
-        0.0 -> explanation.appendLine(strings.town.load())
-        0.5 -> explanation.appendLine(strings.town_walls.load())
-        1.0 -> explanation.appendLine(strings.metropolis.load())
-      }
+    val defenceExplanation = getDefenceExplanation(engagement)
+    defenceExplanation.bonusDescriptions.forEach {
+      explanation.appendLine(it)
     }
 
     explanation
@@ -81,10 +59,10 @@ object CombatExplainer {
       .append("\t= ")
       .append(defender.type.defence)
       .append(" x ")
-      .append(defenceMultiplier.printAsPercentage())
+      .append(defenceExplanation.multiplier.formatAsPercentage())
       .appendLine()
       .append("\t= ")
-      .append((defender.type.defence * defenceMultiplier).roundTo2Decimals())
+      .append(defenceExplanation.effectiveDefence.round(decimals = 2))
       .appendLine()
 
     val results = CombatCalculator.calculateCombatResults(engagement)
@@ -92,7 +70,7 @@ object CombatExplainer {
     explanation
       .appendLine()
       .append("Probability attacker wins: ")
-      .append(results.p(ATTACKER_WINS).printAsPercentage())
+      .append(results.p(ATTACKER_WINS).formatAsPercentage())
       .appendLine()
 
     val eSString = results.expectedShields.let {
@@ -108,11 +86,11 @@ object CombatExplainer {
       .appendLine("Expected Shields: ")
       .appendLine("Pw x Cd - Pl x Ca")
       .append("\t= ")
-      .append(results.p(ATTACKER_WINS).printAsPercentage())
+      .append(results.p(ATTACKER_WINS).formatAsPercentage())
       .append(" x ")
       .append(defender.type.cost)
       .append(" - ")
-      .append(results.p(DEFENDER_WINS).printAsPercentage())
+      .append(results.p(DEFENDER_WINS).formatAsPercentage())
       .append(" x ")
       .append(attacker.type.cost)
       .appendLine()
@@ -134,17 +112,47 @@ object CombatExplainer {
 
     return explanation.toString()
   }
-}
 
-private fun Double.printAsPercentage(): String {
-  return (100 * this).roundToInt().toString() + "%"
-}
+  fun getDefenceExplanation(engagement: Engagement): DefenceExplanation {
+    val (_, defender, terrain, acrossRiver, cityDefenceBonus) = engagement
+    var defenceMultiplier = 1.0
+    val lines = arrayListOf<String>()
+    if (defender.isFortified) {
+      lines.add("\t+25% from fortification")
+      defenceMultiplier += 0.25
+    }
+    if (acrossRiver) {
+      lines.add("\t+25% from river")
+      defenceMultiplier += 0.25
+    }
+    defenceMultiplier += terrain.getOutput().defenceBonus
+    lines
+      .add(
+        "\t+${terrain.getOutput().defenceBonus.formatAsPercentage()} from ${terrain.label.load()}"
+      )
 
-private fun Double.roundTo2Decimals(): String {
-  if (this == this.roundToInt().toDouble()) {
-    return roundToInt().toString()
+    defenceMultiplier += cityDefenceBonus ?: 0.0
+    if (cityDefenceBonus != null) {
+      lines.add("\t+${cityDefenceBonus.formatAsPercentage()} from " +
+      when (cityDefenceBonus) {
+        0.0 -> strings.town.load()
+        0.5 -> strings.town_walls.load()
+        1.0 -> strings.metropolis.load()
+        else -> throw IllegalStateException("Unexpected city defence bonus: $cityDefenceBonus")
+      })
+    }
+
+    return DefenceExplanation(engagement, defenceMultiplier, lines)
   }
-  return ((100 * this).roundToInt() / 100.0).toString()
+}
+
+data class DefenceExplanation(
+  val engagement: Engagement,
+  val multiplier: Double,
+  val bonusDescriptions: List<String>
+) {
+  val effectiveDefence: Double
+    get() = engagement.defender.type.defence * multiplier
 }
 
 private fun Double.roundTo1Decimal(): String {

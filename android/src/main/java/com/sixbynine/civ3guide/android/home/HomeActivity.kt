@@ -10,11 +10,16 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.logEvent
 import com.sixbynine.civ3guide.android.R
+import com.sixbynine.civ3guide.android.base.BaseActivity
 import com.sixbynine.civ3guide.android.notification.NewBetaVersionNotifier
 import com.sixbynine.civ3guide.android.util.Logger
+import com.sixbynine.civ3guide.shared.external.ExternalLinks.FEEDBACK_EMAIL
+import com.sixbynine.civ3guide.shared.external.ExternalLinks.MULTIPLAYER_URL
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -32,6 +37,9 @@ class HomeActivity : AppCompatActivity() {
   override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
     R.id.action_multiplayer -> {
       try {
+        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM) {
+          param(FirebaseAnalytics.Param.ITEM_ID, "mutliplayer-menu-item")
+        }
         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(MULTIPLAYER_URL)))
       } catch (e: ActivityNotFoundException) {
         Logger.e("Couldn't launch multiplayer url", e)
@@ -54,10 +62,5 @@ class HomeActivity : AppCompatActivity() {
       true
     }
     else -> super.onOptionsItemSelected(item)
-  }
-
-  private companion object {
-    const val MULTIPLAYER_URL = "https://civplayersciv3league.com"
-    const val FEEDBACK_EMAIL = "sixbynineapps@gmail.com"
   }
 }

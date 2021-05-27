@@ -12,10 +12,60 @@
         <include layout="@layout/combat_units"/>
 
         <TextView
-            android:id="@+id/text"
+            android:id="@+id/effective_defence_header"
+            android:textAppearance="?attr/textAppearanceHeadline6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello world"/>
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/effective_defence_rows_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+        <TextView
+            android:id="@+id/attacker_wins_header"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/attacker_win_rows_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+        <TextView
+            android:id="@+id/defender_wins_header"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/defender_win_rows_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+        <TextView
+            android:id="@+id/expected_shields_header"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/expected_shields_row_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
 
     </LinearLayout>
 

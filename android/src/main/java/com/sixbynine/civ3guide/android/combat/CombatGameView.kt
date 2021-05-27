@@ -7,7 +7,12 @@ import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.button.MaterialButton
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.ktx.Firebase
 import com.sixbynine.civ3guide.android.R
+import com.sixbynine.civ3guide.android.base.firebaseAnalytics
 import com.sixbynine.civ3guide.android.combat.explanation.CombatExplanationActivity
 import com.sixbynine.civ3guide.android.ktx.getColorStateList
 import com.sixbynine.civ3guide.shared.combat.*
@@ -145,6 +150,9 @@ class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(contex
 
     nextPuzzleButton.visibility = View.VISIBLE
     nextPuzzleButton.setOnClickListener {
+      firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM) {
+        param(FirebaseAnalytics.Param.ITEM_ID, "next-combat-puzzle")
+      }
       likelyChoice = null
       favorableChoice = null
       engagement =
@@ -159,11 +167,9 @@ class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(contex
 
     explainButton.visibility = View.VISIBLE
     explainButton.setOnClickListener {
-      /*AlertDialog.Builder(context)
-        .setTitle(R.string.combat_explanation)
-        .setMessage(CombatExplainer.explain(engagement))
-        .create()
-        .show()*/
+      firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM) {
+        param(FirebaseAnalytics.Param.ITEM_ID, "explain-combat-puzzle")
+      }
       context.startActivity(CombatExplanationActivity.createIntent(context, engagement))
     }
 
@@ -178,7 +184,12 @@ class CombatGameView(context: Context, attrs: AttributeSet?) : ScrollView(contex
       difficultyLevelSpinner.setSelection(CombatDifficultyManager.difficulty.number)
       difficultyLevelSpinner.onItemSelectedListener = object: OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-          CombatDifficultyManager.difficulty = Difficulty.values()[position]
+          val difficulty = Difficulty.values()[position]
+          Firebase.analytics.setUserProperty(
+            "combat_game_difficulty",
+            CombatDifficultyManager.difficulty.displayName
+          )
+          CombatDifficultyManager.difficulty = difficulty
         }
 
         override fun onNothingSelected(parent: AdapterView<*>?) {}

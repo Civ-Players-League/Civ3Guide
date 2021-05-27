@@ -15,11 +15,13 @@
         <entry key="android/src/main/res/drawable/spinner_item_background.xml" value="0.14814814814814814" />
         <entry key="android/src/main/res/layout/activity_city_placement.xml" value="0.13269927536231885" />
         <entry key="android/src/main/res/layout/activity_city_placement_home.xml" value="0.125" />
-        <entry key="android/src/main/res/layout/activity_combat_explanation.xml" value="0.1828774062816616" />
+        <entry key="android/src/main/res/layout/activity_combat_explanation.xml" value="0.22" />
         <entry key="android/src/main/res/layout/activity_combat_game.xml" value="0.1" />
         <entry key="android/src/main/res/layout/activity_quiz_home.xml" value="0.1" />
         <entry key="android/src/main/res/layout/activity_worker_puzzle.xml" value="0.11195542046605876" />
         <entry key="android/src/main/res/layout/activity_worker_puzzle_home.xml" value="0.25" />
+        <entry key="android/src/main/res/layout/combat_explanation_row.xml" value="0.21458333333333332" />
+        <entry key="android/src/main/res/layout/combat_explanation_row_contents.xml" value="0.25" />
         <entry key="android/src/main/res/layout/combat_game_contents.xml" value="0.3109919571045576" />
         <entry key="android/src/main/res/layout/combat_unit_view_contents.xml" value="0.165" />
         <entry key="android/src/main/res/layout/levels_list_checkbox.xml" value="0.1140625" />

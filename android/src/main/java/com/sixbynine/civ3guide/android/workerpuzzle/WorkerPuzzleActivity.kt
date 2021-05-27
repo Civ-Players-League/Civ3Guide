@@ -12,10 +12,11 @@ import androidx.fragment.app.DialogFragment
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.sixbynine.civ3guide.android.R
+import com.sixbynine.civ3guide.android.base.BaseActivity
 import com.sixbynine.civ3guide.shared.level.LevelPageRowData
 import kotlinx.serialization.protobuf.ProtoBuf
 
-class WorkerPuzzleActivity : AppCompatActivity() {
+class WorkerPuzzleActivity : BaseActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
